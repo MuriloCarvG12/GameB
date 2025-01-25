@@ -1,6 +1,7 @@
 #include <stdio.h>
 #pragma warning(push, 0)
 #include <windows.h>
+#include <stdint.h>
 #pragma warning(pop)
 
 #include "GameB.h"
@@ -9,8 +10,12 @@ BOOL g_game_is_running;
 
 HANDLE g_window_handle = 0;
 
+RECT g_Game_window_size;
 
-void ProcessPlayerInput(void);
+GAME_BIT_MAP g_backbuffer; // this is our backbuffer basically the artist that draws our graphics
+
+MONITORINFO g_Monitor_info = { sizeof(MONITORINFO) };
+
 
 int  WinMain(HINSTANCE hInst, HINSTANCE hInstPrev, PSTR cmdline, int cmdshow)
 {
@@ -30,9 +35,24 @@ int  WinMain(HINSTANCE hInst, HINSTANCE hInstPrev, PSTR cmdline, int cmdshow)
 
 	MSG messages;
 
+	// here we are registering our bitmap info 
+	g_backbuffer.BitMapInfo.bmiHeader.biWidth = GAME_RES_WIDTH;
+	g_backbuffer.BitMapInfo.bmiHeader.biHeight = GAME_RES_HEIGHT;
+	g_backbuffer.BitMapInfo.bmiHeader.biSize = sizeof(g_backbuffer.BitMapInfo.bmiHeader);
+	g_backbuffer.BitMapInfo.bmiHeader.biCompression = BI_RGB;
+	g_backbuffer.BitMapInfo.bmiHeader.biBitCount = BPP;
+	g_backbuffer.BitMapInfo.bmiHeader.biPlanes = 1;
+	if ((g_backbuffer.memory_canvas = VirtualAlloc(NULL, GAME_AREA_MEMORY_SIZE, MEM_RESERVE | MEM_COMMIT, PAGE_READWRITE)) == NULL)
+	{
+		return (0);
+	}
+
+	memset(g_backbuffer.memory_canvas,0xFF, GAME_AREA_MEMORY_SIZE);
+
 
 	g_game_is_running = TRUE;
 
+	// this loop below is basically a frame for our game during each iteration it checks our inputs, renders the player input and the game graphics
 	while(g_game_is_running == TRUE)
 	{
 		while(PeekMessageA(&messages, g_window_handle, 0 ,0, PM_REMOVE))
@@ -41,9 +61,9 @@ int  WinMain(HINSTANCE hInst, HINSTANCE hInstPrev, PSTR cmdline, int cmdshow)
 		}
 
 		ProcessPlayerInput();
-		// render frame graphicz
+		RenderFrameGraphics(); // needs to be called every 16 milliseconds
 
-		Sleep(1);
+		Sleep(1); // this function allows our process to be shared across multiple threads! so our game wont use 25% of our cpu...
 	}
 
 EXIT:
@@ -82,14 +102,20 @@ EXIT:
 
 	return (0);
 }
+/**
+This function is responsible for initializing the creation of our game window, we begin by creating a variable type WNDCLASSEXA and fill up its values
 
+
+*/
 DWORD create_main_window()
 {
+	
 	DWORD RESULT = 0;
 	
+	// registering our window class information
 	WNDCLASSEXA window_class = { sizeof(WNDCLASSEXA) };
 	
-
+	
 
 	window_class.style = 0;
 	window_class.lpfnWndProc = MainWindowProcedure;
@@ -98,21 +124,33 @@ DWORD create_main_window()
 	window_class.hInstance = GetModuleHandleA(NULL);
 	window_class.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 	window_class.hCursor = LoadCursor(0, IDC_ARROW);
-	window_class.hbrBackground = (HBRUSH)(COLOR_WINDOW + 1);
+	window_class.hbrBackground = CreateSolidBrush(RGB(169, 3, 252)); // this sets the color of our background to a srong purple
 	window_class.lpszMenuName = NULL;
 	window_class.lpszClassName = "Project_Class";
 	window_class.hIconSm = LoadIcon(NULL, IDI_APPLICATION);
+	// end of our window class registration
 
+	// check if our window registration was sucessfull, that is no information was forgotten
 	if (RegisterClassExA(&window_class) == 0)
 	{
 		MessageBox(NULL, "Window Class Registration Failed", "Error", MB_ICONEXCLAMATION);
 		goto EXIT;
 	}
 
-
+	// here we assign our global window handle as the window we have created
 	g_window_handle = CreateWindowExA(
 		WS_EX_CLIENTEDGE, window_class.lpszClassName, GAME_NAME, WS_OVERLAPPEDWINDOW | WS_VISIBLE, CW_USEDEFAULT, CW_USEDEFAULT, 400, 400, NULL, NULL, NULL, NULL);
 
+	if (GetMonitorInfoA(MonitorFromWindow(g_window_handle, MONITOR_DEFAULTTOPRIMARY), &g_Monitor_info) == 0)// this takes 2 input parameters a monitor handle a and monitor data structure our monitor handle is a function call that returns a handle for our monitor
+	{
+		RESULT = ERROR_MONITOR_NO_DESCRIPTOR;
+		goto EXIT;
+	};
+
+	int MonitorWidth = g_Monitor_info.rcMonitor.right - g_Monitor_info.rcMonitor.left;
+	int MonitorHeight = g_Monitor_info.rcMonitor.bottom - g_Monitor_info.rcMonitor.top;
+
+	// check if our g_window_handle was sucssfully assigned
 	if (g_window_handle == NULL)
 	{
 		MessageBox(NULL, "Window Creation Failed", "Error", MB_ICONEXCLAMATION);
@@ -125,7 +163,7 @@ EXIT:
 
 }
 
-
+// game running check will verify if theres no other process of this game open!
 BOOL game_running_check(void)
 {
 	HANDLE MUTEX = NULL;
@@ -154,4 +192,15 @@ void ProcessPlayerInput(void)
 		}
 
 		
+}
+
+void RenderFrameGraphics(void) // when we want to draw into a winddow we need a device context and then release it
+{
+	HDC DeviceContext = GetDC(g_window_handle); // this is important its used to tell windows where to draw our backbuffer!
+	// now lets plaster this backbuffer into the window!
+	// todo this we will need the size of the window
+	StretchDIBits(DeviceContext, 0, 0, 100, 100, 0, 0, GAME_RES_WIDTH, GAME_RES_HEIGHT, g_backbuffer.memory_canvas, &g_backbuffer.BitMapInfo, DIB_RGB_COLORS, SRCCOPY);
+	// function StretchDIBits is responsible for stretching our backbuffer into  the screen itself this gets drawn as many times as the loop gets called!
+
+	ReleaseDC(g_window_handle, DeviceContext);
 }
