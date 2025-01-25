@@ -1,0 +1,49 @@
+Log 2 
+
+more work has been put into our project this time on our function 
+
+first our variable containing our bitmap info has been renamed from g_drawing_surface to g_backbuffer and all references to g_drawing_surface have been changed to g_backbuffer!
+also we have added memset(g_backbuffer.memory_canvas,0xFF, GAME_AREA_MEMORY_SIZE); this takes our memory for our backbuffer and sets bits to 0xFF, our 3° parameter tells memset
+to set a total space of GAME_AREA_MEMORY_SIZE bits to 0xFF
+
+our function render graphics has been expanded upon 
+
+
+
+              HDC DeviceContext = GetDC(g_window_handle); // this is important its used to tell windows where to draw our backbuffer!
+              // now lets plaster this backbuffer into the window!
+              // todo this we will need the size of the window
+              StretchDIBits(DeviceContext, 0, 0, 100, 100, 0, 0, GAME_RES_WIDTH, GAME_RES_HEIGHT, g_backbuffer.memory_canvas, &g_backbuffer.BitMapInfo, DIB_RGB_COLORS, SRCCOPY);
+              // function StretchDIBits is responsible for stretching our backbuffer into  the screen itself this gets drawn as many times as the loop gets called!
+              
+              ReleaseDC(g_window_handle, DeviceContext);
+
+first we created and then imediately added lines 
+              
+              HDC DeviceContext = GetDC(g_window_handle);
+              
+              ReleaseDC(g_window_handle, DeviceContext);
+
+these lines are responsible for creating our deviceContext this is used to tell  windows where to draw our backbuffer!
+first we pass the handle to the window we have created
+then we write releaseDcbecause we must release our window when we are done with it 
+ReleaseDC(g_window_handle, DeviceContext); releases the handle and device context variable 
+
+between them is function StretchDIBits(DeviceContext, 0, 0, 100, 100, 0, 0, GAME_RES_WIDTH, GAME_RES_HEIGHT, g_backbuffer.memory_canvas, &g_backbuffer.BitMapInfo, DIB_RGB_COLORS, SRCCOPY);
+
+this is a function that will take our backbuffer and overlap it to our buffer while also stretching it to the resolution we want
+we must pass our devicecontext to tell it where to draw, then we pass 100, 100 to determine the size of the backbuffer we then pass it the resolution to our game GAME_RES_WIDTH, GAME_RES_HEIGHT and the 
+memory his take and the bitmapinfo  g_backbuffer.memory_canvas, &g_backbuffer.BitMapInfo
+
+and we also got acess to our monitors width and heights 
+
+          int MonitorWidth = g_Monitor_info.rcMonitor.right - g_Monitor_info.rcMonitor.left;
+          int MonitorHeight = g_Monitor_info.rcMonitor.bottom - g_Monitor_info.rcMonitor.top;
+          
+          with the function 
+          
+          if (GetMonitorInfoA(MonitorFromWindow(g_window_handle, MONITOR_DEFAULTTOPRIMARY), &g_Monitor_info) == 0)// this takes 2 input parameters a monitor handle a and monitor data structure our monitor handle is a function call that returns a handle for our monitor
+          {
+          	RESULT = ERROR_MONITOR_NO_DESCRIPTOR;
+          	goto EXIT;
+          };
