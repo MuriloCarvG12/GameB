@@ -8,7 +8,7 @@
 #define GAME_AREA_MEMORY_SIZE   (GAME_RES_WIDTH * GAME_RES_HEIGHT * (BPP/ 8))
 
 
-void* memory_canvas;
+
 
 typedef struct GAME_BIT_MAP
 {
@@ -17,6 +17,7 @@ typedef struct GAME_BIT_MAP
 } GAME_BIT_MAP;
 // in order to begin drawing our pixels we will need to define what a pixel is...
 //this type def is how the og 1992 devs did it but we will use a macro from a library to replace the unsigned chars into uint8_t
+
 typedef struct PIXEL_32
 {
 	uint8_t blue;

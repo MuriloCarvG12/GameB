@@ -17,6 +17,10 @@ GAME_BIT_MAP g_backbuffer; // this is our backbuffer basically the artist that d
 MONITORINFO g_Monitor_info = { sizeof(MONITORINFO) };
 
 
+int MonitorWidth;
+int MonitorHeight;
+
+
 int  WinMain(HINSTANCE hInst, HINSTANCE hInstPrev, PSTR cmdline, int cmdshow)
 {
 	UNREFERENCED_PARAMETER(hInstPrev);
@@ -37,7 +41,8 @@ int  WinMain(HINSTANCE hInst, HINSTANCE hInstPrev, PSTR cmdline, int cmdshow)
 
 	// here we are registering our bitmap info 
 	g_backbuffer.BitMapInfo.bmiHeader.biWidth = GAME_RES_WIDTH;
-	g_backbuffer.BitMapInfo.bmiHeader.biHeight = GAME_RES_HEIGHT;
+	// make sure we are supplying a negative height for windows to make use of our buffer top -> down supplying it with a positive inverts this direction and for some reason pixels are not drawn
+	g_backbuffer.BitMapInfo.bmiHeader.biHeight = -GAME_RES_HEIGHT;
 	g_backbuffer.BitMapInfo.bmiHeader.biSize = sizeof(g_backbuffer.BitMapInfo.bmiHeader);
 	g_backbuffer.BitMapInfo.bmiHeader.biCompression = BI_RGB;
 	g_backbuffer.BitMapInfo.bmiHeader.biBitCount = BPP;
@@ -47,7 +52,7 @@ int  WinMain(HINSTANCE hInst, HINSTANCE hInstPrev, PSTR cmdline, int cmdshow)
 		return (0);
 	}
 
-	memset(g_backbuffer.memory_canvas,0xFF, GAME_AREA_MEMORY_SIZE);
+	memset(g_backbuffer.memory_canvas,0x00, GAME_AREA_MEMORY_SIZE); // sets our backbuffer bits to white
 
 
 	g_game_is_running = TRUE;
@@ -147,8 +152,8 @@ DWORD create_main_window()
 		goto EXIT;
 	};
 
-	int MonitorWidth = g_Monitor_info.rcMonitor.right - g_Monitor_info.rcMonitor.left;
-	int MonitorHeight = g_Monitor_info.rcMonitor.bottom - g_Monitor_info.rcMonitor.top;
+	 MonitorWidth = g_Monitor_info.rcMonitor.right - g_Monitor_info.rcMonitor.left;
+	 MonitorHeight = g_Monitor_info.rcMonitor.bottom - g_Monitor_info.rcMonitor.top;
 
 	// check if our g_window_handle was sucssfully assigned
 	if (g_window_handle == NULL)
@@ -196,10 +201,23 @@ void ProcessPlayerInput(void)
 
 void RenderFrameGraphics(void) // when we want to draw into a winddow we need a device context and then release it
 {
+	int test = 8;
+	memset(g_backbuffer.memory_canvas, 0xFF, test);
+
 	HDC DeviceContext = GetDC(g_window_handle); // this is important its used to tell windows where to draw our backbuffer!
 	// now lets plaster this backbuffer into the window!
 	// todo this we will need the size of the window
-	StretchDIBits(DeviceContext, 0, 0, 100, 100, 0, 0, GAME_RES_WIDTH, GAME_RES_HEIGHT, g_backbuffer.memory_canvas, &g_backbuffer.BitMapInfo, DIB_RGB_COLORS, SRCCOPY);
+
+	PIXEL_32 Pixel = { 0 };
+
+	Pixel.blue = 0xC8;
+	Pixel.red = 0xC8;
+	Pixel.green = 0;
+	Pixel.alpha = 0;
+
+	
+
+	StretchDIBits(DeviceContext, 0, 0, MonitorWidth, MonitorHeight, 0, 0, GAME_RES_WIDTH, GAME_RES_HEIGHT, g_backbuffer.memory_canvas, &g_backbuffer.BitMapInfo, DIB_RGB_COLORS, SRCCOPY);
 	// function StretchDIBits is responsible for stretching our backbuffer into  the screen itself this gets drawn as many times as the loop gets called!
 
 	ReleaseDC(g_window_handle, DeviceContext);
