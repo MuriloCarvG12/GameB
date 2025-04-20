@@ -1,0 +1,7 @@
+More progress has been made with fixes to the pixel, when we are initializing our g_backbuffer we must keep in mind the information we supply to our BitMapInfo the area g_backbuffer.BitMapInfo.bmiHeader.biHeight
+determines how windows will read our memory for some reason supplying it with a positive sign makes windows read it upside down so from bottom to top which messes up our pixel display
+we must supply our height negatively like this 
+
+g_backbuffer.BitMapInfo.bmiHeader.biHeight = -GAME_RES_HEIGHT;
+
+and we also updated our pixel display system as a way to test it and now the pixels are properly exposed
