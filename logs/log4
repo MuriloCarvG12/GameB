@@ -1,0 +1,35 @@
+More Progress! 
+This time we've added an fps counter and a coutner to keep track of how long each frame took  we introduced these 4 variables
+
+uint64_t FrameStart;
+uint64_t FrameEnd;
+uint64_t CounterMicroseconds = 0;
+uint64_t ElapsedMicroSecondsPerFrame = 0;
+
+we then utilized QueryPerformanceFrequency to get acess to our current system time counter
+we also used QueryPerformanceCounter to keep track of when a frame starts and when a frame ends introducing it in our main game loop the start is there right when our frame begins and the frame ends right before our loop 
+calls our two main game functions.
+ we also have ElapsedMicroSecondsPerFrame which calculates the differance of time from the end of our frame to the start of our frame we then convert it to microsecodns by multiplying to 1 million and then divide it by the 
+system frequency
+
+  at the end of each loop we increment our variable g_gameperformance.TotalFramesRendered++; and check if we have reached a number multiple of 100 which is the number of frames we draw before taking this average
+we also increment the CounterMicroseconds += ElapsedMicroSecondsPerFrame; to the total time per frame to keep track of how much time it took to draw 100 frames 
+
+ If the TotalFramesRendered is a multiple of 100 we get inside the if check where 
+
+	if(g_gameperformance.TotalFramesRendered % CALCULATE_AVG_FPS_EVERY_X_FRAMES == 0)
+	{
+		uint64_t AverageMicroSecondsPerFrame = CounterMicroseconds / CALCULATE_AVG_FPS_EVERY_X_FRAMES;
+		float AverageMiliSecondsPerFrame = AverageMicroSecondsPerFrame * 0.001f;
+
+		float avg_fps = 1000000.0f / ElapsedMicroSecondsPerFrame; // divides one second (in this case written in microsecconds by the time it took to draw the frame
+		char str[64] = { 0 };
+		_snprintf_s(str, _countof(str), _TRUNCATE ," Approx FPS: %.2f , Approx Time: %.2f \n",avg_fps, AverageMiliSecondsPerFrame);
+		OutputDebugStringA(str);
+
+		CounterMicroseconds = 0;
+	}
+
+we calculate the time in microseconds for the 100 frames to be drawn then convert it to milisecconds
+we calculate the Fps by dividing one microsecond by the number of frames we drew then we call snprinf to print all this information in a debug string
+
