@@ -6,6 +6,7 @@
 #define GAME_RES_HEIGHT 240
 #define BPP 32 // defines our bits per pixel
 #define GAME_AREA_MEMORY_SIZE   (GAME_RES_WIDTH * GAME_RES_HEIGHT * (BPP/ 8))
+#define CALCULATE_AVG_FPS_EVERY_X_FRAMES  100
 
 
 
@@ -25,6 +26,17 @@ typedef struct PIXEL_32
 	uint8_t red;
 	uint8_t alpha;
 } PIXEL_32;
+
+typedef struct GAMEB_PERFORMANCE_DATA
+{
+	uint64_t TotalFramesRendered;
+	uint64_t PerfFrequency;
+	MONITORINFO MonitorInfo;
+	int32_t MonitorWidth;
+	int32_t MonitorHeight;
+	uint32_t RawFramesPerSecondAverage; // as the name suggests this is literally how many frames our pc draws probably at 1000+
+	uint32_t CookedFramesPerSecondAverage; // this is how many frames our game operates in which will be much slower than our rawframes to make the game humanly playable	
+} GAMEB_PERFORMANCE_DATA;
 
 
 

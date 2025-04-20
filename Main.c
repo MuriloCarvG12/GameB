@@ -14,7 +14,10 @@ RECT g_Game_window_size;
 
 GAME_BIT_MAP g_backbuffer; // this is our backbuffer basically the artist that draws our graphics
 
-MONITORINFO g_Monitor_info = { sizeof(MONITORINFO) };
+GAMEB_PERFORMANCE_DATA g_gameperformance;
+
+
+
 
 
 int MonitorWidth;
@@ -26,7 +29,10 @@ int  WinMain(HINSTANCE hInst, HINSTANCE hInstPrev, PSTR cmdline, int cmdshow)
 	UNREFERENCED_PARAMETER(hInstPrev);
 	UNREFERENCED_PARAMETER(cmdline);
 	UNREFERENCED_PARAMETER(cmdshow);
-
+	uint64_t FrameStart;
+	uint64_t FrameEnd;
+	uint64_t CounterMicroseconds = 0;
+	uint64_t ElapsedMicroSecondsPerFrame = 0;
 
 	if(game_running_check() == TRUE)
 	{
@@ -35,9 +41,12 @@ int  WinMain(HINSTANCE hInst, HINSTANCE hInstPrev, PSTR cmdline, int cmdshow)
 	}
 
 
+
 	create_main_window();
 
 	MSG messages;
+
+	QueryPerformanceFrequency(&g_gameperformance.PerfFrequency);
 
 	// here we are registering our bitmap info 
 	g_backbuffer.BitMapInfo.bmiHeader.biWidth = GAME_RES_WIDTH;
@@ -47,10 +56,13 @@ int  WinMain(HINSTANCE hInst, HINSTANCE hInstPrev, PSTR cmdline, int cmdshow)
 	g_backbuffer.BitMapInfo.bmiHeader.biCompression = BI_RGB;
 	g_backbuffer.BitMapInfo.bmiHeader.biBitCount = BPP;
 	g_backbuffer.BitMapInfo.bmiHeader.biPlanes = 1;
+
 	if ((g_backbuffer.memory_canvas = VirtualAlloc(NULL, GAME_AREA_MEMORY_SIZE, MEM_RESERVE | MEM_COMMIT, PAGE_READWRITE)) == NULL)
 	{
 		return (0);
 	}
+
+
 
 	memset(g_backbuffer.memory_canvas,0x00, GAME_AREA_MEMORY_SIZE); // sets our backbuffer bits to white
 
@@ -60,6 +72,8 @@ int  WinMain(HINSTANCE hInst, HINSTANCE hInstPrev, PSTR cmdline, int cmdshow)
 	// this loop below is basically a frame for our game during each iteration it checks our inputs, renders the player input and the game graphics
 	while(g_game_is_running == TRUE)
 	{
+		QueryPerformanceCounter(&FrameStart);
+
 		while(PeekMessageA(&messages, g_window_handle, 0 ,0, PM_REMOVE))
 		{
 			DispatchMessageA(&messages);
@@ -68,7 +82,28 @@ int  WinMain(HINSTANCE hInst, HINSTANCE hInstPrev, PSTR cmdline, int cmdshow)
 		ProcessPlayerInput();
 		RenderFrameGraphics(); // needs to be called every 16 milliseconds
 
+		QueryPerformanceCounter(&FrameEnd);
+		ElapsedMicroSecondsPerFrame = FrameEnd - FrameStart;
+		ElapsedMicroSecondsPerFrame *= 1000000;
+		ElapsedMicroSecondsPerFrame /= g_gameperformance.PerfFrequency;
+
 		Sleep(1); // this function allows our process to be shared across multiple threads! so our game wont use 25% of our cpu...
+
+		g_gameperformance.TotalFramesRendered++;
+		CounterMicroseconds += ElapsedMicroSecondsPerFrame;
+
+		if(g_gameperformance.TotalFramesRendered % CALCULATE_AVG_FPS_EVERY_X_FRAMES == 0)
+		{
+			uint64_t AverageMicroSecondsPerFrame = CounterMicroseconds / CALCULATE_AVG_FPS_EVERY_X_FRAMES;
+			float AverageMiliSecondsPerFrame = AverageMicroSecondsPerFrame * 0.001f;
+
+			float avg_fps = 1000000.0f / ElapsedMicroSecondsPerFrame; // divides one second (in this case written in microsecconds by the time it took to draw the frame
+			char str[64] = { 0 };
+			_snprintf_s(str, _countof(str), _TRUNCATE ," Approx FPS: %.2f , Approx Time: %.2f \n",avg_fps, AverageMiliSecondsPerFrame);
+			OutputDebugStringA(str);
+
+			CounterMicroseconds = 0;
+		}
 	}
 
 EXIT:
@@ -146,14 +181,16 @@ DWORD create_main_window()
 	g_window_handle = CreateWindowExA(
 		WS_EX_CLIENTEDGE, window_class.lpszClassName, GAME_NAME, WS_OVERLAPPEDWINDOW | WS_VISIBLE, CW_USEDEFAULT, CW_USEDEFAULT, 400, 400, NULL, NULL, NULL, NULL);
 
-	if (GetMonitorInfoA(MonitorFromWindow(g_window_handle, MONITOR_DEFAULTTOPRIMARY), &g_Monitor_info) == 0)// this takes 2 input parameters a monitor handle a and monitor data structure our monitor handle is a function call that returns a handle for our monitor
+	g_gameperformance.MonitorInfo.cbSize = sizeof(MONITORINFO);
+
+	if (GetMonitorInfoA(MonitorFromWindow(g_window_handle, MONITOR_DEFAULTTOPRIMARY), &g_gameperformance.MonitorInfo) == 0)// this takes 2 input parameters a monitor handle a and monitor data structure our monitor handle is a function call that returns a handle for our monitor
 	{
 		RESULT = ERROR_MONITOR_NO_DESCRIPTOR;
 		goto EXIT;
 	};
 
-	 MonitorWidth = g_Monitor_info.rcMonitor.right - g_Monitor_info.rcMonitor.left;
-	 MonitorHeight = g_Monitor_info.rcMonitor.bottom - g_Monitor_info.rcMonitor.top;
+	 g_gameperformance.MonitorWidth = g_gameperformance.MonitorInfo.rcMonitor.right - g_gameperformance.MonitorInfo.rcMonitor.left;
+	 g_gameperformance.MonitorHeight = g_gameperformance.MonitorInfo.rcMonitor.bottom - g_gameperformance.MonitorInfo.rcMonitor.top;
 
 	// check if our g_window_handle was sucssfully assigned
 	if (g_window_handle == NULL)
@@ -217,7 +254,7 @@ void RenderFrameGraphics(void) // when we want to draw into a winddow we need a 
 
 	
 
-	StretchDIBits(DeviceContext, 0, 0, MonitorWidth, MonitorHeight, 0, 0, GAME_RES_WIDTH, GAME_RES_HEIGHT, g_backbuffer.memory_canvas, &g_backbuffer.BitMapInfo, DIB_RGB_COLORS, SRCCOPY);
+	StretchDIBits(DeviceContext, 0, 0, g_gameperformance.MonitorWidth, g_gameperformance.MonitorHeight, 0, 0, GAME_RES_WIDTH, GAME_RES_HEIGHT, g_backbuffer.memory_canvas, &g_backbuffer.BitMapInfo, DIB_RGB_COLORS, SRCCOPY);
 	// function StretchDIBits is responsible for stretching our backbuffer into  the screen itself this gets drawn as many times as the loop gets called!
 
 	ReleaseDC(g_window_handle, DeviceContext);
