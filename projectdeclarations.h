@@ -57,7 +57,21 @@ typedef struct PIXEL32
     uint8_t Alpha;
 } PIXEL32;
 
-void base_screen(uint32_t pixel_color);
+typedef struct Player
+{
+    char name[12];
+    int32_t WorldPosX;
+    int32_t WorldPosY;
+    int32_t HP;
+    int32_t strength;
+    int32_t mp;
+} Player;
+
+#ifdef SIMD
+void base_screen(uint32_t *pixel_color);
+#else
+void base_screen();
+#endif
 
 
 #endif //UNTITLED7_PROJECTDECLARATIONS_H

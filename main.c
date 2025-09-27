@@ -19,8 +19,9 @@ void processInput();
 void rendergraphics();
 __m128i data;
 game_info GInfo;
+Player g_Player;
 
-
+//stopped at 12 24:00
 
 int  WinMain(HINSTANCE hInst, HINSTANCE hInstPrev, PSTR cmdline, int cmdshow)
 {
@@ -72,6 +73,9 @@ int  WinMain(HINSTANCE hInst, HINSTANCE hInstPrev, PSTR cmdline, int cmdshow)
         return (0);
     }
 
+    g_Player.WorldPosX = 25;
+    g_Player.WorldPosY = 25;
+
     memset(g_backbuffer.memory_canvas,0x00, GAME_AREA_MEMORY_SIZE);
 
     QueryPerformanceFrequency(&game_performance.TickFrequency );
@@ -120,7 +124,7 @@ int  WinMain(HINSTANCE hInst, HINSTANCE hInstPrev, PSTR cmdline, int cmdshow)
             ElapsedFrameTime = FrameEnd - FrameStart;
             ElapsedFrameTime *= 1000000;
             ElapsedFrameTime /= game_performance.TickFrequency;
-            if (ElapsedFrameTime <= ((int64_t)TARGET_MICROSECONDS_PER_FRAME - game_performance.CurrentTimerResolution))
+            if (ElapsedFrameTime <= ((int64_t)TARGET_MICROSECONDS_PER_FRAME - (game_performance.CurrentTimerResolution * 0.1f)))
             {
                 Sleep(1); // Could be anywhere from 1ms to a full system timer tick? (~15.625ms)
             }
@@ -216,8 +220,14 @@ DWORD create_main_window()
 void processInput()
 {
     short Esc_Key_is_down = GetAsyncKeyState(VK_ESCAPE);
-    short W_Key_is_down = GetAsyncKeyState('W');
     short Debug_key_is_down = GetAsyncKeyState(VK_F12);
+    short RunKeyIsDown = GetAsyncKeyState(VK_LSHIFT);
+    short UpKeyIsDown = GetAsyncKeyState('W');
+    short LeftKeyIsDown = GetAsyncKeyState('A');
+    short RightKeyIsDown = GetAsyncKeyState('D');
+    short DownKeyIsDown = GetAsyncKeyState('S');
+    static short LeftKeyWasDown;
+    static short RightKeyWasDown;
     static short debug_key_was_down;
 
     if(Esc_Key_is_down)
@@ -225,17 +235,66 @@ void processInput()
         SendMessageA(g_window_handle, WM_CLOSE, 0, 0);
     }
 
-    if(W_Key_is_down )
-    {
-        MessageBox(NULL, "Going Foward", "Error", MB_ICONEXCLAMATION);
-    }
-
     if(Debug_key_is_down && !debug_key_was_down)
     {
         game_performance.DebugModeOn = !game_performance.DebugModeOn ;
     }
 
+    if(LeftKeyIsDown)
+    {
+        if(g_Player.WorldPosX > 0)
+        {
+            g_Player.WorldPosX -= 1;
+        }
+
+    }
+
+    if(RightKeyIsDown)
+    {
+        if(g_Player.WorldPosX < GAME_RES_WIDTH - 16)
+        {
+            g_Player.WorldPosX += 1;
+        }
+
+    }
+
+    if(UpKeyIsDown)
+    {
+        if(g_Player.WorldPosY > 0)
+        {
+            g_Player.WorldPosY -= 1;
+        }
+
+    }
+
+    if(DownKeyIsDown)
+    {
+        if(g_Player.WorldPosY < (GAME_RES_HEIGHT - 16))
+        {
+            g_Player.WorldPosY += 1;
+        }
+    }
+
+    if(UpKeyIsDown && RunKeyIsDown)
+    {
+        if(g_Player.WorldPosY > 1)
+        {
+            g_Player.WorldPosY -= 2;
+        }
+    }
+
+    if(DownKeyIsDown && RunKeyIsDown)
+    {
+        if(g_Player.WorldPosY < (GAME_RES_HEIGHT - 17))
+        {
+            g_Player.WorldPosY += 2;
+        }
+    }
+
+
     debug_key_was_down = Debug_key_is_down;
+    RightKeyWasDown = RightKeyIsDown;
+    LeftKeyWasDown = LeftKeyIsDown;
 
 }
 
@@ -246,11 +305,25 @@ void rendergraphics()
     HDC DeviceContext = GetDC(g_window_handle);
 
 #ifdef SIMD
-    base_screen(0xFF9900FFu);
+    uint32_t color = 0xFF9900FF;
+    base_screen(&color);
 #else
-    PIXEL32 Pixel = {0xFF, 0x99 , 0x00, 0xFF};
-    base_screen(&Pixel)
+
+    base_screen();
 #endif
+
+    int screenX = g_Player.WorldPosX;
+    int screenY = g_Player.WorldPosY;
+    const int bytes_per_pixel = BPP / 8; // == 4
+    uint32_t *pixels = (uint32_t *) g_backbuffer.memory_canvas;
+    int base_index = screenY * GAME_RES_WIDTH + screenX;
+
+    for (int y = 0; y < 16; ++y) {
+        uint32_t *row = pixels + base_index + y * GAME_RES_WIDTH;
+        for (int x = 0; x < 16; ++x) {
+            row[x] = 0x00FFFFFFu; // white (all bytes 0xFF)
+        }
+    }
 
     StretchDIBits(DeviceContext, 0, 0, GInfo.monitor_width, GInfo.monitor_height, 0, 0, GAME_RES_WIDTH, GAME_RES_HEIGHT, g_backbuffer.memory_canvas, &g_backbuffer.BitMapInfo, DIB_RGB_COLORS, SRCCOPY);
 
@@ -287,7 +360,7 @@ void rendergraphics()
 }
 
 #ifdef SIMD
-void base_screen(uint32_t pixel_color)
+void base_screen(uint32_t *pixel_color)
 {
     //FOUR PIXELS SMASHED TOGETHER DOWN HERE! BECAUSE OUR SCREEN RES IS A MULTIPLE OF 4 IT WILL OWRK NICELY
 
@@ -295,9 +368,9 @@ void base_screen(uint32_t pixel_color)
     const size_t totalPixels = (size_t)GAME_RES_WIDTH * GAME_RES_HEIGHT;
 
     // A solid magenta-ish color: B=0xFF, G=0x00, R=0x99, A=0xFF
-    uint32_t pixelValue = pixel_color;
+    uint32_t *pixelValue = pixel_color;
 
-    __m128i QuadPixel = _mm_set1_epi32((int)pixelValue);
+    __m128i QuadPixel = _mm_set1_epi32(*pixelValue);
 
     // Fill 4 pixels at a time
 
@@ -306,12 +379,19 @@ void base_screen(uint32_t pixel_color)
     }
 }
 #else
-void base_screen(PIXEL32* Pixel)
+void base_screen()
 {
 
-   for (int x = 0; x < GAME_RES_WIDTH * GAME_RES_HEIGHT; x++)
+    PIXEL32 Pixel = { 0 };
+
+    Pixel.Blue = 0xff;
+    Pixel.Green = 0;
+    Pixel.Red = 0xaa;
+    Pixel.Alpha = 0xff;
+
+    for(int x = 0 ; x < GAME_RES_WIDTH * GAME_RES_HEIGHT; x++)
     {
-        memcpy((PIXEL32*)g_backbuffer.memory_canvas + x, Pixel, sizeof(PIXEL32));
+        memcpy_s((PIXEL32*)g_backbuffer.memory_canvas + x, sizeof(PIXEL32), &Pixel, sizeof(PIXEL32));
     }
 
 }
