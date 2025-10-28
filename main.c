@@ -2,13 +2,12 @@
 
 #pragma warning(push, 0)
 
-#include <windows.h>
-#include <stdint.h>
-#include <emmintrin.h>
-
-
 #pragma warning(pop)
+
 #include "projectdeclarations.h"
+#include <mmsystem.h>
+#pragma comment(lib, "Winmm.lib")
+
 GAME_BIT_MAP g_backbuffer;
 game_performance_info game_performance;
 
@@ -17,11 +16,12 @@ HANDLE g_window_handle = 0;
 DWORD create_main_window();
 void processInput();
 void rendergraphics();
+DWORD InitializePlayer();
+
 __m128i data;
 game_info GInfo;
 Player g_Player;
-
-//stopped at 12 24:00
+BOOL gWindowHasFocus;
 
 int  WinMain(HINSTANCE hInst, HINSTANCE hInstPrev, PSTR cmdline, int cmdshow)
 {
@@ -34,6 +34,13 @@ int  WinMain(HINSTANCE hInst, HINSTANCE hInstPrev, PSTR cmdline, int cmdshow)
     uint64_t i64_AverageMicroSecondsPerFrame = 0;
     uint64_t i64_ElapsedMicrosecondsPerFrameAccumulatorRaw = 0;
     uint64_t i64_ElapsedMicrosecondsPerFrameAccumulatorCooked = 0;
+    FILETIME ProcessCreation;
+    FILETIME ProcessExitTime;
+    uint64_t CurrentKernelCpuTime;
+    uint64_t PreviousKernelCpuTime;
+    uint64_t CurrentUserCpuTime;
+    uint64_t PreviousUserCpuTime;
+
 
     HMODULE NtDllModuleHandle;
     if ((NtDllModuleHandle = GetModuleHandleA("ntdll.dll")) == NULL)
@@ -44,14 +51,13 @@ int  WinMain(HINSTANCE hInst, HINSTANCE hInstPrev, PSTR cmdline, int cmdshow)
     _NtQueryTimerResolution NtQueryTimerResolution;
 
     if ((NtQueryTimerResolution = (_NtQueryTimerResolution)GetProcAddress(NtDllModuleHandle, "NtQueryTimerResolution")) == NULL)
-
-
     {
         MessageBoxA(NULL, "Couldn't find the NtQueryTimerResolution function in ntdll.dll!", "Error!", MB_ICONEXCLAMATION | MB_OK);
         goto EXIT;
     }
 
     NtQueryTimerResolution(&game_performance.MinimumTimerResolution, &game_performance.MaximumTimerResolution, &game_performance.CurrentTimerResolution);
+    GetSystemInfo(&game_performance.SystemInfo);
 
     create_main_window();
 
@@ -73,8 +79,12 @@ int  WinMain(HINSTANCE hInst, HINSTANCE hInstPrev, PSTR cmdline, int cmdshow)
         return (0);
     }
 
-    g_Player.WorldPosX = 25;
-    g_Player.WorldPosY = 25;
+    if(InitializePlayer() != ERROR_SUCCESS)
+    {
+        MessageBoxA(NULL, "Failed to initialize hero!", "Error!", MB_ICONEXCLAMATION | MB_OK);
+        goto EXIT;
+    }
+
 
     memset(g_backbuffer.memory_canvas,0x00, GAME_AREA_MEMORY_SIZE);
 
@@ -85,12 +95,31 @@ int  WinMain(HINSTANCE hInst, HINSTANCE hInstPrev, PSTR cmdline, int cmdshow)
 
     if (GetMonitorInfoA(MonitorFromWindow(g_window_handle, MONITOR_DEFAULTTOPRIMARY), &GInfo.MonitorInfo) == 0)// this takes 2 input parameters a monitor handle a and monitor data structure our monitor handle is a function call that returns a handle for our monitor
     {
-
         goto EXIT;
     };
 
     GInfo.monitor_width = GInfo.MonitorInfo.rcMonitor.right - GInfo.MonitorInfo.rcMonitor.left;
     GInfo.monitor_height =  GInfo.MonitorInfo.rcMonitor.bottom - GInfo.MonitorInfo.rcMonitor.top ;
+
+    if (timeBeginPeriod(1) == TIMERR_NOCANDO)
+    {
+        MessageBoxA(NULL, "Failed to set global timer resolution!", "Error!", MB_ICONEXCLAMATION | MB_OK);
+        goto EXIT;
+    }
+    /**
+    if (SetPriorityClass(g_window_handle, HIGH_PRIORITY_CLASS) == 0)
+    {
+        MessageBoxA(NULL, "Failed to set process priority!", "Error!", MB_ICONEXCLAMATION | MB_OK);
+        goto EXIT;
+    }
+     **/
+    /**
+    if (SetThreadPriority(GetCurrentThread(), THREAD_PRIORITY_HIGHEST) == 0)
+    {
+        MessageBoxA(NULL, "Failed to set thread priority!", "Error!", MB_ICONEXCLAMATION | MB_OK);
+        goto EXIT;
+    }
+    **/
     while(g_game_is_running == TRUE)
     {
         QueryPerformanceCounter(&FrameStart);
@@ -118,13 +147,13 @@ int  WinMain(HINSTANCE hInst, HINSTANCE hInstPrev, PSTR cmdline, int cmdshow)
 
         i64_ElapsedMicrosecondsPerFrameAccumulatorRaw += ElapsedFrameTime;
 
-        while (ElapsedFrameTime <= TARGET_MICROSECONDS_PER_FRAME)
+        while (ElapsedFrameTime < TARGET_MICROSECONDS_PER_FRAME)
         {
             QueryPerformanceCounter((LARGE_INTEGER*)&FrameEnd);
             ElapsedFrameTime = FrameEnd - FrameStart;
             ElapsedFrameTime *= 1000000;
             ElapsedFrameTime /= game_performance.TickFrequency;
-            if (ElapsedFrameTime <= ((int64_t)TARGET_MICROSECONDS_PER_FRAME - (game_performance.CurrentTimerResolution * 0.1f)))
+            if (ElapsedFrameTime < (TARGET_MICROSECONDS_PER_FRAME * 0.75f) )
             {
                 Sleep(1); // Could be anywhere from 1ms to a full system timer tick? (~15.625ms)
             }
@@ -134,6 +163,20 @@ int  WinMain(HINSTANCE hInst, HINSTANCE hInstPrev, PSTR cmdline, int cmdshow)
 
         if(game_performance.TotalFramesRendered % CALCULATE_FPS_EVERY_X_FRAMES == 0)
         {
+            GetSystemTimeAsFileTime(&game_performance.CurrentSystemTime);
+            GetProcessTimes
+            (
+                    GetCurrentProcess(),
+                    &ProcessCreation,
+                    &ProcessExitTime,
+                    (FILETIME*) &CurrentKernelCpuTime,
+                    (FILETIME*) &CurrentUserCpuTime
+                    );
+
+
+
+            GetProcessHandleCount(GetCurrentProcess(), &game_performance.HandleCount);
+            GetProcessMemoryInfo(GetCurrentProcess(),&game_performance.MemoryInfo, sizeof(game_performance.MemoryInfo));
 
             int64_t i64_AverageMicrosecondsPerFrameRaw = i64_ElapsedMicrosecondsPerFrameAccumulatorRaw / CALCULATE_FPS_EVERY_X_FRAMES;
 
@@ -142,6 +185,14 @@ int  WinMain(HINSTANCE hInst, HINSTANCE hInstPrev, PSTR cmdline, int cmdshow)
             game_performance.AvgFpsRaw = 1.0f / ((i64_ElapsedMicrosecondsPerFrameAccumulatorRaw / 60) * 0.000001f);
             game_performance.AvgFpsCooked = 1.0f / ((i64_ElapsedMicrosecondsPerFrameAccumulatorCooked / 60) * 0.000001f);
 
+            game_performance.CpuPercentage = (CurrentKernelCpuTime - PreviousKernelCpuTime) +  \
+                                                (CurrentUserCpuTime - PreviousUserCpuTime);
+
+            game_performance.CpuPercentage /= (float)(game_performance.CurrentSystemTime - game_performance.PreviousSystemTime);
+
+            game_performance.CpuPercentage /= game_performance.SystemInfo.dwNumberOfProcessors;
+
+            game_performance.CpuPercentage *= 100;
 
             printf("Avg milliseconds/frame raw: %lu Avg FPS Cooked: %.01f Avg FPS Raw: %.01f\n",
                    i64_AverageMicrosecondsPerFrameRaw,
@@ -151,6 +202,10 @@ int  WinMain(HINSTANCE hInst, HINSTANCE hInstPrev, PSTR cmdline, int cmdshow)
 
             i64_ElapsedMicrosecondsPerFrameAccumulatorRaw = 0;
             i64_ElapsedMicrosecondsPerFrameAccumulatorCooked = 0;
+
+            PreviousKernelCpuTime = CurrentKernelCpuTime;
+            PreviousUserCpuTime = CurrentUserCpuTime;
+            game_performance.PreviousSystemTime = game_performance.CurrentSystemTime;
         }
 
     }
@@ -173,6 +228,24 @@ LRESULT CALLBACK MainWindowProcedure(
             g_game_is_running = FALSE;
             PostQuitMessage(0);
             break;
+        case WM_ACTIVATE:
+
+
+        {
+            if (wparam == 0)
+            {
+                // Our window has lost focus
+                gWindowHasFocus = FALSE;
+            }
+            else
+            {
+                // Our window has gained focus
+                ShowCursor(FALSE);
+                gWindowHasFocus = TRUE;
+
+            }
+            break;
+        }
         default:
             return DefWindowProc(hwnd, message, wparam, lparam);
             break;
@@ -242,52 +315,52 @@ void processInput()
 
     if(LeftKeyIsDown)
     {
-        if(g_Player.WorldPosX > 0)
+        if(g_Player.ScreenPosX > 0)
         {
-            g_Player.WorldPosX -= 1;
+            g_Player.ScreenPosX -= 1;
         }
 
     }
 
     if(RightKeyIsDown)
     {
-        if(g_Player.WorldPosX < GAME_RES_WIDTH - 16)
+        if(g_Player.ScreenPosX < GAME_RES_WIDTH - 16)
         {
-            g_Player.WorldPosX += 1;
+            g_Player.ScreenPosX += 1;
         }
 
     }
 
     if(UpKeyIsDown)
     {
-        if(g_Player.WorldPosY > 0)
+        if(g_Player.ScreenPosY > 0)
         {
-            g_Player.WorldPosY -= 1;
+            g_Player.ScreenPosY -= 1;
         }
 
     }
 
     if(DownKeyIsDown)
     {
-        if(g_Player.WorldPosY < (GAME_RES_HEIGHT - 16))
+        if(g_Player.ScreenPosY < (GAME_RES_HEIGHT - 16))
         {
-            g_Player.WorldPosY += 1;
+            g_Player.ScreenPosY += 1;
         }
     }
 
     if(UpKeyIsDown && RunKeyIsDown)
     {
-        if(g_Player.WorldPosY > 1)
+        if(g_Player.ScreenPosY > 1)
         {
-            g_Player.WorldPosY -= 2;
+            g_Player.ScreenPosY -= 2;
         }
     }
 
     if(DownKeyIsDown && RunKeyIsDown)
     {
-        if(g_Player.WorldPosY < (GAME_RES_HEIGHT - 17))
+        if(g_Player.ScreenPosY < (GAME_RES_HEIGHT - 17))
         {
-            g_Player.WorldPosY += 2;
+            g_Player.ScreenPosY += 2;
         }
     }
 
@@ -312,8 +385,8 @@ void rendergraphics()
     base_screen();
 #endif
 
-    int screenX = g_Player.WorldPosX;
-    int screenY = g_Player.WorldPosY;
+    int screenX = g_Player.ScreenPosX;
+    int screenY = g_Player.ScreenPosY;
     const int bytes_per_pixel = BPP / 8; // == 4
     uint32_t *pixels = (uint32_t *) g_backbuffer.memory_canvas;
     int base_index = screenY * GAME_RES_WIDTH + screenX;
@@ -339,18 +412,29 @@ void rendergraphics()
         //this TextOut function prints stuff onto our program!
         TextOutA(DeviceContext, 0,15, c_DebugBuffer, (int) strlen(c_DebugBuffer));
 
-        sprintf_s(c_DebugBuffer, sizeof(c_DebugBuffer), "Minimum Timer!: %.01f", game_performance.MinimumTimerResolution / 10000.0f);
+        sprintf_s(c_DebugBuffer, sizeof(c_DebugBuffer), "Minimum Timer!: %.01f", (float) game_performance.MinimumTimerResolution / 10000.0f);
         //this TextOut function prints stuff onto our program!
         TextOutA(DeviceContext, 0,30, c_DebugBuffer, (int) strlen(c_DebugBuffer));
 
-        sprintf_s(c_DebugBuffer, sizeof(c_DebugBuffer), "Maximum Timer!: %.01f", game_performance.MaximumTimerResolution / 10000.0f);
+        sprintf_s(c_DebugBuffer, sizeof(c_DebugBuffer), "Maximum Timer!: %.01f", (float) game_performance.MaximumTimerResolution / 10000.0f);
         //this TextOut function prints stuff onto our program!
         TextOutA(DeviceContext, 0,45, c_DebugBuffer, (int) strlen(c_DebugBuffer));
 
-        sprintf_s(c_DebugBuffer, sizeof(c_DebugBuffer), "Current Timer!: %.01f", game_performance.CurrentTimerResolution / 10000.0f);
+        sprintf_s(c_DebugBuffer, sizeof(c_DebugBuffer), "Current Timer!: %.01f",(float) game_performance.CurrentTimerResolution / 10000.0f);
         //this TextOut function prints stuff onto our program!
         TextOutA(DeviceContext, 0,60, c_DebugBuffer, (int) strlen(c_DebugBuffer));
 
+        sprintf_s(c_DebugBuffer, sizeof(c_DebugBuffer), "Handles!: %lu", game_performance.HandleCount);
+        //this TextOut function prints stuff onto our program!
+        TextOutA(DeviceContext, 0,75, c_DebugBuffer, (int) strlen(c_DebugBuffer));
+
+        sprintf_s(c_DebugBuffer, sizeof(c_DebugBuffer), "Memory currently being used!: %lu KB" , (game_performance.MemoryInfo.PrivateUsage / 1024));
+        //this TextOut function prints stuff onto our program!
+        TextOutA(DeviceContext, 0,90, c_DebugBuffer, (int) strlen(c_DebugBuffer));
+
+        sprintf_s(c_DebugBuffer, sizeof(c_DebugBuffer), "Memory currently being used!: %.02f%%" , (game_performance.CpuPercentage));
+        //this TextOut function prints stuff onto our program!
+        TextOutA(DeviceContext, 0,105, c_DebugBuffer, (int) strlen(c_DebugBuffer));
     }
 
 
@@ -396,3 +480,101 @@ void base_screen()
 
 }
 #endif
+
+DWORD Load32BppFile(_In_ char * FilePath, _Inout_ GAME_BIT_MAP *GAME_BIT_MAP)
+{
+    HANDLE FileHandle = INVALID_HANDLE_VALUE;
+    DWORD Error = ERROR_SUCCESS;
+    WORD BitMapHeader = 0;
+    DWORD NumBytesRead = 2;
+    DWORD PixelDataOffSet = 0;
+
+    if((FileHandle = CreateFileA(FilePath,GENERIC_READ,FILE_SHARE_READ,NULL,
+                                 OPEN_EXISTING,FILE_ATTRIBUTE_NORMAL,NULL))
+    == INVALID_HANDLE_VALUE )
+    {
+        Error = GetLastError();
+        goto Exit;
+    }
+
+    if(ReadFile(FileHandle, &BitMapHeader, 2, &NumBytesRead, NULL ) == 0 )
+    {
+        Error = GetLastError();
+        goto Exit;
+    }
+
+    if(BitMapHeader != 0x4d42) // "If its a valid bitmap file the first two bytes should be 42 4D or BM"
+    {
+        Error = ERROR_BAD_FILE_TYPE;
+        goto Exit;
+    }
+
+    if (SetFilePointer(FileHandle, 0xA, NULL, FILE_BEGIN) == INVALID_SET_FILE_POINTER)
+    {
+        Error = GetLastError();
+        goto Exit;
+    }
+
+    if (ReadFile(FileHandle, &PixelDataOffSet, sizeof(DWORD), &NumBytesRead, NULL) == 0)
+    {
+        Error = GetLastError();
+        goto Exit;
+    }
+
+    if(SetFilePointer(FileHandle, 0xE, NULL, FILE_BEGIN) == INVALID_SET_FILE_POINTER)
+    {
+        Error = GetLastError();
+        goto Exit;
+    }
+
+    if(ReadFile(FileHandle, &GAME_BIT_MAP->BitMapInfo.bmiHeader, sizeof(BITMAPINFOHEADER), &NumBytesRead, NULL) == 0)
+    {
+        Error = GetLastError();
+        goto Exit;
+    }
+
+    if ((GAME_BIT_MAP->memory_canvas = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, GAME_BIT_MAP->BitMapInfo.bmiHeader.biSizeImage)) == NULL)
+    {
+        Error = ERROR_NOT_ENOUGH_MEMORY;
+        goto Exit;
+    }
+
+    if (SetFilePointer(FileHandle, PixelDataOffSet, NULL, FILE_BEGIN) == INVALID_SET_FILE_POINTER)
+    {
+        Error = GetLastError();
+        goto Exit;
+    }
+
+    if (ReadFile(FileHandle, GAME_BIT_MAP->memory_canvas, GAME_BIT_MAP->BitMapInfo.bmiHeader.biSizeImage, &NumBytesRead, NULL) == 0)
+    {
+        Error = GetLastError();
+        goto Exit;
+    }
+
+
+
+Exit:
+
+        if (FileHandle && (FileHandle != INVALID_HANDLE_VALUE))
+        {
+            CloseHandle(FileHandle);
+        }
+
+        return(Error);
+}
+
+DWORD InitializePlayer(void)
+{
+    DWORD Error = ERROR_SUCCESS;
+    g_Player.ScreenPosX = 25;
+    g_Player.ScreenPosY = 25;
+
+    if ((Error = Load32BppFile(SpriteAssets, &g_Player.PlayerSprite[character_sprite_down_standing])) != ERROR_SUCCESS)
+    {
+        MessageBoxA(NULL, "Load32BppBitmapFromFile failed!", "Error!", MB_ICONEXCLAMATION | MB_OK);
+        goto Exit;
+    }
+
+    Exit:
+        return(Error);
+}

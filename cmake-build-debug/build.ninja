@@ -71,7 +71,7 @@ build CMakeFiles/untitled7.dir/projectdeclarations.c.obj: C_COMPILER__untitled7_
 
 build untitled7.exe: C_EXECUTABLE_LINKER__untitled7_Debug CMakeFiles/untitled7.dir/main.c.obj CMakeFiles/untitled7.dir/projectdeclarations.c.obj
   FLAGS = -g
-  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  LINK_LIBRARIES = -lwinmm  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\untitled7.dir
   POST_BUILD = cd .
   PRE_LINK = cd .

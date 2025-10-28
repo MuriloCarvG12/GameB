@@ -7,6 +7,8 @@
 
 #include <windows.h>
 #include <stdint.h>
+#include <emmintrin.h>
+#include <psapi.h>
 
 
 #define GAME_RES_WIDTH 384
@@ -16,6 +18,25 @@
 #define CALCULATE_FPS_EVERY_X_FRAMES 60
 #define TARGET_MICROSECONDS_PER_FRAME 16667
 #define SIMD
+
+// this approach sucks, change it later...
+#define SpriteAssets "..\\assets\\Hero_Suit0_Down_Standing.bmpx"
+#define character_sprite_down_standing 0
+#define character_sprite_down_walk_one 1
+#define character_sprite_down_walk_two 2
+
+#define character_sprite_left_standing 3
+#define character_sprite_left_walk_one 4
+#define character_sprite_left_walk_two 5
+
+#define character_sprite_right_standing 6
+#define character_sprite_right_walk_one 7
+#define character_sprite_right_walk_two 8
+
+#define character_sprite_up_standing 9
+#define character_sprite_up_walk_one 10
+#define character_sprite_up_walk_two 11
+
 
 
 typedef LONG(NTAPI* _NtQueryTimerResolution) (OUT PULONG MinimumResolution, OUT PULONG MaximumResolution, OUT PULONG CurrentResolution);
@@ -41,6 +62,12 @@ typedef struct game_performance_info
     LONG MinimumTimerResolution;
     LONG MaximumTimerResolution;
     LONG CurrentTimerResolution;
+    DWORD HandleCount;
+    PROCESS_MEMORY_COUNTERS_EX MemoryInfo;
+    SYSTEM_INFO SystemInfo;
+    int64_t  CurrentSystemTime;
+    int64_t  PreviousSystemTime;
+    float CpuPercentage;
 } game_performance_info;
 
 typedef struct GAME_BIT_MAP
@@ -60,8 +87,9 @@ typedef struct PIXEL32
 typedef struct Player
 {
     char name[12];
-    int32_t WorldPosX;
-    int32_t WorldPosY;
+    GAME_BIT_MAP PlayerSprite[12];
+    int32_t ScreenPosX;
+    int32_t ScreenPosY;
     int32_t HP;
     int32_t strength;
     int32_t mp;
