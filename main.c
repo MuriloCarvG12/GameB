@@ -17,6 +17,7 @@ DWORD create_main_window();
 void processInput();
 void rendergraphics();
 DWORD InitializePlayer();
+VOID Load32BppIntoBackBuffer(GAME_BIT_MAP *, int , int );
 
 __m128i data;
 game_info GInfo;
@@ -385,18 +386,11 @@ void rendergraphics()
     base_screen();
 #endif
 
-    int screenX = g_Player.ScreenPosX;
-    int screenY = g_Player.ScreenPosY;
-    const int bytes_per_pixel = BPP / 8; // == 4
-    uint32_t *pixels = (uint32_t *) g_backbuffer.memory_canvas;
-    int base_index = screenY * GAME_RES_WIDTH + screenX;
+    //const int bytes_per_pixel = BPP / 8; // == 4
+    //uint32_t *pixels = (uint32_t *) g_backbuffer.memory_canvas;
+    // base_index = screenY * GAME_RES_WIDTH + screenX;
 
-    for (int y = 0; y < 16; ++y) {
-        uint32_t *row = pixels + base_index + y * GAME_RES_WIDTH;
-        for (int x = 0; x < 16; ++x) {
-            row[x] = 0x00FFFFFFu; // white (all bytes 0xFF)
-        }
-    }
+    Load32BppIntoBackBuffer(&g_Player.PlayerSprite[character_sprite_down_standing], g_Player.ScreenPosX, g_Player.ScreenPosY);
 
     StretchDIBits(DeviceContext, 0, 0, GInfo.monitor_width, GInfo.monitor_height, 0, 0, GAME_RES_WIDTH, GAME_RES_HEIGHT, g_backbuffer.memory_canvas, &g_backbuffer.BitMapInfo, DIB_RGB_COLORS, SRCCOPY);
 
@@ -563,6 +557,48 @@ Exit:
         return(Error);
 }
 
+VOID Load32BppIntoBackBuffer(GAME_BIT_MAP *Sprite, int ScreenX, int ScreenY)
+{
+    int spriteHeight = abs(Sprite->BitMapInfo.bmiHeader.biHeight);
+    int spriteWidth= abs(Sprite->BitMapInfo.bmiHeader.biWidth);
+    int gameScreenX = ScreenX;
+    int gameScreenY = ScreenY;
+    int gameHeight = GAME_RES_HEIGHT;
+    int gameWidth = GAME_RES_WIDTH;
+    PIXEL32 CurrentSpritePixel = { 0 };
+    PIXEL32 *spritePixels = (PIXEL32*)Sprite->memory_canvas;
+    PIXEL32 *bufferPixels = (PIXEL32*)g_backbuffer.memory_canvas;
+
+    BOOL bmpIsBottomUp = (Sprite->BitMapInfo.bmiHeader.biHeight > 0);
+
+    for(int y = 0; y < spriteHeight; y++)
+    {
+        int spriteY = bmpIsBottomUp ? (spriteHeight - 1 - y) : y;
+        int dstY = gameScreenY + y;
+
+        if(dstY >= gameHeight)
+        {
+            continue;
+        }
+        for(int x = 0; x < spriteWidth; x++)
+        {
+            int dstX = gameScreenX + x;
+            if(dstX >= gameWidth)
+            {
+                continue;
+            }
+            int srcIndex = ((spriteY * spriteWidth) + x);
+            int destIndex = ((dstY * GAME_RES_WIDTH) + dstX);
+
+            CurrentSpritePixel = spritePixels[srcIndex];
+            if(CurrentSpritePixel.Alpha == 0xFF)
+            {
+                bufferPixels[destIndex] = CurrentSpritePixel;
+            }
+        }
+    }
+}
+
 DWORD InitializePlayer(void)
 {
     DWORD Error = ERROR_SUCCESS;
@@ -578,3 +614,4 @@ DWORD InitializePlayer(void)
     Exit:
         return(Error);
 }
+
