@@ -595,6 +595,8 @@ VOID Load32BppIntoBackBuffer(GAME_BIT_MAP *Sprite, int ScreenX, int ScreenY)
             {
                 bufferPixels[destIndex] = CurrentSpritePixel;
             }
+
+
         }
     }
 }
