@@ -306,6 +306,8 @@ void processInput()
     static short RightKeyWasDown;
     static short debug_key_was_down;
 
+    uint8_t CurrentPixelPosition = 0;
+
     if(Esc_Key_is_down)
     {
         SendMessageA(g_window_handle, WM_CLOSE, 0, 0);
@@ -316,12 +318,23 @@ void processInput()
         game_performance.DebugModeOn = !game_performance.DebugModeOn ;
     }
 
+    if(DownKeyIsDown)
+    {
+        if(g_Player.ScreenPosY < (GAME_RES_HEIGHT - 16))
+        {
+            g_Player.ScreenPosY += 1;
+            g_Player.PixelPosition += 1;
+            g_Player.Direction = character_direction_down;
+        }
+    }
+
     if(LeftKeyIsDown)
     {
         if(g_Player.ScreenPosX > 0)
         {
             g_Player.ScreenPosX -= 1;
-            g_CurrentSprite = &g_Player.PlayerSprite[character_sprite_left_standing];
+            g_Player.PixelPosition += 1;
+            g_Player.Direction = character_direction_left;
 
         }
 
@@ -332,7 +345,8 @@ void processInput()
         if(g_Player.ScreenPosX < GAME_RES_WIDTH - 16)
         {
             g_Player.ScreenPosX += 1;
-            g_CurrentSprite = &g_Player.PlayerSprite[character_sprite_right_standing];
+            g_Player.PixelPosition += 1;
+            g_Player.Direction = character_direction_right;
         }
 
     }
@@ -342,18 +356,10 @@ void processInput()
         if(g_Player.ScreenPosY > 0)
         {
             g_Player.ScreenPosY -= 1;
-            g_CurrentSprite = &g_Player.PlayerSprite[character_sprite_up_standing];
+            g_Player.PixelPosition += 1;
+            g_Player.Direction = character_direction_up;
         }
 
-    }
-
-    if(DownKeyIsDown)
-    {
-        if(g_Player.ScreenPosY < (GAME_RES_HEIGHT - 16))
-        {
-            g_Player.ScreenPosY += 1;
-            g_CurrentSprite = &g_Player.PlayerSprite[character_sprite_down_standing];
-        }
     }
 
     if(UpKeyIsDown && RunKeyIsDown)
@@ -372,10 +378,45 @@ void processInput()
         }
     }
 
+    if(g_Player.PixelPosition > 12)
+    {
+        g_Player.PixelPosition = 0;
+    }
+    else
+    {
+        switch(g_Player.PixelPosition)
+        {
+            case 0:
+            {
+                g_Player.SpriteIndex = character_animation_standing;
+                break;
+            }
+            case 4:
+            {
+                g_Player.SpriteIndex = character_animation_cycle_one;
+                break;
+            }
+
+            case 8:
+            {
+                g_Player.SpriteIndex = character_animation_standing;
+                break;
+            }
+            case 12:
+            {
+                g_Player.SpriteIndex = character_animation_cycle_two;
+                break;
+            }
+        }
+    }
+
+
+
 
     debug_key_was_down = Debug_key_is_down;
     RightKeyWasDown = RightKeyIsDown;
     LeftKeyWasDown = LeftKeyIsDown;
+
 
 }
 
@@ -397,7 +438,7 @@ void rendergraphics()
     //uint32_t *pixels = (uint32_t *) g_backbuffer.memory_canvas;
     // base_index = screenY * GAME_RES_WIDTH + screenX;
 
-    Load32BppIntoBackBuffer(g_CurrentSprite, g_Player.ScreenPosX, g_Player.ScreenPosY);
+    Load32BppIntoBackBuffer(&g_Player.PlayerSprite[g_Player.Direction + g_Player.SpriteIndex], g_Player.ScreenPosX, g_Player.ScreenPosY);
 
     StretchDIBits(DeviceContext, 0, 0, GInfo.monitor_width, GInfo.monitor_height, 0, 0, GAME_RES_WIDTH, GAME_RES_HEIGHT, g_backbuffer.memory_canvas, &g_backbuffer.BitMapInfo, DIB_RGB_COLORS, SRCCOPY);
 
@@ -613,6 +654,9 @@ DWORD InitializePlayer(void)
     DWORD Error = ERROR_SUCCESS;
     g_Player.ScreenPosX = 25;
     g_Player.ScreenPosY = 25;
+    g_Player.Direction = character_direction_down;
+    g_Player.SpriteIndex = character_animation_standing;
+    g_Player.PixelPosition = 0;
 
     if ((Error = Load32BppFile(SpriteAssets, &g_Player.PlayerSprite[character_sprite_down_standing])) != ERROR_SUCCESS)
     {
@@ -626,11 +670,11 @@ DWORD InitializePlayer(void)
         goto Exit;
     }
 
-//if ((Error = Load32BppFile("assets\\Hero_Suit0_Down_Walk2.bmpx", &g_Player.PlayerSprite[character_sprite_down_walk_two])) != ERROR_SUCCESS)
-  //  {
+  //  if ((Error = Load32BppFile("assets\\Hero_Suit0_Down_Walk2.bmpx", &g_Player.PlayerSprite[character_sprite_down_walk_two])) != ERROR_SUCCESS)
+  // {
   //      MessageBoxA(NULL, "Load32BppBitmapFromFile failed!", "Error!", MB_ICONEXCLAMATION | MB_OK);
-   //     goto Exit;
-   // }
+  //      goto Exit;
+  // }
 
     if ((Error = Load32BppFile("assets\\Hero_Suit0_Left_Standing.bmpx", &g_Player.PlayerSprite[character_sprite_left_standing])) != ERROR_SUCCESS)
     {

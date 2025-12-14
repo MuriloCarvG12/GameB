@@ -37,6 +37,20 @@
 #define character_sprite_up_walk_one 10
 #define character_sprite_up_walk_two 11
 
+#define character_direction_down 0
+
+#define character_direction_left 3
+
+#define character_direction_right 6
+
+#define character_direction_up 9
+
+#define character_animation_standing 0
+
+#define character_animation_cycle_one 1
+
+#define character_animation_cycle_two 2
+
 
 
 typedef LONG(NTAPI* _NtQueryTimerResolution) (OUT PULONG MinimumResolution, OUT PULONG MaximumResolution, OUT PULONG CurrentResolution);
@@ -93,6 +107,9 @@ typedef struct Player
     int32_t HP;
     int32_t strength;
     int32_t mp;
+    uint8_t Direction;
+    uint8_t SpriteIndex;
+    uint8_t PixelPosition;
 } Player;
 
 #ifdef SIMD
