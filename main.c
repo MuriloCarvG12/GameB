@@ -18,7 +18,7 @@ void processInput();
 void rendergraphics();
 DWORD InitializePlayer();
 VOID Load32BppIntoBackBuffer(GAME_BIT_MAP *, int , int );
-
+//test
 __m128i data;
 game_info GInfo;
 Player g_Player;
@@ -91,7 +91,7 @@ int  WinMain(HINSTANCE hInst, HINSTANCE hInstPrev, PSTR cmdline, int cmdshow)
 
     memset(g_backbuffer.memory_canvas,0x00, GAME_AREA_MEMORY_SIZE);
 
-    QueryPerformanceFrequency(&game_performance.TickFrequency );
+    QueryPerformanceFrequency(&game_performance.TickFrequency);
 
 
     GInfo.MonitorInfo.cbSize = sizeof(MONITORINFO);
