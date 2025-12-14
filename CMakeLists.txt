@@ -8,3 +8,4 @@ add_executable(untitled7 main.c
         projectdeclarations.h)
 
 target_link_libraries(untitled7 PRIVATE winmm)
+

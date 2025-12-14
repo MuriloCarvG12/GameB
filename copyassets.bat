@@ -1,0 +1,2 @@
+del  C:\Users\Murilo\Desktop\CLionProjects\untitled7\cmake-build-debug\assets" /Q
+xcopy "C:\Users\Murilo\Desktop\CLionProjects\untitled7\assets\*" "C:\Users\Murilo\Desktop\CLionProjects\untitled7\cmake-build-debug\assets" /i

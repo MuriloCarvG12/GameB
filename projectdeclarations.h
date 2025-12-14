@@ -20,7 +20,7 @@
 #define SIMD
 
 // this approach sucks, change it later...
-#define SpriteAssets "..\\assets\\Hero_Suit0_Down_Standing.bmpx"
+#define SpriteAssets "assets\\Hero_Suit0_Down_Standing.bmpx"
 #define character_sprite_down_standing 0
 #define character_sprite_down_walk_one 1
 #define character_sprite_down_walk_two 2

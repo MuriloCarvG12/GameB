@@ -73,7 +73,7 @@ build untitled7.exe: C_EXECUTABLE_LINKER__untitled7_Debug CMakeFiles/untitled7.d
   FLAGS = -g
   LINK_LIBRARIES = -lwinmm  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\untitled7.dir
-  POST_BUILD = cd .
+  POST_BUILD = cmd.exe /C "cd /D C:\Users\Murilo\Desktop\CLionProjects\untitled7\cmake-build-debug && "C:\Program Files\JetBrains\CLion 2023.3.4\bin\cmake\win\x64\bin\cmake.exe" -E echo "Running post-build batch file..." && C:\Users\Murilo\Desktop\CLionProjects\untitled7\copyassets.bat"
   PRE_LINK = cd .
   TARGET_FILE = untitled7.exe
   TARGET_IMPLIB = libuntitled7.dll.a
