@@ -20,7 +20,7 @@
 #define SIMD
 
 // this approach sucks, change it later...
-#define SpriteAssets "assets\\Hero_Suit0_Down_Standing.bmpx"
+#define SpriteAssets "assets\\Hero_Suit0_Down_Standing.bmp"
 #define character_sprite_down_standing 0
 #define character_sprite_down_walk_one 1
 #define character_sprite_down_walk_two 2
@@ -90,12 +90,19 @@ typedef struct GAME_BIT_MAP
     void* memory_canvas;
 } GAME_BIT_MAP;
 
+typedef struct PIXEL24
+{
+    uint8_t Blue;
+    uint8_t Green;
+    uint8_t Red;
+} PIXEL24;
+
 typedef struct PIXEL32
 {
     uint8_t Blue;
     uint8_t Green;
     uint8_t Red;
-    uint8_t Alpha;
+    uint8_t Padding;
 } PIXEL32;
 
 typedef struct Player

@@ -18,7 +18,7 @@ void processInput();
 void rendergraphics();
 DWORD InitializePlayer();
 VOID Load32BppIntoBackBuffer(GAME_BIT_MAP *, int , int );
-//test
+
 __m128i data;
 game_info GInfo;
 Player g_Player;
@@ -523,6 +523,38 @@ void base_screen()
 }
 #endif
 
+PIXEL32 *Convert24BppInto32Bpp(GAME_BIT_MAP *Sprite)
+{
+    int spriteHeight = abs(Sprite->BitMapInfo.bmiHeader.biHeight);
+    int spriteWidth= abs(Sprite->BitMapInfo.bmiHeader.biWidth);
+
+    PIXEL32 *ConvertedSprite = malloc(sizeof(PIXEL32) * spriteWidth * spriteHeight);
+
+    BYTE *spritePixels = (BYTE*)Sprite->memory_canvas;
+
+    int BytesPerRow = spriteWidth * 3;
+    int PaddedBytesPerRow = (4 - (BytesPerRow % 4)) % 4;
+    int stride = BytesPerRow + PaddedBytesPerRow;
+
+    BOOL bmpIsBottomUp = (Sprite->BitMapInfo.bmiHeader.biHeight > 0);
+
+    for(int y = 0; y < spriteHeight; y++)
+    {
+        int spriteY = bmpIsBottomUp ? (spriteHeight - 1 - y) : y;
+        BYTE *currentSpriteRow = (spriteY * stride) + spritePixels;
+        PIXEL32 *currentConvertedSpriteRow = ConvertedSprite + (spriteY * spriteWidth);
+
+        for(int x = 0; x < spriteWidth; x++)
+        {
+            currentConvertedSpriteRow[x].Blue = currentSpriteRow[x * 3 + 0];
+            currentConvertedSpriteRow[x].Green = currentSpriteRow[x * 3 + 1];
+            currentConvertedSpriteRow[x].Red = currentSpriteRow[x * 3 + 2];
+            currentConvertedSpriteRow[x].Padding = 0xFF;
+        }
+    }
+    return ConvertedSprite;
+}
+
 DWORD Load32BppFile(_In_ char * FilePath, _Inout_ GAME_BIT_MAP *GAME_BIT_MAP)
 {
     HANDLE FileHandle = INVALID_HANDLE_VALUE;
@@ -593,6 +625,10 @@ DWORD Load32BppFile(_In_ char * FilePath, _Inout_ GAME_BIT_MAP *GAME_BIT_MAP)
         goto Exit;
     }
 
+    void *oldPixels = GAME_BIT_MAP->memory_canvas;
+    GAME_BIT_MAP->memory_canvas = Convert24BppInto32Bpp(GAME_BIT_MAP);
+    HeapFree(GetProcessHeap(), 0, oldPixels);
+
 
 
 Exit:
@@ -613,6 +649,7 @@ VOID Load32BppIntoBackBuffer(GAME_BIT_MAP *Sprite, int ScreenX, int ScreenY)
     int gameScreenY = ScreenY;
     int gameHeight = GAME_RES_HEIGHT;
     int gameWidth = GAME_RES_WIDTH;
+    int PixelVector[3] = { 0 };
     PIXEL32 CurrentSpritePixel = { 0 };
     PIXEL32 *spritePixels = (PIXEL32*)Sprite->memory_canvas;
     PIXEL32 *bufferPixels = (PIXEL32*)g_backbuffer.memory_canvas;
@@ -639,7 +676,10 @@ VOID Load32BppIntoBackBuffer(GAME_BIT_MAP *Sprite, int ScreenX, int ScreenY)
             int destIndex = ((dstY * GAME_RES_WIDTH) + dstX);
 
             CurrentSpritePixel = spritePixels[srcIndex];
-            if(CurrentSpritePixel.Alpha == 0xFF)
+
+            BOOL isMagenta = (CurrentSpritePixel.Red == 0xFF && CurrentSpritePixel.Green == 0x00 && CurrentSpritePixel.Blue == 0xFF);
+
+            if(!isMagenta)
             {
                 bufferPixels[destIndex] = CurrentSpritePixel;
             }
@@ -664,67 +704,67 @@ DWORD InitializePlayer(void)
         goto Exit;
     }
 
-    if ((Error = Load32BppFile("assets\\Hero_Suit0_Down_Walk1.bmpx", &g_Player.PlayerSprite[character_sprite_down_walk_one])) != ERROR_SUCCESS)
+    if ((Error = Load32BppFile("assets\\Hero_Suit0_Down_Walk1.bmp", &g_Player.PlayerSprite[character_sprite_down_walk_one])) != ERROR_SUCCESS)
     {
         MessageBoxA(NULL, "Load32BppBitmapFromFile failed!", "Error!", MB_ICONEXCLAMATION | MB_OK);
         goto Exit;
     }
 
-  //  if ((Error = Load32BppFile("assets\\Hero_Suit0_Down_Walk2.bmpx", &g_Player.PlayerSprite[character_sprite_down_walk_two])) != ERROR_SUCCESS)
-  // {
-  //      MessageBoxA(NULL, "Load32BppBitmapFromFile failed!", "Error!", MB_ICONEXCLAMATION | MB_OK);
-  //      goto Exit;
-  // }
+   if ((Error = Load32BppFile("assets\\Hero_Suit0_Down_Walk2.bmp", &g_Player.PlayerSprite[character_sprite_down_walk_two])) != ERROR_SUCCESS)
+   {
+        MessageBoxA(NULL, "Load32BppBitmapFromFile failed!", "Error!", MB_ICONEXCLAMATION | MB_OK);
+       goto Exit;
+   }
 
-    if ((Error = Load32BppFile("assets\\Hero_Suit0_Left_Standing.bmpx", &g_Player.PlayerSprite[character_sprite_left_standing])) != ERROR_SUCCESS)
+    if ((Error = Load32BppFile("assets\\Hero_Suit0_Left_Standing.bmp", &g_Player.PlayerSprite[character_sprite_left_standing])) != ERROR_SUCCESS)
     {
         MessageBoxA(NULL, "Load32BppBitmapFromFile failed!", "Error!", MB_ICONEXCLAMATION | MB_OK);
         goto Exit;
     }
 
-    if ((Error = Load32BppFile("assets\\Hero_Suit0_Left_Walk1.bmpx", &g_Player.PlayerSprite[character_sprite_left_walk_one])) != ERROR_SUCCESS)
+    if ((Error = Load32BppFile("assets\\Hero_Suit0_Left_Walk1.bmp", &g_Player.PlayerSprite[character_sprite_left_walk_one])) != ERROR_SUCCESS)
     {
         MessageBoxA(NULL, "Load32BppBitmapFromFile failed!", "Error!", MB_ICONEXCLAMATION | MB_OK);
         goto Exit;
     }
 
-    if ((Error = Load32BppFile("assets\\Hero_Suit0_Left_Walk2.bmpx", &g_Player.PlayerSprite[character_sprite_left_walk_two])) != ERROR_SUCCESS)
+    if ((Error = Load32BppFile("assets\\Hero_Suit0_Left_Walk2.bmp", &g_Player.PlayerSprite[character_sprite_left_walk_two])) != ERROR_SUCCESS)
     {
         MessageBoxA(NULL, "Load32BppBitmapFromFile failed!", "Error!", MB_ICONEXCLAMATION | MB_OK);
         goto Exit;
     }
 
-    if ((Error = Load32BppFile("assets\\Hero_Suit0_Right_Standing.bmpx", &g_Player.PlayerSprite[character_sprite_right_standing])) != ERROR_SUCCESS)
+    if ((Error = Load32BppFile("assets\\Hero_Suit0_Right_Standing.bmp", &g_Player.PlayerSprite[character_sprite_right_standing])) != ERROR_SUCCESS)
     {
         MessageBoxA(NULL, "Load32BppBitmapFromFile failed!", "Error!", MB_ICONEXCLAMATION | MB_OK);
         goto Exit;
     }
 
-    if ((Error = Load32BppFile("assets\\Hero_Suit0_Right_Walk1.bmpx", &g_Player.PlayerSprite[character_sprite_right_walk_one])) != ERROR_SUCCESS)
+    if ((Error = Load32BppFile("assets\\Hero_Suit0_Right_Walk1.bmp", &g_Player.PlayerSprite[character_sprite_right_walk_one])) != ERROR_SUCCESS)
     {
         MessageBoxA(NULL, "Load32BppBitmapFromFile failed!", "Error!", MB_ICONEXCLAMATION | MB_OK);
         goto Exit;
     }
 
-    if ((Error = Load32BppFile("assets\\Hero_Suit0_Right_Walk2.bmpx", &g_Player.PlayerSprite[character_sprite_right_walk_two])) != ERROR_SUCCESS)
+    if ((Error = Load32BppFile("assets\\Hero_Suit0_Right_Walk2.bmp", &g_Player.PlayerSprite[character_sprite_right_walk_two])) != ERROR_SUCCESS)
     {
         MessageBoxA(NULL, "Load32BppBitmapFromFile failed!", "Error!", MB_ICONEXCLAMATION | MB_OK);
         goto Exit;
     }
 
-    if ((Error = Load32BppFile("assets\\Hero_Suit0_Up_Standing.bmpx", &g_Player.PlayerSprite[character_sprite_up_standing])) != ERROR_SUCCESS)
+    if ((Error = Load32BppFile("assets\\Hero_Suit0_Up_Standing.bmp", &g_Player.PlayerSprite[character_sprite_up_standing])) != ERROR_SUCCESS)
     {
         MessageBoxA(NULL, "Load32BppBitmapFromFile failed!", "Error!", MB_ICONEXCLAMATION | MB_OK);
         goto Exit;
     }
 
-    if ((Error = Load32BppFile("assets\\Hero_Suit0_Up_Walk1.bmpx", &g_Player.PlayerSprite[character_sprite_up_walk_one])) != ERROR_SUCCESS)
+    if ((Error = Load32BppFile("assets\\Hero_Suit0_Up_Walk1.bmp", &g_Player.PlayerSprite[character_sprite_up_walk_one])) != ERROR_SUCCESS)
     {
         MessageBoxA(NULL, "Load32BppBitmapFromFile failed!", "Error!", MB_ICONEXCLAMATION | MB_OK);
         goto Exit;
     }
 
-    if ((Error = Load32BppFile("assets\\Hero_Suit0_Up_Walk2.bmpx", &g_Player.PlayerSprite[character_sprite_up_walk_two])) != ERROR_SUCCESS)
+    if ((Error = Load32BppFile("assets\\Hero_Suit0_Up_Walk2.bmp", &g_Player.PlayerSprite[character_sprite_up_walk_two])) != ERROR_SUCCESS)
     {
         MessageBoxA(NULL, "Load32BppBitmapFromFile failed!", "Error!", MB_ICONEXCLAMATION | MB_OK);
         goto Exit;
