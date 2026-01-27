@@ -10,14 +10,20 @@
 
 GAME_BIT_MAP g_backbuffer;
 game_performance_info game_performance;
-
+GAME_BIT_MAP g_Game_Font;
 BOOL g_game_is_running;
 HANDLE g_window_handle = 0;
 DWORD create_main_window();
 void processInput();
 void rendergraphics();
+DWORD Load32BppFile(_In_ char * FilePath, _Inout_ GAME_BIT_MAP *GAME_BIT_MAP);
 DWORD InitializePlayer();
+GameCoordinate FindFontSprite(char Message);
+void BlitStringIntoBuffer(GAME_BIT_MAP *Sprite, int ScreenX, int ScreenY, char *Text);
 VOID Load32BppIntoBackBuffer(GAME_BIT_MAP *, int , int );
+GameLogSeverity G_game_log_severity;
+void WriteLog(_In_ DWORD LogLevel, _In_ char* Message, _In_ ...) ;
+DWORD LoadRegistryParameters(void);
 
 __m128i data;
 game_info GInfo;
@@ -79,6 +85,17 @@ int  WinMain(HINSTANCE hInst, HINSTANCE hInstPrev, PSTR cmdline, int cmdshow)
     if ((g_backbuffer.memory_canvas = VirtualAlloc(NULL, GAME_AREA_MEMORY_SIZE, MEM_RESERVE | MEM_COMMIT, PAGE_READWRITE)) == NULL)
     {
         return (0);
+    }
+
+    if (LoadRegistryParameters() != ERROR_SUCCESS)
+    {
+        goto EXIT;
+    }
+
+    if ((Load32BppFile("assets\\Game_Font_Sprite.bmp", &g_Game_Font) != ERROR_SUCCESS))
+    {
+        MessageBoxA(NULL, "Load32BppBitmapFromFile failed!", "Error!", MB_ICONEXCLAMATION | MB_OK);
+        goto EXIT;
     }
 
     if(InitializePlayer() != ERROR_SUCCESS)
@@ -422,8 +439,8 @@ void processInput()
 
 void rendergraphics()
 {
-
-
+    char Text[] = "TESTANDO AQUI";
+    char Text2[] = "DESENHANDO FONTES PERSONALIZADAS COM C!";
     HDC DeviceContext = GetDC(g_window_handle);
 
 #ifdef SIMD
@@ -434,10 +451,8 @@ void rendergraphics()
     base_screen();
 #endif
 
-    //const int bytes_per_pixel = BPP / 8; // == 4
-    //uint32_t *pixels = (uint32_t *) g_backbuffer.memory_canvas;
-    // base_index = screenY * GAME_RES_WIDTH + screenX;
-
+    BlitStringIntoBuffer (&g_Game_Font, 50, 50, Text);
+    BlitStringIntoBuffer (&g_Game_Font, 50, 75, Text2);
     Load32BppIntoBackBuffer(&g_Player.PlayerSprite[g_Player.Direction + g_Player.SpriteIndex], g_Player.ScreenPosX, g_Player.ScreenPosY);
 
     StretchDIBits(DeviceContext, 0, 0, GInfo.monitor_width, GInfo.monitor_height, 0, 0, GAME_RES_WIDTH, GAME_RES_HEIGHT, g_backbuffer.memory_canvas, &g_backbuffer.BitMapInfo, DIB_RGB_COLORS, SRCCOPY);
@@ -774,3 +789,538 @@ DWORD InitializePlayer(void)
         return(Error);
 }
 
+void BlitStringIntoBuffer(GAME_BIT_MAP *Sprite, int ScreenX, int ScreenY, char Text[])
+{
+    int spriteHeight = abs(Sprite->BitMapInfo.bmiHeader.biHeight);
+    int spriteWidth= abs(Sprite->BitMapInfo.bmiHeader.biWidth);
+    int gameScreenX = ScreenX;
+    int gameScreenY = ScreenY;
+    int gameHeight = GAME_RES_HEIGHT;
+    int gameWidth = GAME_RES_WIDTH;
+    PIXEL32 CurrentSpritePixel = { 0 };
+    PIXEL32 *spritePixels = (PIXEL32*)Sprite->memory_canvas;
+    PIXEL32 *bufferPixels = (PIXEL32*)g_backbuffer.memory_canvas;
+    BOOL IsSpriteInverted = Sprite->BitMapInfo.bmiHeader.biHeight > 0;
+    GameCoordinate BitMapSymbolCoordinate = { 0 };
+
+    for (int i = 0; Text[i] != '\0'; i++) {
+        BitMapSymbolCoordinate = FindFontSprite(Text[i]);
+
+        for (int y = 0; y < 7; y++)
+        {
+            int glyphSrcY =  y;
+            int dstY = ScreenY + y;
+            int srcY = IsSpriteInverted
+                ? (spriteHeight - 1 - glyphSrcY)
+                : glyphSrcY;
+
+            for (int x = 0; x < 6; x++)
+            {
+                int dstX = gameScreenX + x;
+                int destIndex = ((dstY * GAME_RES_WIDTH) + dstX);
+                int SpriteIndex = srcY * spriteWidth + (BitMapSymbolCoordinate.X + x);
+
+                CurrentSpritePixel = spritePixels[SpriteIndex];
+
+                BOOL isMagenta = (CurrentSpritePixel.Blue == 0xFF && CurrentSpritePixel.Green == 0x00 && CurrentSpritePixel.Red == 0xFF);
+                if (!isMagenta)
+                {
+                    bufferPixels[destIndex] = CurrentSpritePixel;
+                }
+            }
+        }
+        gameScreenX += 6;
+    }
+}
+
+GameCoordinate FindFontSprite(char Message)
+{
+    int MessageLength = (sizeof(Message) / sizeof(char));
+    const int FontXSize = 6;
+    const int FontYSize = 7;
+    GameCoordinate GameCoordinate;
+
+    for (int i = 0; i < MessageLength;)
+    {
+        int CurrentChar = Message;
+        if (CurrentChar >= 'A' && CurrentChar <= 'Z')
+        {
+            GameCoordinate.X = FontXSize * (CurrentChar - 0x41);
+            GameCoordinate.Y = FontYSize;
+            return GameCoordinate;
+        }
+        else if (CurrentChar >= 'a' && CurrentChar <= 'z')
+        {
+            GameCoordinate.X = FontXSize * (CurrentChar - 0x41);
+            GameCoordinate.Y = FontYSize;
+            return GameCoordinate;
+        }
+        else
+        {
+            switch (CurrentChar) {
+                case '0':
+                {
+                    GameCoordinate.X = FontXSize * 52;
+                    GameCoordinate.Y = FontYSize;
+                    return GameCoordinate;
+                }
+                case '1':
+                {
+                    GameCoordinate.X = FontXSize * 53;
+                    GameCoordinate.Y = FontYSize;
+                    return GameCoordinate;
+                    break;
+                }
+                case '2':
+                {
+                    GameCoordinate.X = FontXSize * 54;
+                    GameCoordinate.Y = FontYSize;
+                    return GameCoordinate;
+                    break;
+                }
+                case '3':
+                {
+                    GameCoordinate.X = FontXSize * 55;
+                    GameCoordinate.Y = FontYSize;
+                    return GameCoordinate;
+                    break;
+                }
+                case '4':
+                {
+                    GameCoordinate.X = FontXSize * 56;
+                    GameCoordinate.Y = FontYSize;
+                    return GameCoordinate;
+                    break;
+                }
+                case '5':
+                {
+                    GameCoordinate.X = FontXSize * 57;
+                    GameCoordinate.Y = FontYSize;
+                    return GameCoordinate;
+                    break;
+                }
+                case '6':
+                {
+                    GameCoordinate.X = FontXSize * 58;
+                    GameCoordinate.Y = FontYSize;
+                    return GameCoordinate;
+                    break;
+                }
+                case '7':
+                {
+                    GameCoordinate.X = FontXSize * 59;
+                    GameCoordinate.Y = FontYSize;
+                    return GameCoordinate;
+                    break;
+                }
+                case '8':
+                {
+                    GameCoordinate.X = FontXSize * 60;
+                    GameCoordinate.Y = FontYSize;
+                    return GameCoordinate;
+                    break;
+                }
+                case '9':
+                {
+                    GameCoordinate.X = FontXSize * 61;
+                    GameCoordinate.Y = FontYSize;
+                    return GameCoordinate;
+                    break;
+                }
+                case '`':
+                {
+                    GameCoordinate.X = FontXSize * 62;
+                    GameCoordinate.Y = FontYSize;
+                    return GameCoordinate;
+                    break;
+                }
+                case '~':
+                {
+                    GameCoordinate.X = FontXSize * 63;
+                    GameCoordinate.Y = FontYSize;
+                    return GameCoordinate;
+                    break;
+                }
+                case '!':
+                {
+                    GameCoordinate.X = FontXSize * 64;
+                    GameCoordinate.Y = FontYSize;
+                    return GameCoordinate;
+                    break;
+                }
+                case '@':
+                {
+                    GameCoordinate.X = FontXSize * 65;
+                    GameCoordinate.Y = FontYSize;
+                    return GameCoordinate;
+                    break;
+                }
+                case '#':
+                {
+                    GameCoordinate.X = FontXSize * 66;
+                    GameCoordinate.Y = FontYSize;
+                    return GameCoordinate;
+                    break;
+                }
+                case '$':
+                {
+                    GameCoordinate.X = FontXSize * 67;
+                    GameCoordinate.Y = FontYSize;
+                    return GameCoordinate;
+                    break;
+                }
+                case '%':
+                {
+                    GameCoordinate.X = FontXSize * 68;
+                    GameCoordinate.Y = FontYSize;
+                    return GameCoordinate;
+                    break;
+                }
+                case '^':
+                {
+                    GameCoordinate.X = FontXSize * 69;
+                    GameCoordinate.Y = FontYSize;
+                    return GameCoordinate;
+                    break;
+                }
+                case '&':
+                {
+                    GameCoordinate.X = FontXSize * 70;
+                    GameCoordinate.Y = FontYSize;
+                    return GameCoordinate;
+                    break;
+                }
+                case '*':
+                {
+                    GameCoordinate.X = FontXSize * 71;
+                    GameCoordinate.Y = FontYSize;
+                    return GameCoordinate;
+                    break;
+                }
+                case '(':
+                {
+                    GameCoordinate.X = FontXSize * 72;
+                    GameCoordinate.Y = FontYSize;
+                    return GameCoordinate;
+                    break;
+                }
+                case ')':
+                {
+                    GameCoordinate.X = FontXSize * 73;
+                    GameCoordinate.Y = FontYSize;
+                    return GameCoordinate;
+                    break;
+                }
+                case '-':
+                {
+                    GameCoordinate.X = FontXSize * 74;
+                    GameCoordinate.Y = FontYSize;
+                    return GameCoordinate;
+                    break;
+                }
+                case '=':
+                {
+                    GameCoordinate.X = FontXSize * 75;
+                    GameCoordinate.Y = FontYSize;
+                    return GameCoordinate;
+                    break;
+                }
+                case '_':
+                {
+                    GameCoordinate.X = FontXSize * 76;
+                    GameCoordinate.Y = FontYSize;
+                    return GameCoordinate;
+                    break;
+                }
+                case '+':
+                {
+                    GameCoordinate.X = FontXSize * 77;
+                    GameCoordinate.Y = FontYSize;
+                    return GameCoordinate;
+                    break;
+                }
+                case '\\':
+                {
+                    GameCoordinate.X = FontXSize * 78;
+                    GameCoordinate.Y = FontYSize;
+                    return GameCoordinate;
+                    break;
+                }
+                case '|':
+                {
+                    GameCoordinate.X = FontXSize * 79;
+                    GameCoordinate.Y = FontYSize;
+                    return GameCoordinate;
+                    break;
+                }
+                case '[':
+                {
+                    GameCoordinate.X = FontXSize * 80;
+                    GameCoordinate.Y = FontYSize;
+                    return GameCoordinate;
+                    break;
+                }
+                case ']':
+                {
+                    GameCoordinate.X = FontXSize * 81;
+                    GameCoordinate.Y = FontYSize;
+                    return GameCoordinate;
+                    break;
+                }
+                case '{':
+                {
+                    GameCoordinate.X = FontXSize * 82;
+                    GameCoordinate.Y = FontYSize;
+                    return GameCoordinate;
+                    break;
+                }
+                case '}':
+                {
+                    GameCoordinate.X = FontXSize * 83;
+                    GameCoordinate.Y = FontYSize;
+                    return GameCoordinate;
+                    break;
+                }
+                case ';':
+                {
+                    GameCoordinate.X = FontXSize * 84;
+                    GameCoordinate.Y = FontYSize;
+                    return GameCoordinate;
+                    break;
+                }
+                case '\'':
+                {
+                    GameCoordinate.X = FontXSize * 85;
+                    GameCoordinate.Y = FontYSize;
+                    return GameCoordinate;
+                    break;
+                }
+                case ':':
+                {
+                    GameCoordinate.X = FontXSize * 86;
+                    GameCoordinate.Y = FontYSize;
+                    return GameCoordinate;
+                    break;
+                }
+                case '"':
+                {
+                    GameCoordinate.X = FontXSize * 87;
+                    GameCoordinate.Y = FontYSize;
+                    return GameCoordinate;
+                    break;
+                }
+                case ',':
+                {
+                    GameCoordinate.X = FontXSize * 88;
+                    GameCoordinate.Y = FontYSize;
+                    return GameCoordinate;
+                    break;
+                }
+                case '<':
+                {
+                    GameCoordinate.X = FontXSize * 89;
+                    GameCoordinate.Y = FontYSize;
+                    return GameCoordinate;
+                    break;
+                }
+                case '>':
+                {
+                    GameCoordinate.X = FontXSize * 90;
+                    GameCoordinate.Y = FontYSize;
+                    return GameCoordinate;
+                    break;
+                }
+                case '.':
+                {
+                    GameCoordinate.X = FontXSize * 91;
+                    GameCoordinate.Y = FontYSize;
+                    return GameCoordinate;
+                    break;
+                }
+                case '/':
+                {
+                    GameCoordinate.X = FontXSize * 92;
+                    GameCoordinate.Y = FontYSize;
+                    return GameCoordinate;
+                    break;
+                }
+                case '?':
+                {
+                    GameCoordinate.X = FontXSize * 93;
+                    GameCoordinate.Y = FontYSize;
+                    return GameCoordinate;
+                    break;
+                }
+                case ' ':
+                {
+                    GameCoordinate.X = FontXSize * 94;
+                    GameCoordinate.Y = FontYSize;
+                    return GameCoordinate;
+                    break;
+                }
+                case '\xf2':
+                {
+                    GameCoordinate.X = FontXSize * 97;
+                    GameCoordinate.Y = FontYSize;
+                    return GameCoordinate;
+                    break;
+                }
+                default:
+                {
+                    GameCoordinate.X = FontXSize * 93;
+                    GameCoordinate.Y = FontYSize;
+                    return GameCoordinate;
+                }
+            }
+
+
+        }
+    }
+
+}
+
+DWORD LoadRegistryParameters(void)
+{
+    DWORD Result = ERROR_SUCCESS;
+    HKEY RegKey = NULL;
+    DWORD dwDisposition = 0;
+    DWORD RegBytesRead = sizeof(DWORD);
+    DWORD RegSubResult = ERROR_SUCCESS;
+    HKEY RegSubKey = NULL;
+
+    Result = RegCreateKeyExA(HKEY_CURRENT_USER, "SOFTWARE\\GAME_B" , 0, NULL, 0,
+                   KEY_ALL_ACCESS, NULL, &RegKey, &dwDisposition);
+
+    G_game_log_severity.LogLevel = log_severity_debug;
+    if (Result != ERROR_SUCCESS)
+    {
+        WriteLog(log_severity_error, "[%s] RegCreateKey failed with error code 0x%08lx!", __FUNCTION__, Result);
+
+        goto Exit;
+    }
+
+    if (dwDisposition  == REG_CREATED_NEW_KEY)
+    {
+        WriteLog(log_severity_info, "The Registry Key for the game didnt exist! created a new registry key", __FUNCTION__);
+        RegSubResult = RegCreateKeyExA(HKEY_CURRENT_USER, "SOFTWARE\\GAME_B\\LogLevel" , 0, NULL, 0,
+                   KEY_ALL_ACCESS, NULL, &RegSubKey, &dwDisposition);
+
+        if (RegSubResult != ERROR_SUCCESS)
+        {
+            WriteLog(log_severity_error, "[%s] The Sub Key Creation for the Registry of Game B Failed!", __FUNCTION__, Result);
+        }
+        else
+        {
+            WriteLog(log_severity_info, "The Registry Sub Key for the game didnt exist! created a new registry key", __FUNCTION__);
+            DWORD DefaultLogLevel = log_severity_error ;
+            RegSetValueExA( RegSubKey, "LogLevel", 0, REG_DWORD, (const BYTE*)&DefaultLogLevel, sizeof(REG_DWORD));
+        }
+    }
+    else
+    {
+        WriteLog(log_severity_info, "The Registry Key for the game already exists!", __FUNCTION__);
+    }
+
+    Result = RegGetValueA(RegKey, "LogLevel" , "LogLevel", RRF_RT_DWORD, NULL, (BYTE*)&G_game_log_severity.LogLevel, &RegBytesRead);
+
+    if (Result != ERROR_SUCCESS)
+    {
+        if (Result == ERROR_FILE_NOT_FOUND)
+        {
+            Result = ERROR_SUCCESS;
+            WriteLog(log_severity_info, "The Registry Sub Key for the game didnt exist! created a new registry key", __FUNCTION__);
+            DWORD DefaultLogLevel = log_severity_error ;
+            RegSetValueExA( RegSubKey, "LogLevel", 0, REG_DWORD, (const BYTE*)&DefaultLogLevel, sizeof(REG_DWORD));
+            G_game_log_severity.LogLevel = log_severity_error;
+        }
+        else
+        {
+            WriteLog(log_severity_error, "[%s] Failed to read the 'LogLevel' registry value! Error 0x%08lx!", __FUNCTION__, Result);
+
+            goto Exit;
+        }
+    }
+
+    WriteLog(log_severity_info, "[%s] LogLevel is %d.", __FUNCTION__, G_game_log_severity.LogLevel);
+
+    Exit:
+
+    if (RegKey)
+    {
+        RegCloseKey(RegKey);
+        RegCloseKey(RegSubKey);
+    }
+
+    return(Result);
+}
+
+void WriteLog(_In_ DWORD LogLevel, _In_ char* Message, _In_ ...) {
+    HANDLE hFile = INVALID_HANDLE_VALUE;
+    DWORD NumberOfBytesWritten = 0;
+    char LogMessageSeverityPrefix[8] = { 0 };
+    char LogTimeStamp[24];
+    char LogMessage[4096] = { 0 };
+    BYTE utf8Bom[] = { 0xEF, 0xBB, 0xBF };
+    SYSTEMTIME SystemTime;
+
+    if (G_game_log_severity.LogLevel < LogLevel)
+    {
+        return;
+    }
+
+    switch (LogLevel)
+    {
+        case log_severity_none:
+            strcpy_s(LogMessageSeverityPrefix, sizeof(LogMessageSeverityPrefix), "=NONE= ");
+            break;
+
+        case log_severity_info:
+            strcpy_s(LogMessageSeverityPrefix, sizeof(LogMessageSeverityPrefix), "=INFO= ");
+            break;
+
+        case log_severity_warning:
+            strcpy_s(LogMessageSeverityPrefix, sizeof(LogMessageSeverityPrefix), "=WARN= ");
+            break;
+
+        case log_severity_error:
+            strcpy_s(LogMessageSeverityPrefix, sizeof(LogMessageSeverityPrefix), "=ERROR= ");
+            break;
+
+        case log_severity_debug:
+            strcpy_s(LogMessageSeverityPrefix, sizeof(LogMessageSeverityPrefix), "=DEBUG= ");
+            break;
+
+        default:
+            return;
+    }
+
+    GetSystemTime(&SystemTime);
+
+    _snprintf_s(LogTimeStamp, sizeof(LogTimeStamp), _TRUNCATE, "[%02u/%02u/%u %02u:%02u:%02u", SystemTime.wYear, SystemTime.wMonth, SystemTime.wDay, SystemTime.wHour, SystemTime.wMinute, SystemTime.wSecond);
+
+    va_list ArgPointer;
+
+    va_start(ArgPointer, Message);
+
+    _vsnprintf_s(LogMessage, sizeof(LogMessage), _TRUNCATE, Message, ArgPointer);
+
+    va_end(ArgPointer);
+
+
+    if ((hFile = CreateFileA("LOG_GAMEB.log", FILE_APPEND_DATA, FILE_SHARE_READ, NULL, OPEN_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL)) == INVALID_HANDLE_VALUE)
+    {
+
+        return;
+    }
+
+    WriteFile(hFile, LogTimeStamp, strlen(LogTimeStamp), &NumberOfBytesWritten, NULL);
+    WriteFile(hFile, LogMessageSeverityPrefix, strlen(LogMessageSeverityPrefix), &NumberOfBytesWritten, NULL);
+    WriteFile(hFile, LogMessage, strlen(LogMessage), &NumberOfBytesWritten, NULL);
+    WriteFile(hFile, LogMessageSeverityPrefix, strlen(LogMessageSeverityPrefix), &NumberOfBytesWritten, NULL);
+    WriteFile(hFile, "\r\n", 2, &NumberOfBytesWritten, NULL);
+
+    if (hFile != INVALID_HANDLE_VALUE)
+    {
+        CloseHandle(hFile);
+    }
+}

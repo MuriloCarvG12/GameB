@@ -51,7 +51,15 @@
 
 #define character_animation_cycle_two 2
 
+#define log_severity_none 0
 
+#define log_severity_info 1
+
+#define log_severity_warning 2
+
+#define log_severity_error 3
+
+#define log_severity_debug 4
 
 typedef LONG(NTAPI* _NtQueryTimerResolution) (OUT PULONG MinimumResolution, OUT PULONG MaximumResolution, OUT PULONG CurrentResolution);
 
@@ -119,6 +127,14 @@ typedef struct Player
     uint8_t PixelPosition;
 } Player;
 
+typedef struct GameCoordinate {
+    int32_t X;
+    int32_t Y;
+} GameCoordinate;
+
+typedef struct GameLogSeverity {
+    int32_t LogLevel;
+} GameLogSeverity;
 #ifdef SIMD
 void base_screen(uint32_t *pixel_color);
 #else
