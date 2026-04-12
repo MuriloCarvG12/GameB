@@ -9,6 +9,7 @@
 #include <stdint.h>
 #include <emmintrin.h>
 #include <psapi.h>
+#include <xaudio2.h>
 
 
 #define GAME_RES_WIDTH 384
@@ -156,5 +157,10 @@ typedef enum game_states
 
 HRESULT InitializeSoundEngine(void);
 
+typedef struct GAME_SOUND {
+    WAVEFORMATEX WaveFormat;
+    XAUDIO2_BUFFER Buffer;
+} GAME_SOUND ;
 
+DWORD LoadWavFileFromDisk(_In_ char* WavFileName, _Inout_ GAME_SOUND* game_sound);
 #endif //UNTITLED7_PROJECTDECLARATIONS_H

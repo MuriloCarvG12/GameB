@@ -29,6 +29,7 @@ GameLogSeverity G_game_log_severity;
 void WriteLog(_In_ DWORD LogLevel, _In_ char* Message, _In_ ...) ;
 DWORD LoadRegistryParameters(void);
 
+
 __m128i data;
 game_info GInfo;
 Player g_Player;
@@ -59,6 +60,8 @@ typedef HRESULT (__stdcall *PFN_XAudio2Create)(
 
 HMODULE G_XAudio2_DLL = NULL;
 PFN_XAudio2Create G_pXAudio2Create = NULL;
+
+GAME_SOUND gMenuNavigate;
 
 int  WinMain(HINSTANCE hInst, HINSTANCE hInstPrev, PSTR cmdline, int cmdshow)
 {
@@ -124,6 +127,13 @@ int  WinMain(HINSTANCE hInst, HINSTANCE hInstPrev, PSTR cmdline, int cmdshow)
     if (InitializeSoundEngine() != S_OK)
     {
         MessageBoxA(NULL, "InitializeSoundEngine failed!", "Error!", MB_ICONERROR | MB_OK);
+
+        goto EXIT;
+    }
+
+    if (LoadWavFileFromDisk(".\\Assets\\MenuNavigate.wav", &gMenuNavigate) != ERROR_SUCCESS)
+    {
+        MessageBoxA(NULL, "LoadWavFromFile failed!", "Error!", MB_ICONERROR | MB_OK);
 
         goto EXIT;
     }
@@ -1499,4 +1509,175 @@ HRESULT InitializeSoundEngine(void)
 
     Exit:
     return Result;
+}
+
+DWORD LoadWavFileFromDisk(_In_ char* WavFileName, _Inout_ GAME_SOUND* game_sound)
+{
+    DWORD Result = ERROR_SUCCESS;
+
+    DWORD NumberOfBytesRead = 0;
+
+    DWORD FileHeaderValidation = 0;
+
+    uint16_t DataChunkOffset = 0;
+
+    DWORD DataChunkSearcher = 0;
+
+    BOOL DataChunkFound = FALSE;
+
+    DWORD DataChunkSize = 0;
+
+    HANDLE FileHandle = INVALID_HANDLE_VALUE;
+
+    FileHandle = CreateFileA(WavFileName, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL , NULL);
+    if ( FileHandle == INVALID_HANDLE_VALUE ) {
+        WriteLog(log_severity_info,  "Failed to open the WAV file handle", __FUNCTION__, Result);
+        goto EXIT;
+    }
+
+    ReadFile(FileHandle, &FileHeaderValidation, sizeof(DWORD), &NumberOfBytesRead, NULL);
+
+    if (FileHeaderValidation != 0x46464952) // check if the FileHeaderFormat is "RIFF" in little edian
+    {
+        Result = ERROR_FILE_INVALID;
+        WriteLog(log_severity_info,  "Invalid WAV file ", __FUNCTION__, Result);
+        goto EXIT;
+    }
+
+    if (SetFilePointer(FileHandle, 20, NULL, FILE_BEGIN) == INVALID_SET_FILE_POINTER)
+    {
+        Result = GetLastError();
+        WriteLog(log_severity_info, "[%s] SetFilePointer failed with 0x%08lx!", __FUNCTION__, Result);
+        goto EXIT;
+    }
+
+    if (ReadFile(FileHandle, &game_sound->WaveFormat, sizeof(WAVEFORMATEX), &NumberOfBytesRead, NULL) == 0)
+    {
+        Result = GetLastError();
+        WriteLog(log_severity_info, "[%s] ReadFile failed with 0x%08lx!", __FUNCTION__, Result);
+        goto EXIT;
+    }
+
+    if (game_sound->WaveFormat.nBlockAlign != ((game_sound->WaveFormat.nChannels * game_sound->WaveFormat.wBitsPerSample) / 8) ||
+        (game_sound->WaveFormat.wFormatTag != WAVE_FORMAT_PCM) ||
+        (game_sound->WaveFormat.wBitsPerSample != 16))
+    {
+        Result = ERROR_DATATYPE_MISMATCH;
+
+        WriteLog(log_severity_info, "[%s] This wav file did not meet the format requirements! Only PCM format, 44.1KHz, 16 bits per sample wav files are supported. 0x%08lx!", __FUNCTION__, Result);
+
+        goto EXIT;
+    }
+
+    while (DataChunkFound == FALSE)
+    {
+        if (SetFilePointer(FileHandle, DataChunkOffset, NULL, FILE_BEGIN) == INVALID_SET_FILE_POINTER)
+        {
+            Result = GetLastError();
+
+            WriteLog(log_severity_info, "[%s] SetFilePointer failed with 0x%08lx!", __FUNCTION__, Result);
+
+            goto EXIT;
+        }
+
+        if (ReadFile(FileHandle, &DataChunkSearcher, sizeof(DWORD), &NumberOfBytesRead, NULL) == 0)
+        {
+            Result = GetLastError();
+
+            WriteLog(log_severity_info, "[%s] ReadFile failed with 0x%08lx!", __FUNCTION__, Result);
+
+            goto EXIT;
+        }
+
+        if (DataChunkSearcher == 0x61746164) // 'data', backwards
+        {
+            DataChunkFound = TRUE;
+
+            break;
+        }
+        else
+        {
+            DataChunkOffset += 4;
+        }
+
+        if (DataChunkOffset > 256)
+        {
+            Result = ERROR_DATATYPE_MISMATCH;
+
+            WriteLog(log_severity_info, "[%s] Data chunk not found within first 256 bytes of this file! 0x%08lx!", __FUNCTION__, Result);
+
+            goto EXIT;
+        }
+    }
+
+    if (SetFilePointer(FileHandle, DataChunkOffset + 4, NULL, FILE_BEGIN) == INVALID_SET_FILE_POINTER)
+    {
+        Result = GetLastError();
+        WriteLog(log_severity_info, "[%s] SetFilePointer failed with 0x%08lx!", __FUNCTION__, Result);
+        goto EXIT;
+    };
+
+    if (ReadFile(FileHandle, &DataChunkSize, sizeof(DWORD), &NumberOfBytesRead, NULL) == 0)
+    {
+        Result = GetLastError();
+        WriteLog(log_severity_info, "[%s] ReadFile failed with 0x%08lx!", __FUNCTION__, Result);
+        goto EXIT;
+    }
+
+    game_sound->Buffer.pAudioData = HeapAlloc(GetProcessHeap(), 0, DataChunkSize);
+
+    if (game_sound->Buffer.pAudioData == NULL) {
+        Result = ERROR_NOT_ENOUGH_MEMORY;
+        WriteLog(log_severity_info, "Failed to allocate memory for the WAV file", __FUNCTION__, Result);
+        goto EXIT;
+    }
+
+    game_sound->Buffer.Flags = XAUDIO2_END_OF_STREAM;
+
+    game_sound->Buffer.AudioBytes = DataChunkSize;
+
+    if (SetFilePointer(FileHandle, DataChunkOffset + 8, NULL, FILE_BEGIN) == INVALID_SET_FILE_POINTER)
+    {
+        Result = GetLastError();
+        WriteLog(log_severity_info, "Failed to reach the Sound Bytes of the WAV file", __FUNCTION__, Result);
+        goto EXIT;
+    }
+
+    if (ReadFile(FileHandle, game_sound->Buffer.pAudioData, DataChunkSize, &NumberOfBytesRead, NULL) == 0)
+    {
+        Result = GetLastError();
+        WriteLog(log_severity_info, "Failed to Write Sound bytes", __FUNCTION__, Result);
+        goto EXIT;
+    }
+
+    EXIT:
+        if (Result == ERROR_SUCCESS)
+        {
+            WriteLog(log_severity_info, "[%s] Successfully loaded %s.", __FUNCTION__, WavFileName);
+        }
+        else
+        {
+            WriteLog(log_severity_info, "[%s] Failed to load %s! Error: 0x%08lx!", __FUNCTION__, WavFileName, Result);
+        }
+
+    if (FileHandle && (FileHandle != INVALID_HANDLE_VALUE))
+    {
+        CloseHandle(FileHandle);
+    }
+
+    return(Result);
+}
+
+void PlayGameSound(_In_ GAME_SOUND* GameSound)
+{
+    G_Game_SoundEffects_Audio[Game_SoundEffects_Audio_Selector]->lpVtbl->SubmitSourceBuffer(G_Game_SoundEffects_Audio[Game_SoundEffects_Audio_Selector], &GameSound->Buffer, NULL);
+
+    G_Game_SoundEffects_Audio[Game_SoundEffects_Audio_Selector]->lpVtbl->Start(G_Game_SoundEffects_Audio[Game_SoundEffects_Audio_Selector], 0, XAUDIO2_COMMIT_NOW);
+
+    Game_SoundEffects_Audio_Selector++;
+
+    if (Game_SoundEffects_Audio_Selector > (MAX_NUMBER_GAME_SOUND_EFFECTS - 1))
+    {
+        Game_SoundEffects_Audio_Selector = 0;
+    }
 }
