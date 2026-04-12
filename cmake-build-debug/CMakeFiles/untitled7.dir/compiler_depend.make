@@ -116,6 +116,7 @@ CMakeFiles/untitled7.dir/main.c.obj: C:/Users/Chine/Desktop/GameB/main.c \
   C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/_timeval.h \
   C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/apiset.h \
   C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/apisetcconv.h \
+  C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/audiosessiontypes.h \
   C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/basetsd.h \
   C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/bcrypt.h \
   C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/bemapiset.h \
@@ -161,9 +162,11 @@ CMakeFiles/untitled7.dir/main.c.obj: C:/Users/Chine/Desktop/GameB/main.c \
   C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/memoryapi.h \
   C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/minwinbase.h \
   C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/minwindef.h \
+  C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/mmdeviceapi.h \
   C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/mmeapi.h \
   C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/mmiscapi.h \
   C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/mmiscapi2.h \
+  C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/mmreg.h \
   C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/mmsyscom.h \
   C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/mmsystem.h \
   C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/msxml.h \
@@ -175,6 +178,7 @@ CMakeFiles/untitled7.dir/main.c.obj: C:/Users/Chine/Desktop/GameB/main.c \
   C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/objbase.h \
   C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/objidl.h \
   C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/objidlbase.h \
+  C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/ocidl.h \
   C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/ole2.h \
   C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/oleauto.h \
   C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/oleidl.h \
@@ -185,6 +189,8 @@ CMakeFiles/untitled7.dir/main.c.obj: C:/Users/Chine/Desktop/GameB/main.c \
   C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/processtopologyapi.h \
   C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/profileapi.h \
   C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/propidl.h \
+  C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/propkeydef.h \
+  C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/propsys.h \
   C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/prsht.h \
   C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/psapi.h \
   C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/psdk_inc/_fd_types.h \
@@ -221,6 +227,7 @@ CMakeFiles/untitled7.dir/main.c.obj: C:/Users/Chine/Desktop/GameB/main.c \
   C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/securitybaseapi.h \
   C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/servprov.h \
   C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/shellapi.h \
+  C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/shtypes.h \
   C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/specstrings.h \
   C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/stdarg.h \
   C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/stddef.h \
@@ -230,6 +237,7 @@ CMakeFiles/untitled7.dir/main.c.obj: C:/Users/Chine/Desktop/GameB/main.c \
   C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/stralign.h \
   C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/string.h \
   C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/stringapiset.h \
+  C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/structuredquerycondition.h \
   C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/swprintf.inl \
   C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/synchapi.h \
   C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/sysinfoapi.h \
@@ -271,7 +279,11 @@ CMakeFiles/untitled7.dir/main.c.obj: C:/Users/Chine/Desktop/GameB/main.c \
   C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/wow64apiset.h \
   C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/wtypes.h \
   C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/wtypesbase.h \
+  C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/xaudio2.h \
+  C:/Users/Chine/Desktop/GameB/menu.h \
   C:/Users/Chine/Desktop/GameB/projectdeclarations.h
+
+CMakeFiles/untitled7.dir/menu.c.obj: C:/Users/Chine/Desktop/GameB/menu.c
 
 CMakeFiles/untitled7.dir/projectdeclarations.c.obj: C:/Users/Chine/Desktop/GameB/projectdeclarations.c \
   C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/adxintrin.h \
@@ -563,6 +575,8 @@ C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/1
 
 C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/psdk_inc/_wsa_errnos.h:
 
+C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/propsys.h:
+
 C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/amxtileintrin.h:
 
 C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/amxcomplexintrin.h:
@@ -745,6 +759,8 @@ C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/1
 
 C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/raointintrin.h:
 
+C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/propkeydef.h:
+
 C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/rdseedintrin.h:
 
 C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/oleauto.h:
@@ -829,6 +845,8 @@ C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/a
 
 C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/apisetcconv.h:
 
+C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/audiosessiontypes.h:
+
 C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/basetsd.h:
 
 C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/bcrypt.h:
@@ -885,6 +903,8 @@ C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/j
 
 C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/fibersapi.h:
 
+C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/structuredquerycondition.h:
+
 C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/poppack.h:
 
 C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/fileapi.h:
@@ -925,9 +945,13 @@ C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/m
 
 C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/minwindef.h:
 
+C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/mmdeviceapi.h:
+
 C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/mmeapi.h:
 
 C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/mmiscapi2.h:
+
+C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/mmreg.h:
 
 C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/mmsyscom.h:
 
@@ -950,6 +974,8 @@ C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/o
 C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/objbase.h:
 
 C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/objidlbase.h:
+
+C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/ocidl.h:
 
 C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/securityappcontainer.h:
 
@@ -1012,6 +1038,8 @@ C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/s
 C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/servprov.h:
 
 C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/shellapi.h:
+
+C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/shtypes.h:
 
 C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/specstrings.h:
 
@@ -1083,4 +1111,10 @@ C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/w
 
 C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/wtypes.h:
 
+C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/xaudio2.h:
+
+C:/Users/Chine/Desktop/GameB/menu.h:
+
 C:/Users/Chine/Desktop/GameB/projectdeclarations.h:
+
+C:/Users/Chine/Desktop/GameB/menu.c:

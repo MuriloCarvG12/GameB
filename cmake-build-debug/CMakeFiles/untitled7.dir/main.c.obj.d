@@ -272,4 +272,15 @@ CMakeFiles/untitled7.dir/main.c.obj: C:\Users\Chine\Desktop\GameB\main.c \
  C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/imm.h \
  C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/stdint.h \
  C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/stdint.h \
- C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/psapi.h
+ C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/psapi.h \
+ C:\Users\Chine\Desktop\GameB\menu.h \
+ C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/xaudio2.h \
+ C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/mmdeviceapi.h \
+ C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/propsys.h \
+ C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/ocidl.h \
+ C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/shtypes.h \
+ C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/structuredquerycondition.h \
+ C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/propkeydef.h \
+ C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/audiosessiontypes.h \
+ C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/mmreg.h \
+ C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/pshpack1.h

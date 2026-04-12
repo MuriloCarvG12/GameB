@@ -5,8 +5,12 @@
 #pragma warning(pop)
 
 #include "projectdeclarations.h"
+#include "menu.h"
+#include <xaudio2.h>
+
 #include <mmsystem.h>
 #pragma comment(lib, "Winmm.lib")
+
 
 GAME_BIT_MAP g_backbuffer;
 game_performance_info game_performance;
@@ -19,7 +23,7 @@ void rendergraphics();
 DWORD Load32BppFile(_In_ char * FilePath, _Inout_ GAME_BIT_MAP *GAME_BIT_MAP);
 DWORD InitializePlayer();
 GameCoordinate FindFontSprite(char Message);
-void BlitStringIntoBuffer(GAME_BIT_MAP *Sprite, int ScreenX, int ScreenY, char *Text);
+void BlitStringIntoBuffer(GAME_BIT_MAP *Sprite, int ScreenX, int ScreenY, char *Text, PIXEL32 FontColor);
 VOID Load32BppIntoBackBuffer(GAME_BIT_MAP *, int , int );
 GameLogSeverity G_game_log_severity;
 void WriteLog(_In_ DWORD LogLevel, _In_ char* Message, _In_ ...) ;
@@ -30,6 +34,31 @@ game_info GInfo;
 Player g_Player;
 BOOL gWindowHasFocus;
 GAME_BIT_MAP *g_CurrentSprite;
+
+game_states g_CurrentGameState = GAME_MAIN_MENU_STATE;
+
+float G_Current_Game_SoundEffect_Volume = 1.0;
+
+float G_Current_Game_Music_Volume = 1.0;
+
+IXAudio2* G_XAudio;
+
+IXAudio2MasteringVoice* G_XAudio_Mastering_Voice;
+
+IXAudio2SourceVoice *G_Game_SoundEffects_Audio[MAX_NUMBER_GAME_SOUND_EFFECTS];
+
+IXAudio2SourceVoice *G_Game_Music_Audio;
+
+uint8_t Game_SoundEffects_Audio_Selector;
+
+typedef HRESULT (__stdcall *PFN_XAudio2Create)(
+    IXAudio2 **ppXAudio2,
+    UINT32 Flags,
+    XAUDIO2_PROCESSOR XAudio2Processor
+);
+
+HMODULE G_XAudio2_DLL = NULL;
+PFN_XAudio2Create G_pXAudio2Create = NULL;
 
 int  WinMain(HINSTANCE hInst, HINSTANCE hInstPrev, PSTR cmdline, int cmdshow)
 {
@@ -89,6 +118,13 @@ int  WinMain(HINSTANCE hInst, HINSTANCE hInstPrev, PSTR cmdline, int cmdshow)
 
     if (LoadRegistryParameters() != ERROR_SUCCESS)
     {
+        goto EXIT;
+    }
+
+    if (InitializeSoundEngine() != S_OK)
+    {
+        MessageBoxA(NULL, "InitializeSoundEngine failed!", "Error!", MB_ICONERROR | MB_OK);
+
         goto EXIT;
     }
 
@@ -427,34 +463,69 @@ void processInput()
         }
     }
 
-
-
-
     debug_key_was_down = Debug_key_is_down;
     RightKeyWasDown = RightKeyIsDown;
     LeftKeyWasDown = LeftKeyIsDown;
-
-
 }
 
 void rendergraphics()
 {
-    char Text[] = "TESTANDO AQUI";
-    char Text2[] = "DESENHANDO FONTES PERSONALIZADAS COM C!";
     HDC DeviceContext = GetDC(g_window_handle);
+    switch (g_CurrentGameState)
+    {
+        case GAME_MAIN_MENU_STATE: {
+            //uint32_t colorBlack = 0xFF111111;
+            uint32_t colorBlack = 0xFF111111;
+            PIXEL32 FontColor;
+            FontColor.Blue = 0xFF;
+            FontColor.Green = 0xFF;
+            FontColor.Red = 0xFF;
 
-#ifdef SIMD
-    uint32_t color = 0xFF9900FF;
-    base_screen(&color);
-#else
+            base_screen(&colorBlack);
 
-    base_screen();
-#endif
+            uint8_t CurrentMenuItemSelected = 3;
+            char GameNameString[20] = "";
+            strncpy(GameNameString, MainGameMenu.MenuText, strlen(MainGameMenu.MenuText));
+            BlitStringIntoBuffer (&g_Game_Font, 50, 50, GameNameString, FontColor);
+            for (uint8_t MenuItemIterator = 0; MenuItemIterator < MainGameMenu.ItemCount; MenuItemIterator++)
+            {
+                int YOffset = 30 + 15 * MenuItemIterator;
 
-    BlitStringIntoBuffer (&g_Game_Font, 50, 50, Text);
-    BlitStringIntoBuffer (&g_Game_Font, 50, 75, Text2);
-    Load32BppIntoBackBuffer(&g_Player.PlayerSprite[g_Player.Direction + g_Player.SpriteIndex], g_Player.ScreenPosX, g_Player.ScreenPosY);
+                if (CurrentMenuItemSelected == MenuItemIterator)
+                {
+                    BlitStringIntoBuffer (&g_Game_Font, 35, 50 + YOffset, ">", FontColor);
+                }
 
+                char CurrentMenuItemString[40] = "";
+                strncpy(CurrentMenuItemString,  MainGameMenu.Items[MenuItemIterator]->ItemTitle, strlen(MainGameMenu.MenuText));
+                BlitStringIntoBuffer (&g_Game_Font, 50, 50 + YOffset, CurrentMenuItemString, FontColor);
+            }
+            break;
+        }
+        case GAME_OVERWORLD_STATE: {
+            char Text[] = "TESTANDO AQUI";
+            char Text2[] = "DESENHANDO FONTES PERSONALIZADAS COM C!";
+
+            #ifdef SIMD
+                uint32_t color = 0xFF9900FF;
+                base_screen(&color);
+            #else
+                base_screen();
+            #endif
+            PIXEL32 FontColor;
+            FontColor.Blue = 0x00;
+            FontColor.Green = 0x00;
+            FontColor.Red = 0x00;
+
+            BlitStringIntoBuffer (&g_Game_Font, 50, 50, Text, FontColor);
+            BlitStringIntoBuffer (&g_Game_Font, 50, 75, Text2, FontColor);
+            Load32BppIntoBackBuffer(&g_Player.PlayerSprite[g_Player.Direction + g_Player.SpriteIndex], g_Player.ScreenPosX, g_Player.ScreenPosY);
+            break;
+        }
+        default:
+            int *i;
+            *i = 3.0;
+    }
     StretchDIBits(DeviceContext, 0, 0, GInfo.monitor_width, GInfo.monitor_height, 0, 0, GAME_RES_WIDTH, GAME_RES_HEIGHT, g_backbuffer.memory_canvas, &g_backbuffer.BitMapInfo, DIB_RGB_COLORS, SRCCOPY);
 
     if(game_performance.DebugModeOn == TRUE)
@@ -493,11 +564,8 @@ void rendergraphics()
         //this TextOut function prints stuff onto our program!
         TextOutA(DeviceContext, 0,105, c_DebugBuffer, (int) strlen(c_DebugBuffer));
     }
-
-
-
-
     ReleaseDC(g_window_handle, DeviceContext);
+
 }
 
 #ifdef SIMD
@@ -789,7 +857,7 @@ DWORD InitializePlayer(void)
         return(Error);
 }
 
-void BlitStringIntoBuffer(GAME_BIT_MAP *Sprite, int ScreenX, int ScreenY, char Text[])
+void BlitStringIntoBuffer(GAME_BIT_MAP *Sprite, int ScreenX, int ScreenY, char Text[], PIXEL32 FontColor)
 {
     int spriteHeight = abs(Sprite->BitMapInfo.bmiHeader.biHeight);
     int spriteWidth= abs(Sprite->BitMapInfo.bmiHeader.biWidth);
@@ -825,6 +893,9 @@ void BlitStringIntoBuffer(GAME_BIT_MAP *Sprite, int ScreenX, int ScreenY, char T
                 BOOL isMagenta = (CurrentSpritePixel.Blue == 0xFF && CurrentSpritePixel.Green == 0x00 && CurrentSpritePixel.Red == 0xFF);
                 if (!isMagenta)
                 {
+                    CurrentSpritePixel.Blue =FontColor.Blue;
+                    CurrentSpritePixel.Green = FontColor.Green;
+                    CurrentSpritePixel.Red = FontColor.Red;
                     bufferPixels[destIndex] = CurrentSpritePixel;
                 }
             }
@@ -1323,4 +1394,109 @@ void WriteLog(_In_ DWORD LogLevel, _In_ char* Message, _In_ ...) {
     {
         CloseHandle(hFile);
     }
+}
+
+HRESULT InitializeSoundEngine(void)
+{
+    HRESULT Result = S_OK;
+
+    WAVEFORMATEX SoundEffectWave = { 0 };
+    WAVEFORMATEX MusicWave = { 0 };
+
+    Result = CoInitializeEx(NULL, COINIT_MULTITHREADED);
+    if (Result != S_OK)
+    {
+        WriteLog(log_severity_info, "Call to CoInitializeEx Failed!", __FUNCTION__);
+        goto Exit;
+    }
+
+    G_XAudio2_DLL = LoadLibraryA("XAudio2_9.dll");
+    if (G_XAudio2_DLL == NULL)
+    {
+        Result = E_FAIL;
+        WriteLog(log_severity_info, "LoadLibrary Failed!", __FUNCTION__);
+        goto Exit;
+    }
+
+    G_pXAudio2Create = (PFN_XAudio2Create)GetProcAddress(G_XAudio2_DLL, "XAudio2Create");
+    if (G_pXAudio2Create == NULL)
+    {
+        Result = E_FAIL;
+        WriteLog(log_severity_info, "GetProcAddress Failed!", __FUNCTION__);
+        goto Exit;
+    }
+
+    Result =  G_pXAudio2Create(&G_XAudio, 0, XAUDIO2_ANY_PROCESSOR);
+
+    if (FAILED(Result))
+    {
+        WriteLog(log_severity_info,  "Call to XAuido2Create Failed!", __FUNCTION__, Result);
+        goto Exit;
+    }
+
+    Result = G_XAudio->lpVtbl->CreateMasteringVoice(G_XAudio, &G_XAudio_Mastering_Voice, XAUDIO2_DEFAULT_CHANNELS, XAUDIO2_DEFAULT_SAMPLERATE, 0, 0, NULL, 0);
+
+    if (FAILED(Result))
+    {
+        WriteLog(log_severity_info,  "Call to CreateMasteringVoice Failed!", __FUNCTION__, Result);
+
+        goto Exit;
+    }
+    // initializing SoundEffects
+    SoundEffectWave.wFormatTag = WAVE_FORMAT_PCM;
+
+    SoundEffectWave.nChannels = 1;
+
+    SoundEffectWave.nSamplesPerSec = 44100;
+
+    SoundEffectWave.nAvgBytesPerSec = SoundEffectWave.nSamplesPerSec * SoundEffectWave.nChannels * 2;
+
+    SoundEffectWave.nBlockAlign = SoundEffectWave.nChannels * 2;
+
+    SoundEffectWave.wBitsPerSample = 16;
+
+    SoundEffectWave.cbSize = 0x6164;
+
+    for (int CurrentSoundEffect = 0; CurrentSoundEffect < MAX_NUMBER_GAME_SOUND_EFFECTS; CurrentSoundEffect++)
+    {
+        //initializing the soundeffect at index CurrentSoundEffect
+        Result = G_XAudio->lpVtbl->CreateSourceVoice(G_XAudio, &G_Game_SoundEffects_Audio[CurrentSoundEffect], &SoundEffectWave, 0, XAUDIO2_DEFAULT_FREQ_RATIO, NULL, NULL, NULL);
+        if (FAILED(Result))
+        {
+            WriteLog(log_severity_info,  "The initialization of G_Game_SoundEffects_Audio failed!", __FUNCTION__, Result);
+
+            goto Exit;
+        }
+        //after initailizing it set the volume
+        G_Game_SoundEffects_Audio[CurrentSoundEffect]->lpVtbl->SetVolume(G_Game_SoundEffects_Audio[CurrentSoundEffect], G_Current_Game_SoundEffect_Volume, XAUDIO2_COMMIT_NOW);
+    }
+    //Initializing GameMusic
+
+    MusicWave.wFormatTag = WAVE_FORMAT_PCM;
+
+    MusicWave.nChannels = 2;
+
+    MusicWave.nSamplesPerSec = 44100;
+
+    MusicWave.nAvgBytesPerSec = MusicWave.nSamplesPerSec * MusicWave.nChannels * 2;
+
+    MusicWave.nBlockAlign = MusicWave.nChannels * 2;
+
+    MusicWave.wBitsPerSample = 16;
+
+    MusicWave.cbSize = 0;
+
+    Result = G_XAudio->lpVtbl->CreateSourceVoice(G_XAudio, &G_Game_Music_Audio, &MusicWave, 0, XAUDIO2_DEFAULT_FREQ_RATIO, NULL, NULL, NULL);
+
+    if (FAILED(Result))
+    {
+        WriteLog(log_severity_info,  "The initialization of G_Game_Music_Audio failed!", __FUNCTION__, Result);
+
+        goto Exit;
+    }
+
+    G_Game_Music_Audio->lpVtbl->SetVolume(G_Game_Music_Audio, G_Current_Game_Music_Volume, XAUDIO2_COMMIT_NOW);
+
+    Exit:
+    return Result;
 }

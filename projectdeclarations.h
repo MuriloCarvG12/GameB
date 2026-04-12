@@ -61,6 +61,8 @@
 
 #define log_severity_debug 4
 
+#define MAX_NUMBER_GAME_SOUND_EFFECTS 4
+
 typedef LONG(NTAPI* _NtQueryTimerResolution) (OUT PULONG MinimumResolution, OUT PULONG MaximumResolution, OUT PULONG CurrentResolution);
 
 
@@ -135,11 +137,24 @@ typedef struct GameCoordinate {
 typedef struct GameLogSeverity {
     int32_t LogLevel;
 } GameLogSeverity;
+
 #ifdef SIMD
 void base_screen(uint32_t *pixel_color);
 #else
 void base_screen();
 #endif
+
+typedef enum game_states
+{
+    GAME_INTRO_STATE = 0,
+    GAME_MAIN_MENU_STATE = 1,
+    GAME_OVERWORLD_STATE = 2,
+    GAME_BATTLE_STATE = 3,
+    GAME_PAUSE_STATE = 4,
+    GAME_OPTIONS_STATE = 5
+} game_states;
+
+HRESULT InitializeSoundEngine(void);
 
 
 #endif //UNTITLED7_PROJECTDECLARATIONS_H

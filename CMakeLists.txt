@@ -5,7 +5,13 @@ set(CMAKE_C_STANDARD 11)
 
 add_executable(untitled7 main.c
         projectdeclarations.c
-        projectdeclarations.h)
+        projectdeclarations.h
+        menu.c
+        menu.h)
 
-target_link_libraries(untitled7 PRIVATE winmm)
+target_link_libraries(untitled7 PRIVATE
+        winmm
+        ole32
+        uuid
+)
 

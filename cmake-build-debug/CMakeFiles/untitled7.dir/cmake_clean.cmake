@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/untitled7.dir/main.c.obj"
   "CMakeFiles/untitled7.dir/main.c.obj.d"
+  "CMakeFiles/untitled7.dir/menu.c.obj"
+  "CMakeFiles/untitled7.dir/menu.c.obj.d"
   "CMakeFiles/untitled7.dir/projectdeclarations.c.obj"
   "CMakeFiles/untitled7.dir/projectdeclarations.c.obj.d"
   "libuntitled7.dll.a"

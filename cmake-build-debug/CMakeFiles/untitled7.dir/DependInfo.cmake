@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/Users/Chine/Desktop/GameB/main.c" "CMakeFiles/untitled7.dir/main.c.obj" "gcc" "CMakeFiles/untitled7.dir/main.c.obj.d"
+  "C:/Users/Chine/Desktop/GameB/menu.c" "CMakeFiles/untitled7.dir/menu.c.obj" "gcc" "CMakeFiles/untitled7.dir/menu.c.obj.d"
   "C:/Users/Chine/Desktop/GameB/projectdeclarations.c" "CMakeFiles/untitled7.dir/projectdeclarations.c.obj" "gcc" "CMakeFiles/untitled7.dir/projectdeclarations.c.obj.d"
   )
 
