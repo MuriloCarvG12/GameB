@@ -365,117 +365,178 @@ void processInput()
     short LeftKeyIsDown = GetAsyncKeyState('A');
     short RightKeyIsDown = GetAsyncKeyState('D');
     short DownKeyIsDown = GetAsyncKeyState('S');
+    short EnterKeyIsDown = GetAsyncKeyState(VK_RETURN);
+
+    static short EnterKeyWasDown;
     static short LeftKeyWasDown;
     static short RightKeyWasDown;
     static short debug_key_was_down;
+    static short UpKeyWasDown;
+    static short DownKeyWasDown;
 
     uint8_t CurrentPixelPosition = 0;
 
-    if(Esc_Key_is_down)
+    switch (g_CurrentGameState)
     {
-        SendMessageA(g_window_handle, WM_CLOSE, 0, 0);
-    }
-
-    if(Debug_key_is_down && !debug_key_was_down)
-    {
-        game_performance.DebugModeOn = !game_performance.DebugModeOn ;
-    }
-
-    if(DownKeyIsDown)
-    {
-        if(g_Player.ScreenPosY < (GAME_RES_HEIGHT - 16))
+        case GAME_MAIN_MENU_STATE:
         {
-            g_Player.ScreenPosY += 1;
-            g_Player.PixelPosition += 1;
-            g_Player.Direction = character_direction_down;
-        }
-    }
-
-    if(LeftKeyIsDown)
-    {
-        if(g_Player.ScreenPosX > 0)
-        {
-            g_Player.ScreenPosX -= 1;
-            g_Player.PixelPosition += 1;
-            g_Player.Direction = character_direction_left;
-
-        }
-
-    }
-
-    if(RightKeyIsDown)
-    {
-        if(g_Player.ScreenPosX < GAME_RES_WIDTH - 16)
-        {
-            g_Player.ScreenPosX += 1;
-            g_Player.PixelPosition += 1;
-            g_Player.Direction = character_direction_right;
-        }
-
-    }
-
-    if(UpKeyIsDown)
-    {
-        if(g_Player.ScreenPosY > 0)
-        {
-            g_Player.ScreenPosY -= 1;
-            g_Player.PixelPosition += 1;
-            g_Player.Direction = character_direction_up;
-        }
-
-    }
-
-    if(UpKeyIsDown && RunKeyIsDown)
-    {
-        if(g_Player.ScreenPosY > 1)
-        {
-            g_Player.ScreenPosY -= 2;
-        }
-    }
-
-    if(DownKeyIsDown && RunKeyIsDown)
-    {
-        if(g_Player.ScreenPosY < (GAME_RES_HEIGHT - 17))
-        {
-            g_Player.ScreenPosY += 2;
-        }
-    }
-
-    if(g_Player.PixelPosition > 12)
-    {
-        g_Player.PixelPosition = 0;
-    }
-    else
-    {
-        switch(g_Player.PixelPosition)
-        {
-            case 0:
+            if (UpKeyIsDown && !UpKeyWasDown)
             {
-                g_Player.SpriteIndex = character_animation_standing;
-                break;
-            }
-            case 4:
-            {
-                g_Player.SpriteIndex = character_animation_cycle_one;
-                break;
+                MainGameMenu.SelectedItem < 4 && MainGameMenu.SelectedItem++;
+                PlayGameSound(&gMenuNavigate);
             }
 
-            case 8:
+            if (DownKeyIsDown && !DownKeyWasDown)
             {
-                g_Player.SpriteIndex = character_animation_standing;
-                break;
+                MainGameMenu.SelectedItem > 0 && MainGameMenu.SelectedItem--;
+                PlayGameSound(&gMenuNavigate);
             }
-            case 12:
+
+            if (EnterKeyIsDown && !EnterKeyWasDown)
             {
-                g_Player.SpriteIndex = character_animation_cycle_two;
-                break;
+                MainGameMenu.Items[MainGameMenu.SelectedItem]->action();
             }
+
+            EnterKeyWasDown = EnterKeyIsDown;
+            UpKeyWasDown = UpKeyIsDown;
+            DownKeyWasDown = DownKeyIsDown;
+        }
+
+        case GAME_YESORNOEXITMENU_STATE:
+        {
+            if (UpKeyIsDown && !UpKeyWasDown)
+            {
+                g_ExitYesOrNoMenu.SelectedItem < 1 && g_ExitYesOrNoMenu.SelectedItem++;
+                PlayGameSound(&gMenuNavigate);
+            }
+
+            if (DownKeyIsDown && !DownKeyWasDown)
+            {
+                g_ExitYesOrNoMenu.SelectedItem > 0 && g_ExitYesOrNoMenu.SelectedItem--;
+                PlayGameSound(&gMenuNavigate);
+            }
+
+            if (EnterKeyIsDown && !EnterKeyWasDown)
+            {
+                g_ExitYesOrNoMenu.Items[g_ExitYesOrNoMenu.SelectedItem]->action();
+            }
+
+            EnterKeyWasDown = EnterKeyIsDown;
+            UpKeyWasDown = UpKeyIsDown;
+            DownKeyWasDown = DownKeyIsDown;
+
+        }
+
+        case GAME_OVERWORLD_STATE:
+        {
+            if(Esc_Key_is_down)
+            {
+                SendMessageA(g_window_handle, WM_CLOSE, 0, 0);
+            }
+
+            if(Debug_key_is_down && !debug_key_was_down)
+            {
+                game_performance.DebugModeOn = !game_performance.DebugModeOn ;
+            }
+
+            if(DownKeyIsDown)
+            {
+                if(g_Player.ScreenPosY < (GAME_RES_HEIGHT - 16))
+                {
+                    g_Player.ScreenPosY += 1;
+                    g_Player.PixelPosition += 1;
+                    g_Player.Direction = character_direction_down;
+                }
+            }
+
+            if(LeftKeyIsDown)
+            {
+                if(g_Player.ScreenPosX > 0)
+                {
+                    g_Player.ScreenPosX -= 1;
+                    g_Player.PixelPosition += 1;
+                    g_Player.Direction = character_direction_left;
+
+                }
+
+            }
+
+            if(RightKeyIsDown)
+            {
+                if(g_Player.ScreenPosX < GAME_RES_WIDTH - 16)
+                {
+                    g_Player.ScreenPosX += 1;
+                    g_Player.PixelPosition += 1;
+                    g_Player.Direction = character_direction_right;
+                }
+
+            }
+
+            if(UpKeyIsDown)
+            {
+                if(g_Player.ScreenPosY > 0)
+                {
+                    g_Player.ScreenPosY -= 1;
+                    g_Player.PixelPosition += 1;
+                    g_Player.Direction = character_direction_up;
+                }
+
+            }
+
+            if(UpKeyIsDown && RunKeyIsDown)
+            {
+                if(g_Player.ScreenPosY > 1)
+                {
+                    g_Player.ScreenPosY -= 2;
+                }
+            }
+
+            if(DownKeyIsDown && RunKeyIsDown)
+            {
+                if(g_Player.ScreenPosY < (GAME_RES_HEIGHT - 17))
+                {
+                    g_Player.ScreenPosY += 2;
+                }
+            }
+
+            if(g_Player.PixelPosition > 12)
+            {
+                g_Player.PixelPosition = 0;
+            }
+            else
+            {
+                switch(g_Player.PixelPosition)
+                {
+                    case 0:
+                    {
+                        g_Player.SpriteIndex = character_animation_standing;
+                        break;
+                    }
+                    case 4:
+                    {
+                        g_Player.SpriteIndex = character_animation_cycle_one;
+                        break;
+                    }
+
+                    case 8:
+                    {
+                        g_Player.SpriteIndex = character_animation_standing;
+                        break;
+                    }
+                    case 12:
+                    {
+                        g_Player.SpriteIndex = character_animation_cycle_two;
+                        break;
+                    }
+                }
+            }
+
+            debug_key_was_down = Debug_key_is_down;
+            RightKeyWasDown = RightKeyIsDown;
+            LeftKeyWasDown = LeftKeyIsDown;
         }
     }
 
-    debug_key_was_down = Debug_key_is_down;
-    RightKeyWasDown = RightKeyIsDown;
-    LeftKeyWasDown = LeftKeyIsDown;
 }
 
 void rendergraphics()
@@ -493,7 +554,7 @@ void rendergraphics()
 
             base_screen(&colorBlack);
 
-            uint8_t CurrentMenuItemSelected = 3;
+
             char GameNameString[20] = "";
             strncpy(GameNameString, MainGameMenu.MenuText, strlen(MainGameMenu.MenuText));
             BlitStringIntoBuffer (&g_Game_Font, 50, 50, GameNameString, FontColor);
@@ -501,7 +562,7 @@ void rendergraphics()
             {
                 int YOffset = 30 + 15 * MenuItemIterator;
 
-                if (CurrentMenuItemSelected == MenuItemIterator)
+                if (MainGameMenu.SelectedItem == MenuItemIterator)
                 {
                     BlitStringIntoBuffer (&g_Game_Font, 35, 50 + YOffset, ">", FontColor);
                 }
@@ -512,6 +573,38 @@ void rendergraphics()
             }
             break;
         }
+        case GAME_YESORNOEXITMENU_STATE :
+        {
+            uint32_t colorBlack = 0xFF111111;
+            PIXEL32 FontColor;
+            FontColor.Blue = 0xFF;
+            FontColor.Green = 0xFF;
+            FontColor.Red = 0xFF;
+
+            base_screen(&colorBlack);
+
+            char MenuItemMessage[40] = "";
+            strncpy(MenuItemMessage, g_ExitYesOrNoMenu.MenuText, strlen(g_ExitYesOrNoMenu.MenuText));
+            BlitStringIntoBuffer (&g_Game_Font, 50, 50, MenuItemMessage, FontColor);
+
+            for (uint8_t MenuItemIterator = 0; MenuItemIterator < g_ExitYesOrNoMenu.ItemCount; MenuItemIterator++)
+            {
+                int YOffset = 30 + 15 * MenuItemIterator;
+
+                if (g_ExitYesOrNoMenu.SelectedItem == MenuItemIterator)
+                {
+                    BlitStringIntoBuffer (&g_Game_Font, 35, 50 + YOffset, ">", FontColor);
+                }
+
+                char CurrentMenuItemString[40] = "";
+                strncpy(CurrentMenuItemString,  g_ExitYesOrNoMenu.Items[MenuItemIterator]->ItemTitle, strlen(MainGameMenu.MenuText));
+                BlitStringIntoBuffer (&g_Game_Font, 50, 50 + YOffset, CurrentMenuItemString, FontColor);
+            }
+
+
+            break;
+        }
+
         case GAME_OVERWORLD_STATE: {
             char Text[] = "TESTANDO AQUI";
             char Text2[] = "DESENHANDO FONTES PERSONALIZADAS COM C!";
@@ -1681,3 +1774,21 @@ void PlayGameSound(_In_ GAME_SOUND* GameSound)
         Game_SoundEffects_Audio_Selector = 0;
     }
 }
+
+void g_mi_ResumeGameAction(void){};
+void g_mi_StartGameAction(void){};
+void g_mi_SaveGameAction(void){};
+void g_mi_OptionGameAction(void){};
+void g_mi_CloseGameAction(void)
+{
+    g_CurrentGameState = GAME_YESORNOEXITMENU_STATE;
+};
+
+void g_mi_ExitGameAction(void)
+{
+    SendMessageA(g_window_handle, WM_CLOSE, 0, 0);
+};
+void g_mi_DontExitGameAction(void)
+{
+    g_CurrentGameState = GAME_MAIN_MENU_STATE;
+};

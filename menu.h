@@ -21,11 +21,11 @@ typedef struct Menu {
     MenuItem** Items;
 } Menu;
 
-void g_mi_ResumeGameAction(void){};
-void g_mi_StartGameAction(void){};
-void g_mi_SaveGameAction(void){};
-void g_mi_OptionGameAction(void){};
-void g_mi_CloseGameAction(void){};
+void g_mi_ResumeGameAction(void);
+void g_mi_StartGameAction(void);
+void g_mi_SaveGameAction(void);
+void g_mi_OptionGameAction(void);
+void g_mi_CloseGameAction(void);
 
 MenuItem g_mi_ResumeGame = {"RESUME GAME", g_mi_ResumeGameAction, 32, 32};
 MenuItem g_mi_StartGame  = {"START GAME",  g_mi_StartGameAction,  32, 48};
@@ -36,5 +36,15 @@ MenuItem g_mi_OptionGame = {"OPTION GAME", g_mi_OptionGameAction, 32, 96};
 MenuItem* g_mi_TitleScreenItems[] = { &g_mi_ResumeGame, &g_mi_StartGame, &g_mi_SaveGame, &g_mi_CloseGame, &g_mi_OptionGame };
 
 Menu MainGameMenu = {"GAME B TITLE SCREEN", 0 , _countof(g_mi_TitleScreenItems), g_mi_TitleScreenItems};
+
+void g_mi_ExitGameAction(void);
+void g_mi_DontExitGameAction(void);
+
+MenuItem g_mi_ExitYes = {"YES", g_mi_ExitGameAction, 32, 32};
+MenuItem g_mi_ExitNo  = {"NO",  g_mi_DontExitGameAction,  32, 48};
+
+MenuItem* g_mi_ExitYesOrNoScreenItems[] = { &g_mi_ExitYes, &g_mi_ExitNo };
+
+Menu g_ExitYesOrNoMenu = {"ARE YOU SURE YOU WANT TO LEAVE?", 0, _countof(g_mi_ExitYesOrNoScreenItems), g_mi_ExitYesOrNoScreenItems};
 
 #endif //UNTITLED7_MENU_H

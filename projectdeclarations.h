@@ -149,7 +149,8 @@ typedef enum game_states
 {
     GAME_INTRO_STATE = 0,
     GAME_MAIN_MENU_STATE = 1,
-    GAME_OVERWORLD_STATE = 2,
+    GAME_YESORNOEXITMENU_STATE = 2,
+    GAME_OVERWORLD_STATE = 3,
     GAME_BATTLE_STATE = 3,
     GAME_PAUSE_STATE = 4,
     GAME_OPTIONS_STATE = 5
@@ -163,4 +164,6 @@ typedef struct GAME_SOUND {
 } GAME_SOUND ;
 
 DWORD LoadWavFileFromDisk(_In_ char* WavFileName, _Inout_ GAME_SOUND* game_sound);
+void PlayGameSound(_In_ GAME_SOUND* GameSound);
+
 #endif //UNTITLED7_PROJECTDECLARATIONS_H
