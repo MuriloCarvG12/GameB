@@ -63,6 +63,8 @@ PFN_XAudio2Create G_pXAudio2Create = NULL;
 
 GAME_SOUND gMenuNavigate;
 
+BOOL GameInProgress = FALSE;
+
 int  WinMain(HINSTANCE hInst, HINSTANCE hInstPrev, PSTR cmdline, int cmdshow)
 {
     UNREFERENCED_PARAMETER(hInstPrev);
@@ -151,6 +153,12 @@ int  WinMain(HINSTANCE hInst, HINSTANCE hInstPrev, PSTR cmdline, int cmdshow)
     }
 
     g_CurrentSprite = &g_Player.PlayerSprite[character_sprite_down_standing];
+
+    if (GameInProgress == FALSE) {
+        MainGameMenu.SelectedItem = 1;
+        MainGameMenu.Items[1]->ItemIsActive = TRUE;
+        MainGameMenu.Items[0]->ItemIsActive = FALSE;
+    }
 
     memset(g_backbuffer.memory_canvas,0x00, GAME_AREA_MEMORY_SIZE);
 
@@ -380,15 +388,61 @@ void processInput()
     {
         case GAME_MAIN_MENU_STATE:
         {
+
             if (UpKeyIsDown && !UpKeyWasDown)
             {
-                MainGameMenu.SelectedItem < 4 && MainGameMenu.SelectedItem++;
+                if (GameInProgress)
+                {
+                    if (MainGameMenu.SelectedItem == 0)
+                    {
+                        MainGameMenu.SelectedItem = 2;
+                    }
+                    else
+                    {
+                        MainGameMenu.SelectedItem < 4 && MainGameMenu.SelectedItem++;
+                    }
+                }
+                else
+                {
+                    if (MainGameMenu.SelectedItem == 0)
+                    {
+                        MainGameMenu.SelectedItem = 1;
+                    }
+                    else
+                    {
+                        MainGameMenu.SelectedItem < 4 && MainGameMenu.SelectedItem++;
+                    }
+                }
+
                 PlayGameSound(&gMenuNavigate);
             }
 
             if (DownKeyIsDown && !DownKeyWasDown)
             {
-                MainGameMenu.SelectedItem > 0 && MainGameMenu.SelectedItem--;
+                if (GameInProgress)
+                {
+                    if (MainGameMenu.SelectedItem == 2)
+                    {
+                        MainGameMenu.SelectedItem = 0;
+                    }
+                    else
+                    {
+                        MainGameMenu.SelectedItem > 0 && MainGameMenu.SelectedItem--;
+                    }
+                }
+                else
+                {
+                    if (MainGameMenu.SelectedItem == 2)
+                    {
+                        MainGameMenu.SelectedItem = 1;
+                    }
+                    else
+                    {
+                        MainGameMenu.SelectedItem > 1 && MainGameMenu.SelectedItem--;
+                    }
+                }
+
+
                 PlayGameSound(&gMenuNavigate);
             }
 
@@ -419,12 +473,39 @@ void processInput()
             if (EnterKeyIsDown && !EnterKeyWasDown)
             {
                 g_ExitYesOrNoMenu.Items[g_ExitYesOrNoMenu.SelectedItem]->action();
+                PlayGameSound(&gMenuNavigate);
             }
 
             EnterKeyWasDown = EnterKeyIsDown;
             UpKeyWasDown = UpKeyIsDown;
             DownKeyWasDown = DownKeyIsDown;
 
+        }
+
+        case GAME_OPTIONS_STATE:
+        {
+            if (UpKeyIsDown && !UpKeyWasDown)
+            {
+                g_mi_OptionsMenu.SelectedItem < 3 && g_mi_OptionsMenu.SelectedItem++;
+                PlayGameSound(&gMenuNavigate);
+            }
+
+            if (DownKeyIsDown && !DownKeyWasDown)
+            {
+                g_mi_OptionsMenu.SelectedItem > 0 && g_mi_OptionsMenu.SelectedItem--;
+                PlayGameSound(&gMenuNavigate);
+            }
+
+            if (EnterKeyIsDown && !EnterKeyWasDown)
+            {
+                g_mi_OptionsMenu.Items[g_mi_OptionsMenu.SelectedItem]->action();
+                PlayGameSound(&gMenuNavigate);
+            }
+
+            EnterKeyWasDown = EnterKeyIsDown;
+            UpKeyWasDown = UpKeyIsDown;
+            DownKeyWasDown = DownKeyIsDown;
+            break;
         }
 
         case GAME_OVERWORLD_STATE:
@@ -557,19 +638,20 @@ void rendergraphics()
 
             char GameNameString[20] = "";
             strncpy(GameNameString, MainGameMenu.MenuText, strlen(MainGameMenu.MenuText));
-            BlitStringIntoBuffer (&g_Game_Font, 50, 50, GameNameString, FontColor);
+            BlitStringIntoBuffer (&g_Game_Font, 50, 20, GameNameString, FontColor);
+
             for (uint8_t MenuItemIterator = 0; MenuItemIterator < MainGameMenu.ItemCount; MenuItemIterator++)
             {
-                int YOffset = 30 + 15 * MenuItemIterator;
-
-                if (MainGameMenu.SelectedItem == MenuItemIterator)
+                if (MainGameMenu.Items[MenuItemIterator]->ItemIsActive == TRUE)
                 {
-                    BlitStringIntoBuffer (&g_Game_Font, 35, 50 + YOffset, ">", FontColor);
+                    BlitStringIntoBuffer (&g_Game_Font, 35, MainGameMenu.Items[MainGameMenu.SelectedItem]->Y, ">", FontColor);
+
+                    char CurrentMenuItemString[40] = "";
+                    strncpy(CurrentMenuItemString,  MainGameMenu.Items[MenuItemIterator]->ItemTitle, strlen(MainGameMenu.MenuText));
+                    BlitStringIntoBuffer (&g_Game_Font, 50, MainGameMenu.Items[MenuItemIterator]->Y, CurrentMenuItemString, FontColor);
                 }
 
-                char CurrentMenuItemString[40] = "";
-                strncpy(CurrentMenuItemString,  MainGameMenu.Items[MenuItemIterator]->ItemTitle, strlen(MainGameMenu.MenuText));
-                BlitStringIntoBuffer (&g_Game_Font, 50, 50 + YOffset, CurrentMenuItemString, FontColor);
+
             }
             break;
         }
@@ -589,6 +671,7 @@ void rendergraphics()
 
             for (uint8_t MenuItemIterator = 0; MenuItemIterator < g_ExitYesOrNoMenu.ItemCount; MenuItemIterator++)
             {
+                if (g_ExitYesOrNoMenu.Items[MenuItemIterator]->ItemIsActive != TRUE) { continue; }
                 int YOffset = 30 + 15 * MenuItemIterator;
 
                 if (g_ExitYesOrNoMenu.SelectedItem == MenuItemIterator)
@@ -601,6 +684,84 @@ void rendergraphics()
                 BlitStringIntoBuffer (&g_Game_Font, 50, 50 + YOffset, CurrentMenuItemString, FontColor);
             }
 
+
+            break;
+        }
+
+        case GAME_OPTIONS_STATE: {
+            uint32_t colorBlack = 0xFF111111;
+            PIXEL32 FontColor;
+            FontColor.Blue = 0xFF;
+            FontColor.Green = 0xFF;
+            FontColor.Red = 0xFF;
+
+            base_screen(&colorBlack);
+
+            char MenuItemMessage[40] = "";
+            strncpy(MenuItemMessage, g_mi_OptionsMenu.MenuText, strlen(g_mi_OptionsMenu.MenuText));
+            BlitStringIntoBuffer (&g_Game_Font, 50, 50, MenuItemMessage, FontColor);
+
+            for (uint8_t MenuItemIterator = 0; MenuItemIterator < g_mi_OptionsMenu.ItemCount; MenuItemIterator++)
+            {
+                if (g_mi_OptionsMenu.Items[MenuItemIterator]->ItemIsActive != TRUE) { continue; }
+                int YOffset = 30 + 15 * MenuItemIterator;
+
+                if (g_mi_OptionsMenu.SelectedItem == MenuItemIterator)
+                {
+                    BlitStringIntoBuffer (&g_Game_Font, 35, 50 + YOffset, ">", FontColor);
+                }
+
+                char CurrentMenuItemString[40] = "";
+                strncpy(CurrentMenuItemString,  g_mi_OptionsMenu.Items[MenuItemIterator]->ItemTitle, strlen(g_mi_OptionsMenu.Items[MenuItemIterator]->ItemTitle));
+                BlitStringIntoBuffer (&g_Game_Font, 50, 50 + YOffset, CurrentMenuItemString, FontColor);
+            }
+            PIXEL32 ActiveFontColor;
+            ActiveFontColor.Blue = 0xFF;
+            ActiveFontColor.Green = 0xFF;
+            ActiveFontColor.Red = 0xFF;
+            ActiveFontColor.Padding = 0xFF;
+
+            PIXEL32 InactiveFontColor;
+            InactiveFontColor.Blue = 0xAA;
+            InactiveFontColor.Green = 0xAA;
+            InactiveFontColor.Red = 0xAA;
+            InactiveFontColor.Padding = 0xFF;
+
+            const int SoundEffectYOffset = 50;
+            int SoundEffectXOffset = 165;
+            for (uint8_t SoundEffectIndicatorIterator = 0; SoundEffectIndicatorIterator < 10; SoundEffectIndicatorIterator++)
+            {
+                float SoundEffectIndicatorValue = (float)SoundEffectIndicatorIterator / 10.0f;
+
+
+
+                SoundEffectXOffset = SoundEffectXOffset + 6;
+                if (SoundEffectIndicatorValue < G_Current_Game_SoundEffect_Volume)
+                {
+                   BlitStringIntoBuffer (&g_Game_Font, SoundEffectXOffset, 30 + SoundEffectYOffset, "\xf2" , ActiveFontColor);
+                }
+                else
+                {
+                    BlitStringIntoBuffer (&g_Game_Font, SoundEffectXOffset, 30 + SoundEffectYOffset, "\xf2" , InactiveFontColor);
+                }
+            }
+
+            const int MusicYOffset = 50;
+            int MusicXOffset = strlen(g_mi_OptionsMenu.Items[1]->ItemTitle) * (8) + 8;
+            for (uint8_t SoundMusicIndicatorIterator = 0; SoundMusicIndicatorIterator < 10; SoundMusicIndicatorIterator++)
+            {
+                float SoundMusicIndicatorIteratorValue = (float)SoundMusicIndicatorIterator / 10.0f;
+
+                MusicXOffset = MusicXOffset + 6;
+                if (SoundMusicIndicatorIteratorValue < G_Current_Game_Music_Volume)
+                {
+                    BlitStringIntoBuffer (&g_Game_Font, MusicXOffset, 45 + MusicYOffset, "\xf2" , ActiveFontColor);
+                }
+                else
+                {
+                    BlitStringIntoBuffer (&g_Game_Font, MusicXOffset, 45 + MusicYOffset, "\xf2" , InactiveFontColor);
+                }
+            }
 
             break;
         }
@@ -1778,7 +1939,11 @@ void PlayGameSound(_In_ GAME_SOUND* GameSound)
 void g_mi_ResumeGameAction(void){};
 void g_mi_StartGameAction(void){};
 void g_mi_SaveGameAction(void){};
-void g_mi_OptionGameAction(void){};
+void g_mi_OptionGameAction(void)
+{
+    g_CurrentGameState = GAME_OPTIONS_STATE;
+};
+
 void g_mi_CloseGameAction(void)
 {
     g_CurrentGameState = GAME_YESORNOEXITMENU_STATE;
@@ -1789,6 +1954,47 @@ void g_mi_ExitGameAction(void)
     SendMessageA(g_window_handle, WM_CLOSE, 0, 0);
 };
 void g_mi_DontExitGameAction(void)
+{
+    g_CurrentGameState = GAME_MAIN_MENU_STATE;
+};
+
+void g_mi_OptionsSoundLevelAction(void)
+{
+    float f_CurrentSoundVolumeLevel = G_Current_Game_SoundEffect_Volume;
+    if (f_CurrentSoundVolumeLevel + 0.1 > 1) {
+        f_CurrentSoundVolumeLevel = 0;
+    }
+    else {
+        f_CurrentSoundVolumeLevel += 0.1;
+    }
+
+    for (uint8_t CurrentVoice = 0; CurrentVoice < MAX_NUMBER_GAME_SOUND_EFFECTS; CurrentVoice++)
+    {
+        G_Game_SoundEffects_Audio[CurrentVoice]->lpVtbl->SetVolume(G_Game_SoundEffects_Audio[CurrentVoice], f_CurrentSoundVolumeLevel, XAUDIO2_COMMIT_NOW);
+    }
+    G_Current_Game_SoundEffect_Volume = f_CurrentSoundVolumeLevel;
+};
+
+void g_mi_MusicSoundLevelAction(void)
+{
+    float f_CurrentSoundVolumeLevel = G_Current_Game_Music_Volume;
+    if (f_CurrentSoundVolumeLevel + 0.1 > 1) {
+        f_CurrentSoundVolumeLevel = 0;
+    }
+    else {
+        f_CurrentSoundVolumeLevel += 0.1;
+    }
+
+    for (uint8_t CurrentVoice = 0; CurrentVoice < MAX_NUMBER_GAME_SOUND_EFFECTS; CurrentVoice++)
+    {
+        G_Game_Music_Audio->lpVtbl->SetVolume(G_Game_Music_Audio, f_CurrentSoundVolumeLevel, XAUDIO2_COMMIT_NOW);
+    }
+    G_Current_Game_Music_Volume = f_CurrentSoundVolumeLevel;
+};
+
+void g_mi_ScreenResolutionAction(void){};
+
+void g_mi_OptionsBackAction(void)
 {
     g_CurrentGameState = GAME_MAIN_MENU_STATE;
 };
