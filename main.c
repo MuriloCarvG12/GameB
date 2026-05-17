@@ -11,7 +11,7 @@
 #include <mmsystem.h>
 #pragma comment(lib, "Winmm.lib")
 
-
+game_registry_info g_game_registry_info;
 GAME_BIT_MAP g_backbuffer;
 game_performance_info game_performance;
 GAME_BIT_MAP g_Game_Font;
@@ -28,7 +28,7 @@ VOID Load32BppIntoBackBuffer(GAME_BIT_MAP *, int , int );
 GameLogSeverity G_game_log_severity;
 void WriteLog(_In_ DWORD LogLevel, _In_ char* Message, _In_ ...) ;
 DWORD LoadRegistryParameters(void);
-
+DWORD SaveRegistryParameters(void);
 
 __m128i data;
 game_info GInfo;
@@ -36,7 +36,7 @@ Player g_Player;
 BOOL gWindowHasFocus;
 GAME_BIT_MAP *g_CurrentSprite;
 
-game_states g_CurrentGameState = GAME_INTRO_STATE;
+game_states g_CurrentGameState = GAME_MAIN_MENU_STATE;
 
 float G_Current_Game_SoundEffect_Volume = 1.0;
 
@@ -65,6 +65,27 @@ GAME_SOUND gMenuNavigate;
 GAME_SOUND gIntroEffect;
 
 BOOL GameInProgress = FALSE;
+
+// Map any char value to an offset dictated by the g6x7Font ordering.
+int gFontCharacterPixelOffset[] = {
+    //  .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ..
+    93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,
+//     !  "  #  $  %  &  '  (  )  *  +  ,  -  .  /  0  1  2  3  4  5  6  7  8  9  :  ;  <  =  >  ?
+    94,64,87,66,67,68,70,85,72,73,71,77,88,74,91,92,52,53,54,55,56,57,58,59,60,61,86,84,89,75,90,93,
+//  @  A  B  C  D  E  F  G  H  I  J  K  L  M  N  O  P  Q  R  S  T  U  V  W  X  Y  Z  [  \  ]  ^  _
+    65,0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,80,78,81,69,76,
+//  `  a  b  c  d  e  f  g  h  i  j  k  l  m  n  o  p  q  r  s  t  u  v  w  x  y  z  {  |  }  ~  ..
+    62,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,82,79,83,63,93,
+//  .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ..
+    93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,
+//  .. .. .. .. .. .. .. .. .. .. .. «  .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. »  .. .. .. ..
+    93,93,93,93,93,93,93,93,93,93,93,96,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,95,93,93,93,93,
+//  .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ..
+    93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,
+//  .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. F2 .. .. .. .. .. .. .. .. .. .. .. .. ..
+    93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,97,93,93,93,93,93,93,93,93,93,93,93,93,93
+};
+
 
 int  WinMain(HINSTANCE hInst, HINSTANCE hInstPrev, PSTR cmdline, int cmdshow)
 {
@@ -183,11 +204,41 @@ int  WinMain(HINSTANCE hInst, HINSTANCE hInstPrev, PSTR cmdline, int cmdshow)
     GInfo.monitor_width = GInfo.MonitorInfo.rcMonitor.right - GInfo.MonitorInfo.rcMonitor.left;
     GInfo.monitor_height =  GInfo.MonitorInfo.rcMonitor.bottom - GInfo.MonitorInfo.rcMonitor.top ;
 
+    for (int counter = 1; counter < 12; counter++)
+    {
+        if (GAME_RES_WIDTH * counter > GInfo.monitor_width  || GAME_RES_HEIGHT * counter > GInfo.monitor_height) {
+            game_performance.MaxGameResScaleFactor = counter - 1;
+            break;
+        }
+    }
+
+    if (g_game_registry_info.CURRENT_GAME_RES_SCALE_FACTOR == 0)
+    {
+        game_performance.CurrentGameResScaleFactor  = game_performance.MaxGameResScaleFactor;
+    }
+    else
+    {
+        game_performance.CurrentGameResScaleFactor = g_game_registry_info.CURRENT_GAME_RES_SCALE_FACTOR;
+    }
+
     if (timeBeginPeriod(1) == TIMERR_NOCANDO)
     {
         MessageBoxA(NULL, "Failed to set global timer resolution!", "Error!", MB_ICONEXCLAMATION | MB_OK);
         goto EXIT;
     }
+
+    SetWindowLongA(g_window_handle, GWL_STYLE, WS_VISIBLE);
+
+    SetWindowPos(
+        g_window_handle,
+        HWND_TOP,
+        GInfo.MonitorInfo.rcMonitor.left,
+        GInfo.MonitorInfo.rcMonitor.top,
+        GInfo.MonitorInfo.rcMonitor.right - GInfo.MonitorInfo.rcMonitor.left,
+        GInfo.MonitorInfo.rcMonitor.bottom - GInfo.MonitorInfo.rcMonitor.top,
+        SWP_NOZORDER | SWP_FRAMECHANGED
+    );
+
     /**
     if (SetPriorityClass(g_window_handle, HIGH_PRIORITY_CLASS) == 0)
     {
@@ -692,15 +743,40 @@ void rendergraphics()
             break;
         }
         case GAME_MAIN_MENU_STATE: {
-            //uint32_t colorBlack = 0xFF111111;
+            static int FramesPassed = 0;
             uint32_t colorBlack = 0xFF111111;
             PIXEL32 FontColor;
-            FontColor.Blue = 0xFF;
-            FontColor.Green = 0xFF;
-            FontColor.Red = 0xFF;
 
             base_screen(&colorBlack);
 
+            if (FramesPassed <= 60)
+            {
+                FontColor.Blue    = 0x11;
+                FontColor.Green   = 0x11;
+                FontColor.Red     = 0x11;
+                FontColor.Padding = 0xFF;
+            }
+            else if (FramesPassed <= 120)
+            {
+                FontColor.Blue    = 0x55;
+                FontColor.Green   = 0x55;
+                FontColor.Red     = 0x55;
+                FontColor.Padding = 0xFF;
+            }
+            else if (FramesPassed <= 200)
+            {
+                FontColor.Blue    = 0x99;
+                FontColor.Green   = 0x99;
+                FontColor.Red     = 0x99;
+                FontColor.Padding = 0xFF;
+            }
+            else
+            {
+                FontColor.Blue    = 0xFF;
+                FontColor.Green   = 0xFF;
+                FontColor.Red     = 0xFF;
+                FontColor.Padding = 0xFF;
+            }
 
             char GameNameString[20] = "";
             strncpy(GameNameString, MainGameMenu.MenuText, strlen(MainGameMenu.MenuText));
@@ -716,9 +792,9 @@ void rendergraphics()
                     strncpy(CurrentMenuItemString,  MainGameMenu.Items[MenuItemIterator]->ItemTitle, strlen(MainGameMenu.MenuText));
                     BlitStringIntoBuffer (&g_Game_Font, 50, MainGameMenu.Items[MenuItemIterator]->Y, CurrentMenuItemString, FontColor);
                 }
-
-
             }
+
+            FramesPassed++;
             break;
         }
         case GAME_YESORNOEXITMENU_STATE :
@@ -765,21 +841,19 @@ void rendergraphics()
 
             char MenuItemMessage[40] = "";
             strncpy(MenuItemMessage, g_mi_OptionsMenu.MenuText, strlen(g_mi_OptionsMenu.MenuText));
-            BlitStringIntoBuffer (&g_Game_Font, 50, 50, MenuItemMessage, FontColor);
+            BlitStringIntoBuffer (&g_Game_Font, 50, 36, MenuItemMessage, FontColor);
 
             for (uint8_t MenuItemIterator = 0; MenuItemIterator < g_mi_OptionsMenu.ItemCount; MenuItemIterator++)
             {
-                if (g_mi_OptionsMenu.Items[MenuItemIterator]->ItemIsActive != TRUE) { continue; }
-                int YOffset = 30 + 15 * MenuItemIterator;
-
-                if (g_mi_OptionsMenu.SelectedItem == MenuItemIterator)
-                {
-                    BlitStringIntoBuffer (&g_Game_Font, 35, 50 + YOffset, ">", FontColor);
+                if (g_mi_OptionsMenu.Items[MenuItemIterator]->ItemIsActive == TRUE) {
+                    if (g_mi_OptionsMenu.SelectedItem == MenuItemIterator) {
+                        BlitStringIntoBuffer (&g_Game_Font, 35,g_mi_OptionsMenu.Items[MenuItemIterator]->Y , ">", FontColor);
+                    }
+                    char CurrentMenuItemString[40] = "";
+                    strncpy(CurrentMenuItemString,  g_mi_OptionsMenu.Items[MenuItemIterator]->ItemTitle, strlen(g_mi_OptionsMenu.Items[MenuItemIterator]->ItemTitle));
+                    BlitStringIntoBuffer (&g_Game_Font, 50, g_mi_OptionsMenu.Items[MenuItemIterator]->Y, CurrentMenuItemString, FontColor);
                 }
 
-                char CurrentMenuItemString[40] = "";
-                strncpy(CurrentMenuItemString,  g_mi_OptionsMenu.Items[MenuItemIterator]->ItemTitle, strlen(g_mi_OptionsMenu.Items[MenuItemIterator]->ItemTitle));
-                BlitStringIntoBuffer (&g_Game_Font, 50, 50 + YOffset, CurrentMenuItemString, FontColor);
             }
             PIXEL32 ActiveFontColor;
             ActiveFontColor.Blue = 0xFF;
@@ -793,7 +867,7 @@ void rendergraphics()
             InactiveFontColor.Red = 0xAA;
             InactiveFontColor.Padding = 0xFF;
 
-            const int SoundEffectYOffset = 50;
+            const int SoundEffectYOffset = g_mi_OptionsMenu.Items[0]->Y;
             int SoundEffectXOffset = 165;
             for (uint8_t SoundEffectIndicatorIterator = 0; SoundEffectIndicatorIterator < 10; SoundEffectIndicatorIterator++)
             {
@@ -804,15 +878,15 @@ void rendergraphics()
                 SoundEffectXOffset = SoundEffectXOffset + 6;
                 if (SoundEffectIndicatorValue < G_Current_Game_SoundEffect_Volume)
                 {
-                   BlitStringIntoBuffer (&g_Game_Font, SoundEffectXOffset, 30 + SoundEffectYOffset, "\xf2" , ActiveFontColor);
+                   BlitStringIntoBuffer (&g_Game_Font, SoundEffectXOffset, SoundEffectYOffset, "\xf2" , ActiveFontColor);
                 }
                 else
                 {
-                    BlitStringIntoBuffer (&g_Game_Font, SoundEffectXOffset, 30 + SoundEffectYOffset, "\xf2" , InactiveFontColor);
+                    BlitStringIntoBuffer (&g_Game_Font, SoundEffectXOffset, SoundEffectYOffset, "\xf2" , InactiveFontColor);
                 }
             }
 
-            const int MusicYOffset = 50;
+            const int MusicYOffset = g_mi_OptionsMenu.Items[1]->Y;
             int MusicXOffset = strlen(g_mi_OptionsMenu.Items[1]->ItemTitle) * (8) + 8;
             for (uint8_t SoundMusicIndicatorIterator = 0; SoundMusicIndicatorIterator < 10; SoundMusicIndicatorIterator++)
             {
@@ -821,11 +895,26 @@ void rendergraphics()
                 MusicXOffset = MusicXOffset + 6;
                 if (SoundMusicIndicatorIteratorValue < G_Current_Game_Music_Volume)
                 {
-                    BlitStringIntoBuffer (&g_Game_Font, MusicXOffset, 45 + MusicYOffset, "\xf2" , ActiveFontColor);
+                    BlitStringIntoBuffer (&g_Game_Font, MusicXOffset,  MusicYOffset, "\xf2" , ActiveFontColor);
                 }
                 else
                 {
-                    BlitStringIntoBuffer (&g_Game_Font, MusicXOffset, 45 + MusicYOffset, "\xf2" , InactiveFontColor);
+                    BlitStringIntoBuffer (&g_Game_Font, MusicXOffset,  MusicYOffset, "\xf2" , InactiveFontColor);
+                }
+            }
+
+            const int ResolutionYOffset = g_mi_OptionsMenu.Items[2]->Y;
+            int ResolutionXOffset = g_mi_OptionsMenu.Items[2]->X + 75;
+            for (uint8_t ResolutionIndicatorIterator = 0; ResolutionIndicatorIterator < game_performance.MaxGameResScaleFactor; ResolutionIndicatorIterator++)
+            {
+                ResolutionXOffset += 6;
+                if (ResolutionIndicatorIterator < game_performance.CurrentGameResScaleFactor)
+                {
+                    BlitStringIntoBuffer (&g_Game_Font, ResolutionXOffset,  ResolutionYOffset, "\xf2" , ActiveFontColor);
+                }
+                else
+                {
+                    BlitStringIntoBuffer (&g_Game_Font, ResolutionXOffset,  ResolutionYOffset, "\xf2" , InactiveFontColor);
                 }
             }
 
@@ -856,7 +945,19 @@ void rendergraphics()
             int *i;
             *i = 3.0;
     }
-    StretchDIBits(DeviceContext, 0, 0, GInfo.monitor_width, GInfo.monitor_height, 0, 0, GAME_RES_WIDTH, GAME_RES_HEIGHT, g_backbuffer.memory_canvas, &g_backbuffer.BitMapInfo, DIB_RGB_COLORS, SRCCOPY);
+    StretchDIBits
+    (DeviceContext,
+        (GInfo.monitor_width / 2) - ((GAME_RES_WIDTH * game_performance.CurrentGameResScaleFactor) / 2),
+        (GInfo.monitor_height / 2) - ((GAME_RES_HEIGHT * game_performance.CurrentGameResScaleFactor) / 2),
+        GAME_RES_WIDTH * game_performance.CurrentGameResScaleFactor,
+        GAME_RES_HEIGHT * game_performance.CurrentGameResScaleFactor,
+        0,
+        0,
+        GAME_RES_WIDTH,
+        GAME_RES_HEIGHT,
+        g_backbuffer.memory_canvas,
+        &g_backbuffer.BitMapInfo,
+        DIB_RGB_COLORS, SRCCOPY);
 
     if(game_performance.DebugModeOn == TRUE)
     {
@@ -1236,348 +1337,14 @@ void BlitStringIntoBuffer(GAME_BIT_MAP *Sprite, int ScreenX, int ScreenY, char T
 
 GameCoordinate FindFontSprite(char Message)
 {
-    int MessageLength = (sizeof(Message) / sizeof(char));
     const int FontXSize = 6;
     const int FontYSize = 7;
     GameCoordinate GameCoordinate;
 
-    for (int i = 0; i < MessageLength;)
-    {
-        int CurrentChar = Message;
-        if (CurrentChar >= 'A' && CurrentChar <= 'Z')
-        {
-            GameCoordinate.X = FontXSize * (CurrentChar - 0x41);
-            GameCoordinate.Y = FontYSize;
-            return GameCoordinate;
-        }
-        else if (CurrentChar >= 'a' && CurrentChar <= 'z')
-        {
-            GameCoordinate.X = FontXSize * (CurrentChar - 0x41);
-            GameCoordinate.Y = FontYSize;
-            return GameCoordinate;
-        }
-        else
-        {
-            switch (CurrentChar) {
-                case '0':
-                {
-                    GameCoordinate.X = FontXSize * 52;
-                    GameCoordinate.Y = FontYSize;
-                    return GameCoordinate;
-                }
-                case '1':
-                {
-                    GameCoordinate.X = FontXSize * 53;
-                    GameCoordinate.Y = FontYSize;
-                    return GameCoordinate;
-                    break;
-                }
-                case '2':
-                {
-                    GameCoordinate.X = FontXSize * 54;
-                    GameCoordinate.Y = FontYSize;
-                    return GameCoordinate;
-                    break;
-                }
-                case '3':
-                {
-                    GameCoordinate.X = FontXSize * 55;
-                    GameCoordinate.Y = FontYSize;
-                    return GameCoordinate;
-                    break;
-                }
-                case '4':
-                {
-                    GameCoordinate.X = FontXSize * 56;
-                    GameCoordinate.Y = FontYSize;
-                    return GameCoordinate;
-                    break;
-                }
-                case '5':
-                {
-                    GameCoordinate.X = FontXSize * 57;
-                    GameCoordinate.Y = FontYSize;
-                    return GameCoordinate;
-                    break;
-                }
-                case '6':
-                {
-                    GameCoordinate.X = FontXSize * 58;
-                    GameCoordinate.Y = FontYSize;
-                    return GameCoordinate;
-                    break;
-                }
-                case '7':
-                {
-                    GameCoordinate.X = FontXSize * 59;
-                    GameCoordinate.Y = FontYSize;
-                    return GameCoordinate;
-                    break;
-                }
-                case '8':
-                {
-                    GameCoordinate.X = FontXSize * 60;
-                    GameCoordinate.Y = FontYSize;
-                    return GameCoordinate;
-                    break;
-                }
-                case '9':
-                {
-                    GameCoordinate.X = FontXSize * 61;
-                    GameCoordinate.Y = FontYSize;
-                    return GameCoordinate;
-                    break;
-                }
-                case '`':
-                {
-                    GameCoordinate.X = FontXSize * 62;
-                    GameCoordinate.Y = FontYSize;
-                    return GameCoordinate;
-                    break;
-                }
-                case '~':
-                {
-                    GameCoordinate.X = FontXSize * 63;
-                    GameCoordinate.Y = FontYSize;
-                    return GameCoordinate;
-                    break;
-                }
-                case '!':
-                {
-                    GameCoordinate.X = FontXSize * 64;
-                    GameCoordinate.Y = FontYSize;
-                    return GameCoordinate;
-                    break;
-                }
-                case '@':
-                {
-                    GameCoordinate.X = FontXSize * 65;
-                    GameCoordinate.Y = FontYSize;
-                    return GameCoordinate;
-                    break;
-                }
-                case '#':
-                {
-                    GameCoordinate.X = FontXSize * 66;
-                    GameCoordinate.Y = FontYSize;
-                    return GameCoordinate;
-                    break;
-                }
-                case '$':
-                {
-                    GameCoordinate.X = FontXSize * 67;
-                    GameCoordinate.Y = FontYSize;
-                    return GameCoordinate;
-                    break;
-                }
-                case '%':
-                {
-                    GameCoordinate.X = FontXSize * 68;
-                    GameCoordinate.Y = FontYSize;
-                    return GameCoordinate;
-                    break;
-                }
-                case '^':
-                {
-                    GameCoordinate.X = FontXSize * 69;
-                    GameCoordinate.Y = FontYSize;
-                    return GameCoordinate;
-                    break;
-                }
-                case '&':
-                {
-                    GameCoordinate.X = FontXSize * 70;
-                    GameCoordinate.Y = FontYSize;
-                    return GameCoordinate;
-                    break;
-                }
-                case '*':
-                {
-                    GameCoordinate.X = FontXSize * 71;
-                    GameCoordinate.Y = FontYSize;
-                    return GameCoordinate;
-                    break;
-                }
-                case '(':
-                {
-                    GameCoordinate.X = FontXSize * 72;
-                    GameCoordinate.Y = FontYSize;
-                    return GameCoordinate;
-                    break;
-                }
-                case ')':
-                {
-                    GameCoordinate.X = FontXSize * 73;
-                    GameCoordinate.Y = FontYSize;
-                    return GameCoordinate;
-                    break;
-                }
-                case '-':
-                {
-                    GameCoordinate.X = FontXSize * 74;
-                    GameCoordinate.Y = FontYSize;
-                    return GameCoordinate;
-                    break;
-                }
-                case '=':
-                {
-                    GameCoordinate.X = FontXSize * 75;
-                    GameCoordinate.Y = FontYSize;
-                    return GameCoordinate;
-                    break;
-                }
-                case '_':
-                {
-                    GameCoordinate.X = FontXSize * 76;
-                    GameCoordinate.Y = FontYSize;
-                    return GameCoordinate;
-                    break;
-                }
-                case '+':
-                {
-                    GameCoordinate.X = FontXSize * 77;
-                    GameCoordinate.Y = FontYSize;
-                    return GameCoordinate;
-                    break;
-                }
-                case '\\':
-                {
-                    GameCoordinate.X = FontXSize * 78;
-                    GameCoordinate.Y = FontYSize;
-                    return GameCoordinate;
-                    break;
-                }
-                case '|':
-                {
-                    GameCoordinate.X = FontXSize * 79;
-                    GameCoordinate.Y = FontYSize;
-                    return GameCoordinate;
-                    break;
-                }
-                case '[':
-                {
-                    GameCoordinate.X = FontXSize * 80;
-                    GameCoordinate.Y = FontYSize;
-                    return GameCoordinate;
-                    break;
-                }
-                case ']':
-                {
-                    GameCoordinate.X = FontXSize * 81;
-                    GameCoordinate.Y = FontYSize;
-                    return GameCoordinate;
-                    break;
-                }
-                case '{':
-                {
-                    GameCoordinate.X = FontXSize * 82;
-                    GameCoordinate.Y = FontYSize;
-                    return GameCoordinate;
-                    break;
-                }
-                case '}':
-                {
-                    GameCoordinate.X = FontXSize * 83;
-                    GameCoordinate.Y = FontYSize;
-                    return GameCoordinate;
-                    break;
-                }
-                case ';':
-                {
-                    GameCoordinate.X = FontXSize * 84;
-                    GameCoordinate.Y = FontYSize;
-                    return GameCoordinate;
-                    break;
-                }
-                case '\'':
-                {
-                    GameCoordinate.X = FontXSize * 85;
-                    GameCoordinate.Y = FontYSize;
-                    return GameCoordinate;
-                    break;
-                }
-                case ':':
-                {
-                    GameCoordinate.X = FontXSize * 86;
-                    GameCoordinate.Y = FontYSize;
-                    return GameCoordinate;
-                    break;
-                }
-                case '"':
-                {
-                    GameCoordinate.X = FontXSize * 87;
-                    GameCoordinate.Y = FontYSize;
-                    return GameCoordinate;
-                    break;
-                }
-                case ',':
-                {
-                    GameCoordinate.X = FontXSize * 88;
-                    GameCoordinate.Y = FontYSize;
-                    return GameCoordinate;
-                    break;
-                }
-                case '<':
-                {
-                    GameCoordinate.X = FontXSize * 89;
-                    GameCoordinate.Y = FontYSize;
-                    return GameCoordinate;
-                    break;
-                }
-                case '>':
-                {
-                    GameCoordinate.X = FontXSize * 90;
-                    GameCoordinate.Y = FontYSize;
-                    return GameCoordinate;
-                    break;
-                }
-                case '.':
-                {
-                    GameCoordinate.X = FontXSize * 91;
-                    GameCoordinate.Y = FontYSize;
-                    return GameCoordinate;
-                    break;
-                }
-                case '/':
-                {
-                    GameCoordinate.X = FontXSize * 92;
-                    GameCoordinate.Y = FontYSize;
-                    return GameCoordinate;
-                    break;
-                }
-                case '?':
-                {
-                    GameCoordinate.X = FontXSize * 93;
-                    GameCoordinate.Y = FontYSize;
-                    return GameCoordinate;
-                    break;
-                }
-                case ' ':
-                {
-                    GameCoordinate.X = FontXSize * 94;
-                    GameCoordinate.Y = FontYSize;
-                    return GameCoordinate;
-                    break;
-                }
-                case '\xf2':
-                {
-                    GameCoordinate.X = FontXSize * 97;
-                    GameCoordinate.Y = FontYSize;
-                    return GameCoordinate;
-                    break;
-                }
-                default:
-                {
-                    GameCoordinate.X = FontXSize * 93;
-                    GameCoordinate.Y = FontYSize;
-                    return GameCoordinate;
-                }
-            }
-
-
-        }
-    }
-
+    int CurrentChar = Message;
+    GameCoordinate.X = (FontXSize * gFontCharacterPixelOffset[(uint8_t)CurrentChar]);
+    GameCoordinate.Y = FontYSize;
+    return(GameCoordinate);
 }
 
 DWORD LoadRegistryParameters(void)
@@ -1644,8 +1411,149 @@ DWORD LoadRegistryParameters(void)
 
     WriteLog(log_severity_info, "[%s] LogLevel is %d.", __FUNCTION__, G_game_log_severity.LogLevel);
 
+    RegBytesRead = sizeof(DWORD);
+    Result =
+        RegGetValueA(RegKey, NULL , "SoundEffectsVolume", RRF_RT_DWORD, NULL, (BYTE*)&g_game_registry_info.GAME_SOUND_EFFECTS_VOLUME_LEVEL, &RegBytesRead);
+
+    if (Result != ERROR_SUCCESS)
+    {
+        if (Result == ERROR_FILE_NOT_FOUND)
+        {
+            Result = ERROR_SUCCESS;
+            WriteLog(log_severity_info, "The Registry Key for the game sound effect doesnt exist using a default value of 0.5!", __FUNCTION__);
+
+            g_game_registry_info.GAME_SOUND_EFFECTS_VOLUME_LEVEL = 50;
+            G_Current_Game_SoundEffect_Volume = (float) g_game_registry_info.GAME_SOUND_EFFECTS_VOLUME_LEVEL/100;
+        }
+        else
+        {
+            WriteLog(log_severity_error, "[%s] Failed to read the game sound effect' registry value! Error 0x%08lx!", __FUNCTION__, Result);
+
+            goto Exit;
+        }
+    }
+    else
+    {
+        G_Current_Game_SoundEffect_Volume = (float)g_game_registry_info.GAME_SOUND_EFFECTS_VOLUME_LEVEL / 10;
+        WriteLog(log_severity_info, "[%s] SoundEffectsVolume raw=%lu, applied=%.2f",
+         __FUNCTION__,
+         g_game_registry_info.GAME_SOUND_EFFECTS_VOLUME_LEVEL,
+         G_Current_Game_SoundEffect_Volume);
+
+    }
+
+    RegBytesRead = sizeof(DWORD);
+    Result =
+      RegGetValueA(RegKey, NULL , "MusicVolume", RRF_RT_DWORD, NULL, (BYTE*)&g_game_registry_info.GAME_MUSIC_VOLUME_LEVEL, &RegBytesRead);
+
+    if (Result != ERROR_SUCCESS)
+    {
+        if (Result == ERROR_FILE_NOT_FOUND)
+        {
+            Result = ERROR_SUCCESS;
+            WriteLog(log_severity_info, "The Registry Key for the game music volume doesnt exist using a default value of 0.5!", __FUNCTION__);
+
+            g_game_registry_info.GAME_MUSIC_VOLUME_LEVEL = 50;
+            G_Current_Game_Music_Volume = (float) g_game_registry_info.GAME_MUSIC_VOLUME_LEVEL/100;
+        }
+        else
+        {
+            WriteLog(log_severity_error, "[%s] Failed to read the game music volume registry value! Error 0x%08lx!", __FUNCTION__, Result);
+
+            goto Exit;
+        }
+    }
+    else
+    {
+        G_Current_Game_Music_Volume = (float)g_game_registry_info.GAME_MUSIC_VOLUME_LEVEL / 10;
+        WriteLog(log_severity_info, "[%s] MusicVolume raw=%lu, applied=%.2f",
+         __FUNCTION__,
+         g_game_registry_info.GAME_MUSIC_VOLUME_LEVEL,
+         G_Current_Game_Music_Volume);
+    }
+
+    RegBytesRead = sizeof(DWORD);
+    Result =
+      RegGetValueA(RegKey, NULL , "ScaleFactor", RRF_RT_DWORD, NULL, (BYTE*)&g_game_registry_info.CURRENT_GAME_RES_SCALE_FACTOR, &RegBytesRead);
+
+    if (Result != ERROR_SUCCESS)
+    {
+        if (Result == ERROR_FILE_NOT_FOUND)
+        {
+            Result = ERROR_SUCCESS;
+            WriteLog(log_severity_info, "The Registry Key for the game window width doesnt exist using a default value of 0!", __FUNCTION__);
+
+            g_game_registry_info.CURRENT_GAME_RES_SCALE_FACTOR = 0;
+        }
+        else
+        {
+            WriteLog(log_severity_error, "[%s] Failed to read the game window width registry value! Error 0x%08lx!", __FUNCTION__, Result);
+
+            goto Exit;
+        }
+    }
+    else
+    {
+        game_performance.CurrentGameResScaleFactor = g_game_registry_info.CURRENT_GAME_RES_SCALE_FACTOR;
+    }
+
+
     Exit:
 
+    if (RegKey)
+    {
+        RegCloseKey(RegKey);
+        RegCloseKey(RegSubKey);
+    }
+
+    return(Result);
+}
+
+DWORD SaveRegistryParameters(void)
+{
+    DWORD Result = ERROR_SUCCESS;
+    HKEY RegKey = NULL;
+    DWORD dwDisposition = 0;
+    DWORD RegBytesRead = sizeof(DWORD);
+    DWORD RegSubResult = ERROR_SUCCESS;
+    HKEY RegSubKey = NULL;
+    DWORD RegistrySoundEffectsVolume = G_Current_Game_SoundEffect_Volume * 10;
+    DWORD RegistryMusicVolume = G_Current_Game_Music_Volume * 10;
+    DWORD RegistryScaleFactor = game_performance.CurrentGameResScaleFactor;
+
+    Result = RegCreateKeyExA(HKEY_CURRENT_USER, "SOFTWARE\\GAME_B" , 0, NULL, 0,
+                   KEY_ALL_ACCESS, NULL, &RegKey, &dwDisposition);
+
+    G_game_log_severity.LogLevel = log_severity_debug;
+    if (Result != ERROR_SUCCESS)
+    {
+        WriteLog(log_severity_error, "[%s] RegCreateKey failed with error code 0x%08lx!", __FUNCTION__, Result);
+
+        goto Exit;
+    }
+
+    Result = RegSetValueExA(RegKey, "SoundEffectsVolume",0 ,REG_DWORD,(BYTE*) &RegistrySoundEffectsVolume, sizeof(DWORD));
+    if (Result != ERROR_SUCCESS)
+    {
+        WriteLog(log_severity_error, "[%s] Failed to save SoundEffectsVolume!", __FUNCTION__, Result);
+        goto Exit;
+    }
+
+    Result = RegSetValueExA(RegKey, "MusicVolume",0 ,REG_DWORD,(BYTE*) &RegistryMusicVolume, sizeof(DWORD));
+    if (Result != ERROR_SUCCESS)
+    {
+        WriteLog(log_severity_error, "[%s] Failed to save MusicVolume!", __FUNCTION__, Result);
+        goto Exit;
+    }
+
+    Result = RegSetValueExA(RegKey, "ScaleFactor",0 ,REG_DWORD,(BYTE*) &RegistryScaleFactor, sizeof(DWORD));
+    if (Result != ERROR_SUCCESS)
+    {
+        WriteLog(log_severity_error, "[%s] Failed to save ScaleFactor!", __FUNCTION__, Result);
+        goto Exit;
+    }
+
+    Exit:
     if (RegKey)
     {
         RegCloseKey(RegKey);
@@ -2058,9 +1966,23 @@ void g_mi_MusicSoundLevelAction(void)
     G_Current_Game_Music_Volume = f_CurrentSoundVolumeLevel;
 };
 
-void g_mi_ScreenResolutionAction(void){};
+void g_mi_ScreenResolutionAction(void) {
+    if (game_performance.CurrentGameResScaleFactor < game_performance.MaxGameResScaleFactor)
+    {
+        game_performance.CurrentGameResScaleFactor++;
+    }
+    else
+    {
+        game_performance.CurrentGameResScaleFactor = 1;
+    }
+    InvalidateRect(g_window_handle, NULL, TRUE);
+};
 
 void g_mi_OptionsBackAction(void)
 {
     g_CurrentGameState = GAME_MAIN_MENU_STATE;
+    if (SaveRegistryParameters() != ERROR_SUCCESS)
+    {
+        WriteLog(log_severity_error, "[%s] Failed to save Options", __FUNCTION__);
+    }
 };

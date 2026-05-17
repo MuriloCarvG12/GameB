@@ -93,6 +93,8 @@ typedef struct game_performance_info
     int64_t  CurrentSystemTime;
     int64_t  PreviousSystemTime;
     float CpuPercentage;
+    int MaxGameResScaleFactor;
+    int CurrentGameResScaleFactor;
 } game_performance_info;
 
 typedef struct GAME_BIT_MAP
@@ -165,5 +167,12 @@ typedef struct GAME_SOUND {
 
 DWORD LoadWavFileFromDisk(_In_ char* WavFileName, _Inout_ GAME_SOUND* game_sound);
 void PlayGameSound(_In_ GAME_SOUND* GameSound);
+
+typedef struct game_registry_info {
+    DWORD LOG_LEVEL;
+    DWORD GAME_SOUND_EFFECTS_VOLUME_LEVEL;
+    DWORD GAME_MUSIC_VOLUME_LEVEL;
+    DWORD CURRENT_GAME_RES_SCALE_FACTOR;
+} game_registry_info;
 
 #endif //UNTITLED7_PROJECTDECLARATIONS_H

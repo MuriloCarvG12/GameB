@@ -580,3 +580,510 @@
 [2026/05/4 01:33:44=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
 [2026/05/4 01:33:44=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
 [2026/05/4 01:33:44=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/8 22:23:52=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/8 22:23:52=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/8 22:23:52=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/8 22:23:52=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/8 22:25:15=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/8 22:25:15=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/8 22:25:15=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/8 22:25:15=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/9 02:01:25=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/9 02:01:25=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/9 02:01:25=INFO= The Registry Key for the game sound effect doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/9 02:01:25=INFO= The Registry Key for the game music volume doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/9 02:01:25=INFO= The Registry Key for the game window width doesnt exist using a default value of 0!=INFO= 
+[2026/05/9 02:01:25=INFO= The Registry Key for the game window height doesnt exist using a default value of 0!=INFO= 
+[2026/05/9 02:01:25=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/9 02:01:25=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/9 02:01:57=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/9 02:01:57=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/9 02:01:57=INFO= The Registry Key for the game sound effect doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/9 02:01:57=INFO= The Registry Key for the game music volume doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/9 02:01:57=INFO= The Registry Key for the game window width doesnt exist using a default value of 0!=INFO= 
+[2026/05/9 02:01:57=INFO= The Registry Key for the game window height doesnt exist using a default value of 0!=INFO= 
+[2026/05/9 02:01:57=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/9 02:01:57=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/9 02:02:51=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/9 02:02:51=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/9 02:02:51=INFO= The Registry Key for the game sound effect doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/9 02:02:51=INFO= The Registry Key for the game music volume doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/9 02:02:51=INFO= The Registry Key for the game window width doesnt exist using a default value of 0!=INFO= 
+[2026/05/9 02:02:51=INFO= The Registry Key for the game window height doesnt exist using a default value of 0!=INFO= 
+[2026/05/9 02:02:51=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/9 02:02:51=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/9 02:03:54=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/9 02:03:54=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/9 02:03:54=INFO= The Registry Key for the game sound effect doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/9 02:03:54=INFO= The Registry Key for the game music volume doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/9 02:03:54=INFO= The Registry Key for the game window width doesnt exist using a default value of 0!=INFO= 
+[2026/05/9 02:03:54=INFO= The Registry Key for the game window height doesnt exist using a default value of 0!=INFO= 
+[2026/05/9 02:03:54=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/9 02:03:54=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/9 02:04:21=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/9 02:04:21=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/9 02:04:21=INFO= The Registry Key for the game sound effect doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/9 02:04:21=INFO= The Registry Key for the game music volume doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/9 02:04:21=INFO= The Registry Key for the game window width doesnt exist using a default value of 0!=INFO= 
+[2026/05/9 02:04:21=INFO= The Registry Key for the game window height doesnt exist using a default value of 0!=INFO= 
+[2026/05/9 02:04:21=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/9 02:04:21=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/15 01:31:07=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/15 01:31:07=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/15 01:31:07=INFO= The Registry Key for the game sound effect doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/15 01:31:07=INFO= The Registry Key for the game music volume doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/15 01:31:07=INFO= The Registry Key for the game window width doesnt exist using a default value of 0!=INFO= 
+[2026/05/15 01:31:07=INFO= The Registry Key for the game window height doesnt exist using a default value of 0!=INFO= 
+[2026/05/15 01:31:07=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/15 01:31:07=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/15 01:34:55=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/15 01:34:55=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/15 01:34:55=INFO= The Registry Key for the game sound effect doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/15 01:34:55=INFO= The Registry Key for the game music volume doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/15 01:34:55=INFO= The Registry Key for the game window width doesnt exist using a default value of 0!=INFO= 
+[2026/05/15 01:34:55=INFO= The Registry Key for the game window height doesnt exist using a default value of 0!=INFO= 
+[2026/05/15 01:34:55=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/15 01:34:55=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/15 01:35:42=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/15 01:35:42=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/15 01:35:42=INFO= The Registry Key for the game sound effect doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/15 01:35:42=INFO= The Registry Key for the game music volume doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/15 01:35:42=INFO= The Registry Key for the game window width doesnt exist using a default value of 0!=INFO= 
+[2026/05/15 01:35:42=INFO= The Registry Key for the game window height doesnt exist using a default value of 0!=INFO= 
+[2026/05/15 01:35:42=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/15 01:35:42=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/15 01:38:08=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/15 01:38:08=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/15 01:38:08=INFO= The Registry Key for the game sound effect doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/15 01:38:08=INFO= The Registry Key for the game music volume doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/15 01:38:08=INFO= The Registry Key for the game window width doesnt exist using a default value of 0!=INFO= 
+[2026/05/15 01:38:08=INFO= The Registry Key for the game window height doesnt exist using a default value of 0!=INFO= 
+[2026/05/15 01:38:08=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/15 01:38:08=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/15 01:39:37=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/15 01:39:37=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/15 01:39:37=INFO= The Registry Key for the game sound effect doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/15 01:39:37=INFO= The Registry Key for the game music volume doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/15 01:39:37=INFO= The Registry Key for the game window width doesnt exist using a default value of 0!=INFO= 
+[2026/05/15 01:39:37=INFO= The Registry Key for the game window height doesnt exist using a default value of 0!=INFO= 
+[2026/05/15 01:39:37=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/15 01:39:37=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/15 01:46:52=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/15 01:46:52=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/15 01:46:52=INFO= The Registry Key for the game sound effect doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/15 01:46:52=INFO= The Registry Key for the game music volume doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/15 01:46:52=INFO= The Registry Key for the game window width doesnt exist using a default value of 0!=INFO= 
+[2026/05/15 01:46:52=INFO= The Registry Key for the game window height doesnt exist using a default value of 0!=INFO= 
+[2026/05/15 01:46:52=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/15 01:46:52=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/15 01:47:11=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/15 01:47:11=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/15 01:47:11=INFO= The Registry Key for the game sound effect doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/15 01:47:11=INFO= The Registry Key for the game music volume doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/15 01:47:11=INFO= The Registry Key for the game window width doesnt exist using a default value of 0!=INFO= 
+[2026/05/15 01:47:11=INFO= The Registry Key for the game window height doesnt exist using a default value of 0!=INFO= 
+[2026/05/15 01:47:12=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/15 01:47:12=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/15 01:55:11=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/15 01:55:11=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/15 01:55:11=INFO= The Registry Key for the game sound effect doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/15 01:55:11=INFO= The Registry Key for the game music volume doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/15 01:55:11=INFO= The Registry Key for the game window width doesnt exist using a default value of 0!=INFO= 
+[2026/05/15 01:55:11=INFO= The Registry Key for the game window height doesnt exist using a default value of 0!=INFO= 
+[2026/05/15 01:55:11=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/15 01:55:11=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/15 01:57:03=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/15 01:57:03=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/15 01:57:03=INFO= The Registry Key for the game sound effect doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/15 01:57:03=INFO= The Registry Key for the game music volume doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/15 01:57:03=INFO= The Registry Key for the game window width doesnt exist using a default value of 0!=INFO= 
+[2026/05/15 01:57:03=INFO= The Registry Key for the game window height doesnt exist using a default value of 0!=INFO= 
+[2026/05/15 01:57:03=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/15 01:57:03=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/15 01:57:59=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/15 01:57:59=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/15 01:57:59=INFO= The Registry Key for the game sound effect doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/15 01:57:59=INFO= The Registry Key for the game music volume doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/15 01:57:59=INFO= The Registry Key for the game window width doesnt exist using a default value of 0!=INFO= 
+[2026/05/15 01:57:59=INFO= The Registry Key for the game window height doesnt exist using a default value of 0!=INFO= 
+[2026/05/15 01:57:59=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/15 01:57:59=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/15 01:59:01=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/15 01:59:01=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/15 01:59:01=INFO= The Registry Key for the game sound effect doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/15 01:59:01=INFO= The Registry Key for the game music volume doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/15 01:59:01=INFO= The Registry Key for the game window width doesnt exist using a default value of 0!=INFO= 
+[2026/05/15 01:59:01=INFO= The Registry Key for the game window height doesnt exist using a default value of 0!=INFO= 
+[2026/05/15 01:59:01=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/15 01:59:01=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/15 02:01:28=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/15 02:01:28=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/15 02:01:28=INFO= The Registry Key for the game sound effect doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/15 02:01:28=INFO= The Registry Key for the game music volume doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/15 02:01:28=INFO= The Registry Key for the game window width doesnt exist using a default value of 0!=INFO= 
+[2026/05/15 02:01:28=INFO= The Registry Key for the game window height doesnt exist using a default value of 0!=INFO= 
+[2026/05/15 02:01:28=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/15 02:01:28=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/15 02:01:49=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/15 02:01:49=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/15 02:01:49=INFO= The Registry Key for the game sound effect doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/15 02:01:49=INFO= The Registry Key for the game music volume doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/15 02:01:49=INFO= The Registry Key for the game window width doesnt exist using a default value of 0!=INFO= 
+[2026/05/15 02:01:49=INFO= The Registry Key for the game window height doesnt exist using a default value of 0!=INFO= 
+[2026/05/15 02:01:49=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/15 02:01:49=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/15 02:03:12=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/15 02:03:12=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/15 02:03:12=INFO= The Registry Key for the game sound effect doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/15 02:03:12=INFO= The Registry Key for the game music volume doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/15 02:03:12=INFO= The Registry Key for the game window width doesnt exist using a default value of 0!=INFO= 
+[2026/05/15 02:03:12=INFO= The Registry Key for the game window height doesnt exist using a default value of 0!=INFO= 
+[2026/05/15 02:03:12=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/15 02:03:12=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/16 20:47:28=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/16 20:47:28=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/16 20:47:28=INFO= The Registry Key for the game sound effect doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 20:47:28=INFO= The Registry Key for the game music volume doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 20:47:28=INFO= The Registry Key for the game window width doesnt exist using a default value of 0!=INFO= 
+[2026/05/16 20:47:28=INFO= The Registry Key for the game window height doesnt exist using a default value of 0!=INFO= 
+[2026/05/16 20:47:28=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/16 20:47:28=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/16 20:48:03=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/16 20:48:03=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/16 20:48:03=INFO= The Registry Key for the game sound effect doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 20:48:03=INFO= The Registry Key for the game music volume doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 20:48:03=INFO= The Registry Key for the game window width doesnt exist using a default value of 0!=INFO= 
+[2026/05/16 20:48:03=INFO= The Registry Key for the game window height doesnt exist using a default value of 0!=INFO= 
+[2026/05/16 20:48:03=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/16 20:48:03=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/16 20:49:19=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/16 20:49:19=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/16 20:49:19=INFO= The Registry Key for the game sound effect doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 20:49:19=INFO= The Registry Key for the game music volume doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 20:49:19=INFO= The Registry Key for the game window width doesnt exist using a default value of 0!=INFO= 
+[2026/05/16 20:49:19=INFO= The Registry Key for the game window height doesnt exist using a default value of 0!=INFO= 
+[2026/05/16 20:49:19=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/16 20:49:19=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/16 20:49:47=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/16 20:49:47=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/16 20:49:47=INFO= The Registry Key for the game sound effect doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 20:49:47=INFO= The Registry Key for the game music volume doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 20:49:47=INFO= The Registry Key for the game window width doesnt exist using a default value of 0!=INFO= 
+[2026/05/16 20:49:47=INFO= The Registry Key for the game window height doesnt exist using a default value of 0!=INFO= 
+[2026/05/16 20:49:47=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/16 20:49:47=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/16 20:51:20=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/16 20:51:20=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/16 20:51:20=INFO= The Registry Key for the game sound effect doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 20:51:20=INFO= The Registry Key for the game music volume doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 20:51:20=INFO= The Registry Key for the game window width doesnt exist using a default value of 0!=INFO= 
+[2026/05/16 20:51:20=INFO= The Registry Key for the game window height doesnt exist using a default value of 0!=INFO= 
+[2026/05/16 20:51:20=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/16 20:51:20=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/16 20:51:47=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/16 20:51:47=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/16 20:51:47=INFO= The Registry Key for the game sound effect doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 20:51:47=INFO= The Registry Key for the game music volume doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 20:51:47=INFO= The Registry Key for the game window width doesnt exist using a default value of 0!=INFO= 
+[2026/05/16 20:51:47=INFO= The Registry Key for the game window height doesnt exist using a default value of 0!=INFO= 
+[2026/05/16 20:51:47=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/16 20:51:47=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/16 20:53:05=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/16 20:53:05=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/16 20:53:05=INFO= The Registry Key for the game sound effect doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 20:53:05=INFO= The Registry Key for the game music volume doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 20:53:05=INFO= The Registry Key for the game window width doesnt exist using a default value of 0!=INFO= 
+[2026/05/16 20:53:05=INFO= The Registry Key for the game window height doesnt exist using a default value of 0!=INFO= 
+[2026/05/16 20:53:05=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/16 20:53:05=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/16 20:53:40=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/16 20:53:40=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/16 20:53:40=INFO= The Registry Key for the game sound effect doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 20:53:40=INFO= The Registry Key for the game music volume doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 20:53:40=INFO= The Registry Key for the game window width doesnt exist using a default value of 0!=INFO= 
+[2026/05/16 20:53:40=INFO= The Registry Key for the game window height doesnt exist using a default value of 0!=INFO= 
+[2026/05/16 20:53:40=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/16 20:53:40=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/16 20:54:08=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/16 20:54:08=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/16 20:54:08=INFO= The Registry Key for the game sound effect doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 20:54:08=INFO= The Registry Key for the game music volume doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 20:54:08=INFO= The Registry Key for the game window width doesnt exist using a default value of 0!=INFO= 
+[2026/05/16 20:54:08=INFO= The Registry Key for the game window height doesnt exist using a default value of 0!=INFO= 
+[2026/05/16 20:54:08=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/16 20:54:08=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/16 20:54:50=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/16 20:54:50=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/16 20:54:50=INFO= The Registry Key for the game sound effect doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 20:54:50=INFO= The Registry Key for the game music volume doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 20:54:50=INFO= The Registry Key for the game window width doesnt exist using a default value of 0!=INFO= 
+[2026/05/16 20:54:50=INFO= The Registry Key for the game window height doesnt exist using a default value of 0!=INFO= 
+[2026/05/16 20:54:50=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/16 20:54:50=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/16 20:55:24=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/16 20:55:24=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/16 20:55:24=INFO= The Registry Key for the game sound effect doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 20:55:24=INFO= The Registry Key for the game music volume doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 20:55:24=INFO= The Registry Key for the game window width doesnt exist using a default value of 0!=INFO= 
+[2026/05/16 20:55:24=INFO= The Registry Key for the game window height doesnt exist using a default value of 0!=INFO= 
+[2026/05/16 20:55:24=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/16 20:55:24=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/16 20:55:46=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/16 20:55:46=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/16 20:55:46=INFO= The Registry Key for the game sound effect doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 20:55:46=INFO= The Registry Key for the game music volume doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 20:55:46=INFO= The Registry Key for the game window width doesnt exist using a default value of 0!=INFO= 
+[2026/05/16 20:55:46=INFO= The Registry Key for the game window height doesnt exist using a default value of 0!=INFO= 
+[2026/05/16 20:55:46=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/16 20:55:46=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/16 20:56:28=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/16 20:56:28=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/16 20:56:28=INFO= The Registry Key for the game sound effect doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 20:56:28=INFO= The Registry Key for the game music volume doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 20:56:28=INFO= The Registry Key for the game window width doesnt exist using a default value of 0!=INFO= 
+[2026/05/16 20:56:28=INFO= The Registry Key for the game window height doesnt exist using a default value of 0!=INFO= 
+[2026/05/16 20:56:28=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/16 20:56:28=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/16 20:56:57=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/16 20:56:57=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/16 20:56:57=INFO= The Registry Key for the game sound effect doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 20:56:57=INFO= The Registry Key for the game music volume doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 20:56:57=INFO= The Registry Key for the game window width doesnt exist using a default value of 0!=INFO= 
+[2026/05/16 20:56:57=INFO= The Registry Key for the game window height doesnt exist using a default value of 0!=INFO= 
+[2026/05/16 20:56:57=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/16 20:56:57=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/16 20:57:51=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/16 20:57:51=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/16 20:57:51=INFO= The Registry Key for the game sound effect doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 20:57:51=INFO= The Registry Key for the game music volume doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 20:57:51=INFO= The Registry Key for the game window width doesnt exist using a default value of 0!=INFO= 
+[2026/05/16 20:57:51=INFO= The Registry Key for the game window height doesnt exist using a default value of 0!=INFO= 
+[2026/05/16 20:57:51=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/16 20:57:51=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/16 20:58:22=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/16 20:58:22=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/16 20:58:22=INFO= The Registry Key for the game sound effect doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 20:58:22=INFO= The Registry Key for the game music volume doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 20:58:22=INFO= The Registry Key for the game window width doesnt exist using a default value of 0!=INFO= 
+[2026/05/16 20:58:22=INFO= The Registry Key for the game window height doesnt exist using a default value of 0!=INFO= 
+[2026/05/16 20:58:23=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/16 20:58:23=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/16 20:58:45=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/16 20:58:45=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/16 20:58:45=INFO= The Registry Key for the game sound effect doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 20:58:45=INFO= The Registry Key for the game music volume doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 20:58:45=INFO= The Registry Key for the game window width doesnt exist using a default value of 0!=INFO= 
+[2026/05/16 20:58:45=INFO= The Registry Key for the game window height doesnt exist using a default value of 0!=INFO= 
+[2026/05/16 20:58:45=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/16 20:58:45=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/16 21:02:47=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/16 21:02:47=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/16 21:02:47=INFO= The Registry Key for the game sound effect doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 21:02:47=INFO= The Registry Key for the game music volume doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 21:02:47=INFO= The Registry Key for the game window width doesnt exist using a default value of 0!=INFO= 
+[2026/05/16 21:02:47=INFO= The Registry Key for the game window height doesnt exist using a default value of 0!=INFO= 
+[2026/05/16 21:02:47=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/16 21:02:47=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/16 22:40:15=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/16 22:40:15=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/16 22:40:15=INFO= The Registry Key for the game sound effect doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 22:40:15=INFO= The Registry Key for the game music volume doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 22:40:15=INFO= The Registry Key for the game window width doesnt exist using a default value of 0!=INFO= 
+[2026/05/16 22:40:15=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/16 22:40:15=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/16 22:41:14=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/16 22:41:14=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/16 22:41:14=INFO= The Registry Key for the game sound effect doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 22:41:14=INFO= The Registry Key for the game music volume doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 22:41:14=INFO= The Registry Key for the game window width doesnt exist using a default value of 0!=INFO= 
+[2026/05/16 22:41:14=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/16 22:41:14=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/16 22:43:19=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/16 22:43:19=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/16 22:43:19=INFO= The Registry Key for the game sound effect doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 22:43:19=INFO= The Registry Key for the game music volume doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 22:43:19=INFO= The Registry Key for the game window width doesnt exist using a default value of 0!=INFO= 
+[2026/05/16 22:43:19=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/16 22:43:19=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/16 23:04:55=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/16 23:04:55=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/16 23:04:55=INFO= The Registry Key for the game sound effect doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 23:04:55=INFO= The Registry Key for the game music volume doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 23:04:55=INFO= The Registry Key for the game window width doesnt exist using a default value of 0!=INFO= 
+[2026/05/16 23:04:55=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/16 23:04:55=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/16 23:10:40=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/16 23:10:40=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/16 23:10:40=INFO= The Registry Key for the game sound effect doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 23:10:40=INFO= The Registry Key for the game music volume doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 23:10:40=INFO= The Registry Key for the game window width doesnt exist using a default value of 0!=INFO= 
+[2026/05/16 23:10:40=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/16 23:10:40=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/16 23:12:35=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/16 23:12:35=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/16 23:12:35=INFO= The Registry Key for the game sound effect doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 23:12:35=INFO= The Registry Key for the game music volume doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 23:12:35=INFO= The Registry Key for the game window width doesnt exist using a default value of 0!=INFO= 
+[2026/05/16 23:12:35=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/16 23:12:35=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/16 23:13:27=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/16 23:13:27=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/16 23:13:27=INFO= The Registry Key for the game sound effect doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 23:13:27=INFO= The Registry Key for the game music volume doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 23:13:27=INFO= The Registry Key for the game window width doesnt exist using a default value of 0!=INFO= 
+[2026/05/16 23:13:27=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/16 23:13:27=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/16 23:14:36=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/16 23:14:36=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/16 23:14:36=INFO= The Registry Key for the game sound effect doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 23:14:36=INFO= The Registry Key for the game music volume doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 23:14:36=INFO= The Registry Key for the game window width doesnt exist using a default value of 0!=INFO= 
+[2026/05/16 23:14:36=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/16 23:14:36=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/16 23:15:16=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/16 23:15:16=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/16 23:15:16=INFO= The Registry Key for the game sound effect doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 23:15:16=INFO= The Registry Key for the game music volume doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 23:15:16=INFO= The Registry Key for the game window width doesnt exist using a default value of 0!=INFO= 
+[2026/05/16 23:15:16=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/16 23:15:16=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/16 23:16:32=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/16 23:16:32=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/16 23:16:32=INFO= The Registry Key for the game sound effect doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 23:16:32=INFO= The Registry Key for the game music volume doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 23:16:32=INFO= The Registry Key for the game window width doesnt exist using a default value of 0!=INFO= 
+[2026/05/16 23:16:32=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/16 23:16:32=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/16 23:24:43=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/16 23:24:43=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/16 23:24:43=INFO= The Registry Key for the game sound effect doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 23:24:43=INFO= The Registry Key for the game music volume doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 23:24:43=INFO= The Registry Key for the game window width doesnt exist using a default value of 0!=INFO= 
+[2026/05/16 23:24:43=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/16 23:24:43=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/16 23:25:43=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/16 23:25:43=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/16 23:25:43=INFO= The Registry Key for the game sound effect doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 23:25:43=INFO= The Registry Key for the game music volume doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 23:25:43=INFO= The Registry Key for the game window width doesnt exist using a default value of 0!=INFO= 
+[2026/05/16 23:25:43=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/16 23:25:43=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/16 23:26:37=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/16 23:26:37=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/16 23:26:37=INFO= The Registry Key for the game sound effect doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 23:26:37=INFO= The Registry Key for the game music volume doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 23:26:37=INFO= The Registry Key for the game window width doesnt exist using a default value of 0!=INFO= 
+[2026/05/16 23:26:37=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/16 23:26:37=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/16 23:38:28=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/16 23:38:28=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/16 23:38:28=INFO= The Registry Key for the game sound effect doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 23:38:28=INFO= The Registry Key for the game music volume doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 23:38:28=INFO= The Registry Key for the game window width doesnt exist using a default value of 0!=INFO= 
+[2026/05/16 23:38:28=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/16 23:38:28=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/16 23:38:59=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/16 23:38:59=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/16 23:38:59=INFO= The Registry Key for the game sound effect doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 23:38:59=INFO= The Registry Key for the game music volume doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 23:38:59=INFO= The Registry Key for the game window width doesnt exist using a default value of 0!=INFO= 
+[2026/05/16 23:38:59=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/16 23:38:59=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/16 23:43:10=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/16 23:43:10=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/16 23:43:10=INFO= The Registry Key for the game sound effect doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 23:43:10=INFO= The Registry Key for the game music volume doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 23:43:10=INFO= The Registry Key for the game window width doesnt exist using a default value of 0!=INFO= 
+[2026/05/16 23:43:10=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/16 23:43:10=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/16 23:44:17=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/16 23:44:17=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/16 23:44:17=INFO= The Registry Key for the game sound effect doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 23:44:17=INFO= The Registry Key for the game music volume doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 23:44:17=INFO= The Registry Key for the game window width doesnt exist using a default value of 0!=INFO= 
+[2026/05/16 23:44:17=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/16 23:44:17=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/16 23:44:29=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/16 23:44:29=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/16 23:44:29=INFO= The Registry Key for the game sound effect doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 23:44:29=INFO= The Registry Key for the game music volume doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 23:44:29=INFO= The Registry Key for the game window width doesnt exist using a default value of 0!=INFO= 
+[2026/05/16 23:44:29=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/16 23:44:29=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/16 23:45:51=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/16 23:45:51=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/16 23:45:51=INFO= The Registry Key for the game sound effect doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 23:45:51=INFO= The Registry Key for the game music volume doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/16 23:45:51=INFO= The Registry Key for the game window width doesnt exist using a default value of 0!=INFO= 
+[2026/05/16 23:45:51=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/16 23:45:51=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/17 00:09:38=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/17 00:09:38=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/17 00:09:38=INFO= The Registry Key for the game sound effect doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/17 00:09:38=INFO= The Registry Key for the game music volume doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/17 00:09:38=INFO= The Registry Key for the game window width doesnt exist using a default value of 0!=INFO= 
+[2026/05/17 00:09:38=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/17 00:09:38=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/17 00:09:57=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/17 00:09:57=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/17 00:09:57=INFO= The Registry Key for the game sound effect doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/17 00:09:57=INFO= The Registry Key for the game music volume doesnt exist using a default value of 0.5!=INFO= 
+[2026/05/17 00:09:57=INFO= The Registry Key for the game window width doesnt exist using a default value of 0!=INFO= 
+[2026/05/17 00:09:57=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/17 00:09:57=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/17 00:12:16=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/17 00:12:16=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/17 00:12:16=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/17 00:12:16=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/17 00:12:28=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/17 00:12:28=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/17 00:12:28=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/17 00:12:28=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/17 00:13:12=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/17 00:13:12=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/17 00:13:12=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/17 00:13:12=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/17 00:13:21=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/17 00:13:21=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/17 00:13:21=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/17 00:13:21=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/17 00:19:10=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/17 00:19:10=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/17 00:19:10=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/17 00:19:10=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/17 00:19:19=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/17 00:19:19=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/17 00:19:19=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/17 00:19:19=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/17 00:20:53=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/17 00:20:53=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/17 00:20:53=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/17 00:20:53=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/17 00:21:02=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/17 00:21:02=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/17 00:21:02=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/17 00:21:02=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/17 00:23:17=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/17 00:23:17=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/17 00:23:17=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=10, applied=1.00=INFO= 
+[2026/05/17 00:23:17=INFO= [LoadRegistryParameters] MusicVolume raw=10, applied=1.00=INFO= 
+[2026/05/17 00:23:17=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/17 00:23:17=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/17 00:24:49=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/17 00:24:49=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/17 00:24:49=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=0, applied=0.00=INFO= 
+[2026/05/17 00:24:49=INFO= [LoadRegistryParameters] MusicVolume raw=0, applied=0.00=INFO= 
+[2026/05/17 00:24:50=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/17 00:24:50=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/17 00:26:07=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/17 00:26:08=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/17 00:26:16=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=4, applied=0.40=INFO= 
+[2026/05/17 00:26:23=INFO= [LoadRegistryParameters] MusicVolume raw=4, applied=0.40=INFO= 
+[2026/05/17 00:26:31=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/17 00:26:31=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/17 00:26:54=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/17 00:26:54=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/17 00:26:54=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=4, applied=0.40=INFO= 
+[2026/05/17 00:26:54=INFO= [LoadRegistryParameters] MusicVolume raw=4, applied=0.40=INFO= 
+[2026/05/17 00:26:54=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/17 00:26:54=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 

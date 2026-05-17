@@ -64,7 +64,7 @@ void g_mi_OptionsBackAction(void);
 MenuItem g_mi_OptionsSoundLevel = {"SOUND EFFECTS VOLUME", g_mi_OptionsSoundLevelAction, IsActive, 32, 48};
 MenuItem g_mi_MusicSoundLevel   = {"MUSIC SOUND VOLUME", g_mi_MusicSoundLevelAction, IsActive, 32 , 60};
 MenuItem g_mi_ScreenResolution  = {"RESOLUTION", g_mi_ScreenResolutionAction, IsActive, 32, 72};
-MenuItem g_mi_OptionsBack  = {"BACK", g_mi_OptionsBackAction, IsActive, 32, 72};
+MenuItem g_mi_OptionsBack  = {"BACK", g_mi_OptionsBackAction, IsActive, 32, 84};
 
 MenuItem* g_mi_OptionsScreenItems[] = { &g_mi_OptionsSoundLevel, &g_mi_MusicSoundLevel, &g_mi_ScreenResolution, &g_mi_OptionsBack};
 
