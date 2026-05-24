@@ -155,7 +155,8 @@ typedef enum game_states
     GAME_OVERWORLD_STATE = 3,
     GAME_BATTLE_STATE = 3,
     GAME_PAUSE_STATE = 4,
-    GAME_OPTIONS_STATE = 5
+    GAME_OPTIONS_STATE = 5,
+    GAME_NAME_CHARACTER_STATE = 6
 } game_states;
 
 HRESULT InitializeSoundEngine(void);

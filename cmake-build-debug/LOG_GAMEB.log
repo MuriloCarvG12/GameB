@@ -1087,3 +1087,633 @@
 [2026/05/17 00:26:54=INFO= [LoadRegistryParameters] MusicVolume raw=4, applied=0.40=INFO= 
 [2026/05/17 00:26:54=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
 [2026/05/17 00:26:54=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/19 20:07:50=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/19 20:07:50=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/19 20:07:50=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/19 20:07:50=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/19 20:07:50=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/19 20:07:50=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/19 20:09:00=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/19 20:09:00=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/19 20:09:00=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/19 20:09:00=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/19 20:09:00=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/19 20:09:00=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/19 20:09:43=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/19 20:09:43=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/19 20:09:43=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/19 20:09:43=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/19 20:09:43=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/19 20:09:43=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/19 20:10:59=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/19 20:10:59=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/19 20:10:59=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/19 20:10:59=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/19 20:10:59=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/19 20:10:59=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/19 20:11:32=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/19 20:11:32=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/19 20:11:32=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/19 20:11:32=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/19 20:11:32=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/19 20:11:32=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/19 20:11:47=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/19 20:11:47=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/19 20:11:47=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/19 20:11:47=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/19 20:11:47=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/19 20:11:47=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/19 20:12:03=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/19 20:12:03=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/19 20:12:03=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/19 20:12:03=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/19 20:12:03=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/19 20:12:03=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/19 20:12:13=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/19 20:12:13=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/19 20:12:13=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/19 20:12:13=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/19 20:12:14=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/19 20:12:14=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/19 20:12:28=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/19 20:12:28=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/19 20:12:28=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/19 20:12:28=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/19 20:12:28=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/19 20:12:28=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/19 20:33:38=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/19 20:33:38=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/19 20:33:38=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/19 20:33:38=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/19 20:33:38=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/19 20:33:38=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/19 20:33:52=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/19 20:33:52=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/19 20:33:52=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/19 20:33:52=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/19 20:33:52=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/19 20:33:52=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/19 20:35:00=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/19 20:35:00=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/19 20:35:00=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/19 20:35:00=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/19 20:35:00=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/19 20:35:00=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/19 20:35:19=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/19 20:35:19=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/19 20:35:19=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/19 20:35:19=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/19 20:35:19=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/19 20:35:19=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/19 20:37:26=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/19 20:37:26=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/19 20:37:26=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/19 20:37:26=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/19 20:37:26=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/19 20:37:26=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/19 20:37:44=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/19 20:37:44=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/19 20:37:44=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/19 20:37:44=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/19 20:37:44=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/19 20:37:44=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/19 20:38:08=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/19 20:38:08=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/19 20:38:08=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/19 20:38:08=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/19 20:38:08=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/19 20:38:08=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/19 21:34:39=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/19 21:34:39=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/19 21:34:39=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/19 21:34:39=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/19 21:34:39=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/19 21:34:39=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/19 21:34:53=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/19 21:34:53=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/19 21:34:53=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/19 21:34:53=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/19 21:34:53=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/19 21:34:53=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/19 21:35:03=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/19 21:35:03=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/19 21:35:03=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/19 21:35:03=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/19 21:35:03=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/19 21:35:03=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/19 21:35:11=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/19 21:35:11=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/19 21:35:11=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/19 21:35:11=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/19 21:35:11=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/19 21:35:11=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/19 21:35:20=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/19 21:35:20=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/19 21:35:20=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/19 21:35:20=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/19 21:35:20=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/19 21:35:20=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/19 21:35:33=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/19 21:35:33=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/19 21:35:33=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/19 21:35:33=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/19 21:35:33=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/19 21:35:33=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/19 21:35:48=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/19 21:35:48=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/19 21:35:48=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/19 21:35:48=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/19 21:35:48=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/19 21:35:48=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/19 21:36:40=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/19 21:36:40=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/19 21:36:40=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/19 21:36:40=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/19 21:36:40=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/19 21:36:40=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/19 21:37:50=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/19 21:37:50=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/19 21:37:50=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/19 21:37:50=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/19 21:37:50=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/19 21:37:50=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/19 21:38:17=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/19 21:38:17=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/19 21:38:17=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/19 21:38:17=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/19 21:38:17=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/19 21:38:17=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/19 21:41:48=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/19 21:41:48=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/19 21:41:48=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/19 21:41:48=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/19 21:41:48=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/19 21:41:48=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/19 21:42:04=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/19 21:42:04=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/19 21:42:04=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/19 21:42:04=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/19 21:42:04=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/19 21:42:04=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/22 22:47:24=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/22 22:47:24=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/22 22:47:24=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 22:47:24=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 22:47:24=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/22 22:47:24=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/22 22:47:53=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/22 22:47:53=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/22 22:47:53=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 22:47:53=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 22:47:53=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/22 22:47:53=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/22 22:48:48=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/22 22:48:48=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/22 22:48:48=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 22:48:48=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 22:48:48=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/22 22:48:48=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/22 22:54:15=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/22 22:54:15=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/22 22:54:15=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 22:54:15=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 22:54:15=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/22 22:54:15=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/22 22:54:54=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/22 22:54:54=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/22 22:54:54=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 22:54:54=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 22:54:54=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/22 22:54:54=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/22 22:55:18=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/22 22:55:18=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/22 22:55:18=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 22:55:18=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 22:55:18=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/22 22:55:18=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/22 22:59:57=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/22 22:59:57=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/22 22:59:57=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 22:59:57=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 22:59:57=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/22 22:59:57=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/22 23:02:36=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/22 23:02:36=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/22 23:02:36=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 23:02:36=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 23:02:36=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/22 23:02:36=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/22 23:05:36=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/22 23:05:36=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/22 23:05:36=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 23:05:36=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 23:05:37=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/22 23:05:37=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/22 23:07:08=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/22 23:07:08=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/22 23:07:08=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 23:07:08=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 23:07:08=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/22 23:07:08=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/22 23:07:22=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/22 23:07:22=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/22 23:07:22=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 23:07:22=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 23:07:22=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/22 23:07:22=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/22 23:09:51=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/22 23:09:51=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/22 23:09:51=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 23:09:51=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 23:09:51=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/22 23:09:51=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/22 23:10:13=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/22 23:10:13=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/22 23:10:13=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 23:10:13=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 23:10:13=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/22 23:10:13=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/22 23:12:38=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/22 23:12:38=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/22 23:12:38=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 23:12:38=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 23:12:38=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/22 23:12:38=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/22 23:12:51=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/22 23:12:51=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/22 23:12:51=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 23:12:51=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 23:12:51=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/22 23:12:51=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/22 23:17:59=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/22 23:17:59=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/22 23:17:59=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 23:17:59=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 23:17:59=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/22 23:17:59=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/22 23:18:32=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/22 23:18:32=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/22 23:18:32=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 23:18:32=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 23:18:32=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/22 23:18:32=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/22 23:19:33=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/22 23:19:33=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/22 23:19:33=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 23:19:33=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 23:19:33=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/22 23:19:33=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/22 23:20:26=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/22 23:20:26=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/22 23:20:26=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 23:20:26=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 23:20:26=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/22 23:20:26=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/22 23:24:30=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/22 23:24:30=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/22 23:24:30=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 23:24:30=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 23:24:30=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/22 23:24:30=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/22 23:25:49=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/22 23:25:49=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/22 23:25:49=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 23:25:49=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 23:25:49=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/22 23:25:49=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/22 23:33:31=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/22 23:33:31=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/22 23:33:31=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 23:33:31=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 23:33:32=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/22 23:33:32=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/22 23:35:14=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/22 23:35:14=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/22 23:35:14=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 23:35:14=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 23:35:14=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/22 23:35:14=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/22 23:45:03=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/22 23:45:03=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/22 23:45:03=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 23:45:03=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 23:45:03=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/22 23:45:03=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/22 23:45:43=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/22 23:45:43=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/22 23:45:43=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 23:45:43=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 23:45:43=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/22 23:45:43=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/22 23:48:05=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/22 23:48:05=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/22 23:48:05=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 23:48:05=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 23:48:05=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/22 23:48:05=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/22 23:49:36=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/22 23:49:36=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/22 23:49:36=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 23:49:36=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 23:49:36=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/22 23:49:36=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/22 23:52:35=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/22 23:52:35=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/22 23:52:35=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 23:52:35=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 23:52:35=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/22 23:52:35=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/22 23:53:38=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/22 23:53:38=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/22 23:53:38=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 23:53:38=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 23:53:38=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/22 23:53:38=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/22 23:55:19=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/22 23:55:19=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/22 23:55:19=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 23:55:19=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 23:55:19=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/22 23:55:19=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/22 23:56:47=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/22 23:56:47=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/22 23:56:47=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 23:56:47=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 23:56:47=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/22 23:56:47=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/22 23:57:35=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/22 23:57:35=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/22 23:57:35=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 23:57:35=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 23:57:35=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/22 23:57:35=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/22 23:58:40=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/22 23:58:40=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/22 23:58:40=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 23:58:40=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/22 23:58:40=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/22 23:58:40=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/23 00:00:02=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/23 00:00:02=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/23 00:00:02=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/23 00:00:02=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/23 00:00:02=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/23 00:00:02=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/23 00:01:17=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/23 00:01:17=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/23 00:01:17=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/23 00:01:17=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/23 00:01:17=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/23 00:01:17=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/23 00:01:41=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/23 00:01:41=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/23 00:01:41=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/23 00:01:41=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/23 00:01:41=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/23 00:01:41=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/23 00:01:56=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/23 00:01:56=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/23 00:01:56=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/23 00:01:56=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/23 00:01:56=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/23 00:01:56=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/23 00:02:45=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/23 00:02:45=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/23 00:02:45=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/23 00:02:45=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/23 00:02:45=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/23 00:02:45=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/23 00:02:58=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/23 00:02:58=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/23 00:02:58=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/23 00:02:58=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/23 00:02:58=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/23 00:02:58=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/23 00:03:51=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/23 00:03:51=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/23 00:03:51=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/23 00:03:51=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/23 00:03:51=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/23 00:03:51=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/23 00:04:19=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/23 00:04:19=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/23 00:04:19=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/23 00:04:19=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/23 00:04:19=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/23 00:04:19=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/23 00:07:08=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/23 00:07:08=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/23 00:07:08=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/23 00:07:08=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/23 00:07:08=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/23 00:07:08=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/23 00:07:40=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/23 00:07:40=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/23 00:07:40=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/23 00:07:40=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/23 00:07:40=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/23 00:07:40=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/23 00:08:10=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/23 00:08:11=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/23 00:08:11=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/23 00:08:11=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/23 00:08:11=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/23 00:08:11=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/23 00:09:16=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/23 00:09:16=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/23 00:09:16=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/23 00:09:16=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/23 00:09:16=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/23 00:09:16=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/23 00:09:29=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/23 00:09:29=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/23 00:09:29=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/23 00:09:29=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/23 00:09:29=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/23 00:09:29=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/23 00:09:56=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/23 00:09:56=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/23 00:09:56=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/23 00:09:56=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/23 00:09:56=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/23 00:09:56=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/23 00:10:25=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/23 00:10:25=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/23 00:10:25=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/23 00:10:25=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/23 00:10:25=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/23 00:10:25=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/23 00:10:52=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/23 00:10:52=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/23 00:10:52=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/23 00:10:52=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/23 00:10:52=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/23 00:10:52=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/23 00:11:22=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/23 00:11:22=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/23 00:11:22=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/23 00:11:22=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/23 00:11:22=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/23 00:11:22=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/23 23:46:11=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/23 23:46:11=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/23 23:46:11=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/23 23:46:11=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/23 23:46:11=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/23 23:46:11=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/23 23:46:48=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/23 23:46:48=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/23 23:46:48=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/23 23:46:48=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/23 23:46:48=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/23 23:46:48=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/23 23:50:43=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/23 23:50:43=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/23 23:50:43=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/23 23:50:43=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/23 23:50:43=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/23 23:50:43=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/23 23:51:54=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/23 23:51:54=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/23 23:51:54=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/23 23:51:54=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/23 23:51:54=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/23 23:51:54=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/23 23:52:12=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/23 23:52:12=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/23 23:52:12=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/23 23:52:12=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/23 23:52:12=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/23 23:52:12=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/23 23:53:06=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/23 23:53:06=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/23 23:53:06=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/23 23:53:06=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/23 23:53:06=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/23 23:53:06=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/23 23:53:38=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/23 23:53:38=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/23 23:53:38=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/23 23:53:38=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/23 23:53:38=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/23 23:53:38=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/23 23:55:40=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/23 23:55:40=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/23 23:55:40=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/23 23:55:40=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/23 23:55:40=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/23 23:55:40=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/23 23:56:05=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/23 23:56:05=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/23 23:56:05=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/23 23:56:05=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/23 23:56:05=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/23 23:56:05=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/23 23:57:11=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/23 23:57:11=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/23 23:57:11=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/23 23:57:11=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/23 23:57:11=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/23 23:57:11=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/23 23:58:36=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/23 23:58:36=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/23 23:58:36=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/23 23:58:36=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/23 23:58:36=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/23 23:58:36=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/24 00:05:20=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/24 00:05:20=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/24 00:05:20=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/24 00:05:20=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/24 00:05:20=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/24 00:05:20=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/24 00:06:00=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/24 00:06:00=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/24 00:06:00=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/24 00:06:00=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/24 00:06:00=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/24 00:06:00=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/24 00:07:42=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/24 00:07:42=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/24 00:07:42=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/24 00:07:42=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/24 00:07:42=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/24 00:07:42=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/24 00:09:25=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/24 00:09:25=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/24 00:09:25=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/24 00:09:25=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/24 00:09:25=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/24 00:09:25=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/24 00:09:57=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/24 00:09:57=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/24 00:09:57=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/24 00:09:57=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/24 00:09:57=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/24 00:09:57=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/24 00:10:26=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/24 00:10:26=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/24 00:10:26=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/24 00:10:26=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/24 00:10:26=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/24 00:10:26=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/24 00:18:01=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/24 00:18:01=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/24 00:18:01=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/24 00:18:01=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/24 00:18:01=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/24 00:18:01=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/24 00:18:57=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/24 00:18:57=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/24 00:18:57=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/24 00:18:57=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/24 00:18:57=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/24 00:18:57=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/24 00:21:16=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/24 00:21:16=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/24 00:21:16=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/24 00:21:16=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/24 00:21:16=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/24 00:21:16=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/24 00:21:29=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/24 00:21:29=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/24 00:21:29=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/24 00:21:29=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/24 00:21:29=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/24 00:21:29=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/24 00:21:41=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/24 00:21:41=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/24 00:21:41=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/24 00:21:41=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/24 00:21:41=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/24 00:21:41=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/24 00:22:04=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/24 00:22:04=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/24 00:22:04=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/24 00:22:04=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/24 00:22:04=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/24 00:22:04=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/24 00:24:24=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/24 00:24:24=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/24 00:24:24=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/24 00:24:24=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/24 00:24:24=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/24 00:24:24=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/24 00:25:30=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/24 00:25:30=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/24 00:25:30=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/24 00:25:30=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/24 00:25:30=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/24 00:25:30=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/24 00:25:57=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/24 00:25:57=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/24 00:25:57=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/24 00:25:57=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/24 00:25:57=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/24 00:25:57=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/24 00:26:53=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/24 00:26:53=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/24 00:26:53=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/24 00:26:53=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/24 00:26:53=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/24 00:26:53=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 

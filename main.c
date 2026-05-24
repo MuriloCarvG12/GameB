@@ -567,6 +567,55 @@ void processInput()
             break;
         }
 
+        case GAME_NAME_CHARACTER_STATE:
+        {
+            // 52 for the back button and 53 for the continue button
+            if (UpKeyIsDown && !UpKeyWasDown)
+            {
+                if (g_mi_CharacterNamingScreenMenu.SelectedItem == 53) {
+                    g_mi_CharacterNamingScreenMenu.SelectedItem = 46; PlayGameSound(&gMenuNavigate);
+                }
+                else if (g_mi_CharacterNamingScreenMenu.SelectedItem - 13 >= 0)
+                {g_mi_CharacterNamingScreenMenu.SelectedItem -= 13; PlayGameSound(&gMenuNavigate);}
+
+            }
+
+            if (DownKeyIsDown && !DownKeyWasDown)
+            {
+                if (g_mi_CharacterNamingScreenMenu.SelectedItem + 13 < 53)
+                {g_mi_CharacterNamingScreenMenu.SelectedItem += 13; PlayGameSound(&gMenuNavigate);}
+                else if (g_mi_CharacterNamingScreenMenu.SelectedItem == 39 || g_mi_CharacterNamingScreenMenu.SelectedItem == 40) {
+                    g_mi_CharacterNamingScreenMenu.SelectedItem = 52; PlayGameSound(&gMenuNavigate);
+                }
+                else if (g_mi_CharacterNamingScreenMenu.SelectedItem > 45) {
+                    g_mi_CharacterNamingScreenMenu.SelectedItem = 53; PlayGameSound(&gMenuNavigate);
+                }
+            }
+
+            if (RightKeyIsDown && !RightKeyWasDown)
+            {
+                if (g_mi_CharacterNamingScreenMenu.SelectedItem < 53) {g_mi_CharacterNamingScreenMenu.SelectedItem++; PlayGameSound(&gMenuNavigate);}
+            }
+
+            if (LeftKeyIsDown && !LeftKeyWasDown)
+            {
+                if (g_mi_CharacterNamingScreenMenu.SelectedItem > 0) {g_mi_CharacterNamingScreenMenu.SelectedItem--; PlayGameSound(&gMenuNavigate);}
+            }
+
+            if (EnterKeyIsDown && !EnterKeyWasDown)
+            {
+                g_mi_CharacterNamingScreenMenu.Items[g_mi_CharacterNamingScreenMenu.SelectedItem]->action();
+                PlayGameSound(&gMenuNavigate);
+            }
+
+            UpKeyWasDown = UpKeyIsDown;
+            DownKeyWasDown = DownKeyIsDown;
+            RightKeyWasDown = RightKeyIsDown;
+            LeftKeyWasDown = LeftKeyIsDown;
+            EnterKeyWasDown = EnterKeyIsDown;
+            break;
+        }
+
         case GAME_OVERWORLD_STATE:
         {
             if(Esc_Key_is_down)
@@ -915,6 +964,53 @@ void rendergraphics()
                 else
                 {
                     BlitStringIntoBuffer (&g_Game_Font, ResolutionXOffset,  ResolutionYOffset, "\xf2" , InactiveFontColor);
+                }
+            }
+
+            break;
+        }
+
+        case GAME_NAME_CHARACTER_STATE:
+        {
+            PIXEL32 FontColor;
+            FontColor.Blue = 0xFF;
+            FontColor.Green = 0xFF;
+            FontColor.Red = 0xFF;
+            FontColor.Padding = 0xFF;
+
+            uint32_t colorBlack = 0xFF111111;;
+
+            base_screen(&colorBlack);
+
+            char MenuItemMessage[40] = "";
+            strncpy(MenuItemMessage, g_mi_CharacterNamingScreenMenu.MenuText, strlen(g_mi_CharacterNamingScreenMenu.MenuText));
+            BlitStringIntoBuffer (&g_Game_Font, (GAME_RES_WIDTH /2)- 8 * 10, 36, MenuItemMessage, FontColor);
+
+
+            for (int i = 0; i < _countof(g_Player.name); i++)
+            {
+                int currentDistance = 8 * i;
+
+                if (g_Player.name[i] == '\0') {
+                    BlitStringIntoBuffer (&g_Game_Font, 150 + currentDistance, 60, "_", FontColor);
+                }
+                else {
+                    char singleChar[2] = { g_Player.name[i], '\0' };
+                    BlitStringIntoBuffer(&g_Game_Font, 150 + currentDistance, 60, singleChar, FontColor);
+                }
+
+            }
+
+            for (uint8_t CharacterIterator = 0; CharacterIterator < g_mi_CharacterNamingScreenMenu.ItemCount; CharacterIterator++)
+            {
+                BlitStringIntoBuffer (&g_Game_Font,
+                                        g_mi_CharacterNamingScreenMenu.Items[CharacterIterator]->X,
+                                        g_mi_CharacterNamingScreenMenu.Items[CharacterIterator]->Y,
+                                        g_mi_CharacterNamingScreenMenu.Items[CharacterIterator]->ItemTitle ,
+                                        FontColor);
+
+                if (g_mi_CharacterNamingScreenMenu.SelectedItem == CharacterIterator) {
+                    BlitStringIntoBuffer (&g_Game_Font,g_mi_CharacterNamingScreenMenu.Items[CharacterIterator]->X - 8 ,g_mi_CharacterNamingScreenMenu.Items[CharacterIterator]->Y , ">", FontColor);
                 }
             }
 
@@ -1911,7 +2007,9 @@ void PlayGameSound(_In_ GAME_SOUND* GameSound)
 }
 
 void g_mi_ResumeGameAction(void){};
-void g_mi_StartGameAction(void){};
+void g_mi_StartGameAction(void) {
+    g_CurrentGameState = GAME_NAME_CHARACTER_STATE;
+};
 void g_mi_SaveGameAction(void){};
 void g_mi_OptionGameAction(void)
 {
@@ -1986,3 +2084,28 @@ void g_mi_OptionsBackAction(void)
         WriteLog(log_severity_error, "[%s] Failed to save Options", __FUNCTION__);
     }
 };
+
+void g_mi_CharacterNameBack(void)
+{
+    int CurrentNameChars = strlen(g_Player.name);
+    if (CurrentNameChars > 0)
+    {
+        g_Player.name[CurrentNameChars - 1] = '\0';
+    }
+    else
+    {
+        g_CurrentGameState = GAME_MAIN_MENU_STATE;
+    }
+
+}
+
+void g_mi_CharacterNameAddChar(void)
+{
+    int currentNameChar = strlen(g_Player.name);
+
+    if (currentNameChar < 12) {
+        strncpy(&g_Player.name[currentNameChar], g_mi_CharacterNamingScreenMenu.Items[g_mi_CharacterNamingScreenMenu.SelectedItem]->ItemTitle, 1);
+    }
+}
+
+void g_mi_CharacterNameConfirmName(void){}
