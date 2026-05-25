@@ -7,7 +7,20 @@ add_executable(untitled7 main.c
         projectdeclarations.c
         projectdeclarations.h
         menu.c
-        menu.h)
+        menu.h
+        GameOpeningSplashScreen.c
+        GameOpeningSplashScreen.h
+        GameMainMenuScreen.c
+        GameMainMenuScreen.h
+        GameYesOrNoExitMenu.c
+        GameYesOrNoExitMenu.h
+        GameOptionsScreen.c
+        GameOptionsScreen.h
+        GameCharacterNamingScreen.c
+        GameCharacterNamingScreen.h
+        GameOverworldScreen.c
+        GameOverworldScreen.h
+)
 
 target_link_libraries(untitled7 PRIVATE
         winmm

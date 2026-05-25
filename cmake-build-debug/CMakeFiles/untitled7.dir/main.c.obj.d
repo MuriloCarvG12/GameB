@@ -283,4 +283,10 @@ CMakeFiles/untitled7.dir/main.c.obj: C:\Users\Chine\Desktop\GameB\main.c \
  C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/audiosessiontypes.h \
  C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/mmreg.h \
  C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/pshpack1.h \
- C:\Users\Chine\Desktop\GameB\menu.h
+ C:\Users\Chine\Desktop\GameB\menu.h \
+ C:\Users\Chine\Desktop\GameB\GameOpeningSplashScreen.h \
+ C:\Users\Chine\Desktop\GameB\GameCharacterNamingScreen.h \
+ C:\Users\Chine\Desktop\GameB\GameMainMenuScreen.h \
+ C:\Users\Chine\Desktop\GameB\GameOptionsScreen.h \
+ C:\Users\Chine\Desktop\GameB\GameOverworldScreen.h \
+ C:\Users\Chine\Desktop\GameB\GameYesOrNoExitMenu.h

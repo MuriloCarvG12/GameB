@@ -1,0 +1,10 @@
+//
+// Created by Chine on 25/05/2026.
+//
+
+#ifndef UNTITLED7_GAMEOPENINGSPLASHSCREEN_H
+#define UNTITLED7_GAMEOPENINGSPLASHSCREEN_H
+
+void DrawGameOpeningSplashScreen(void);
+
+#endif //UNTITLED7_GAMEOPENINGSPLASHSCREEN_H

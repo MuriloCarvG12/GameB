@@ -113,11 +113,101 @@ CMakeFiles/untitled7.dir/menu.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/untitled7.dir/menu.c.s"
 	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\Chine\Desktop\GameB\menu.c -o CMakeFiles\untitled7.dir\menu.c.s
 
+CMakeFiles/untitled7.dir/GameOpeningSplashScreen.c.obj: CMakeFiles/untitled7.dir/flags.make
+CMakeFiles/untitled7.dir/GameOpeningSplashScreen.c.obj: C:/Users/Chine/Desktop/GameB/GameOpeningSplashScreen.c
+CMakeFiles/untitled7.dir/GameOpeningSplashScreen.c.obj: CMakeFiles/untitled7.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Chine\Desktop\GameB\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/untitled7.dir/GameOpeningSplashScreen.c.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/untitled7.dir/GameOpeningSplashScreen.c.obj -MF CMakeFiles\untitled7.dir\GameOpeningSplashScreen.c.obj.d -o CMakeFiles\untitled7.dir\GameOpeningSplashScreen.c.obj -c C:\Users\Chine\Desktop\GameB\GameOpeningSplashScreen.c
+
+CMakeFiles/untitled7.dir/GameOpeningSplashScreen.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/untitled7.dir/GameOpeningSplashScreen.c.i"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\Chine\Desktop\GameB\GameOpeningSplashScreen.c > CMakeFiles\untitled7.dir\GameOpeningSplashScreen.c.i
+
+CMakeFiles/untitled7.dir/GameOpeningSplashScreen.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/untitled7.dir/GameOpeningSplashScreen.c.s"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\Chine\Desktop\GameB\GameOpeningSplashScreen.c -o CMakeFiles\untitled7.dir\GameOpeningSplashScreen.c.s
+
+CMakeFiles/untitled7.dir/GameMainMenuScreen.c.obj: CMakeFiles/untitled7.dir/flags.make
+CMakeFiles/untitled7.dir/GameMainMenuScreen.c.obj: C:/Users/Chine/Desktop/GameB/GameMainMenuScreen.c
+CMakeFiles/untitled7.dir/GameMainMenuScreen.c.obj: CMakeFiles/untitled7.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Chine\Desktop\GameB\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/untitled7.dir/GameMainMenuScreen.c.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/untitled7.dir/GameMainMenuScreen.c.obj -MF CMakeFiles\untitled7.dir\GameMainMenuScreen.c.obj.d -o CMakeFiles\untitled7.dir\GameMainMenuScreen.c.obj -c C:\Users\Chine\Desktop\GameB\GameMainMenuScreen.c
+
+CMakeFiles/untitled7.dir/GameMainMenuScreen.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/untitled7.dir/GameMainMenuScreen.c.i"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\Chine\Desktop\GameB\GameMainMenuScreen.c > CMakeFiles\untitled7.dir\GameMainMenuScreen.c.i
+
+CMakeFiles/untitled7.dir/GameMainMenuScreen.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/untitled7.dir/GameMainMenuScreen.c.s"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\Chine\Desktop\GameB\GameMainMenuScreen.c -o CMakeFiles\untitled7.dir\GameMainMenuScreen.c.s
+
+CMakeFiles/untitled7.dir/GameYesOrNoExitMenu.c.obj: CMakeFiles/untitled7.dir/flags.make
+CMakeFiles/untitled7.dir/GameYesOrNoExitMenu.c.obj: C:/Users/Chine/Desktop/GameB/GameYesOrNoExitMenu.c
+CMakeFiles/untitled7.dir/GameYesOrNoExitMenu.c.obj: CMakeFiles/untitled7.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Chine\Desktop\GameB\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/untitled7.dir/GameYesOrNoExitMenu.c.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/untitled7.dir/GameYesOrNoExitMenu.c.obj -MF CMakeFiles\untitled7.dir\GameYesOrNoExitMenu.c.obj.d -o CMakeFiles\untitled7.dir\GameYesOrNoExitMenu.c.obj -c C:\Users\Chine\Desktop\GameB\GameYesOrNoExitMenu.c
+
+CMakeFiles/untitled7.dir/GameYesOrNoExitMenu.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/untitled7.dir/GameYesOrNoExitMenu.c.i"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\Chine\Desktop\GameB\GameYesOrNoExitMenu.c > CMakeFiles\untitled7.dir\GameYesOrNoExitMenu.c.i
+
+CMakeFiles/untitled7.dir/GameYesOrNoExitMenu.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/untitled7.dir/GameYesOrNoExitMenu.c.s"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\Chine\Desktop\GameB\GameYesOrNoExitMenu.c -o CMakeFiles\untitled7.dir\GameYesOrNoExitMenu.c.s
+
+CMakeFiles/untitled7.dir/GameOptionsScreen.c.obj: CMakeFiles/untitled7.dir/flags.make
+CMakeFiles/untitled7.dir/GameOptionsScreen.c.obj: C:/Users/Chine/Desktop/GameB/GameOptionsScreen.c
+CMakeFiles/untitled7.dir/GameOptionsScreen.c.obj: CMakeFiles/untitled7.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Chine\Desktop\GameB\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/untitled7.dir/GameOptionsScreen.c.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/untitled7.dir/GameOptionsScreen.c.obj -MF CMakeFiles\untitled7.dir\GameOptionsScreen.c.obj.d -o CMakeFiles\untitled7.dir\GameOptionsScreen.c.obj -c C:\Users\Chine\Desktop\GameB\GameOptionsScreen.c
+
+CMakeFiles/untitled7.dir/GameOptionsScreen.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/untitled7.dir/GameOptionsScreen.c.i"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\Chine\Desktop\GameB\GameOptionsScreen.c > CMakeFiles\untitled7.dir\GameOptionsScreen.c.i
+
+CMakeFiles/untitled7.dir/GameOptionsScreen.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/untitled7.dir/GameOptionsScreen.c.s"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\Chine\Desktop\GameB\GameOptionsScreen.c -o CMakeFiles\untitled7.dir\GameOptionsScreen.c.s
+
+CMakeFiles/untitled7.dir/GameCharacterNamingScreen.c.obj: CMakeFiles/untitled7.dir/flags.make
+CMakeFiles/untitled7.dir/GameCharacterNamingScreen.c.obj: C:/Users/Chine/Desktop/GameB/GameCharacterNamingScreen.c
+CMakeFiles/untitled7.dir/GameCharacterNamingScreen.c.obj: CMakeFiles/untitled7.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Chine\Desktop\GameB\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/untitled7.dir/GameCharacterNamingScreen.c.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/untitled7.dir/GameCharacterNamingScreen.c.obj -MF CMakeFiles\untitled7.dir\GameCharacterNamingScreen.c.obj.d -o CMakeFiles\untitled7.dir\GameCharacterNamingScreen.c.obj -c C:\Users\Chine\Desktop\GameB\GameCharacterNamingScreen.c
+
+CMakeFiles/untitled7.dir/GameCharacterNamingScreen.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/untitled7.dir/GameCharacterNamingScreen.c.i"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\Chine\Desktop\GameB\GameCharacterNamingScreen.c > CMakeFiles\untitled7.dir\GameCharacterNamingScreen.c.i
+
+CMakeFiles/untitled7.dir/GameCharacterNamingScreen.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/untitled7.dir/GameCharacterNamingScreen.c.s"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\Chine\Desktop\GameB\GameCharacterNamingScreen.c -o CMakeFiles\untitled7.dir\GameCharacterNamingScreen.c.s
+
+CMakeFiles/untitled7.dir/GameOverworldScreen.c.obj: CMakeFiles/untitled7.dir/flags.make
+CMakeFiles/untitled7.dir/GameOverworldScreen.c.obj: C:/Users/Chine/Desktop/GameB/GameOverworldScreen.c
+CMakeFiles/untitled7.dir/GameOverworldScreen.c.obj: CMakeFiles/untitled7.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Chine\Desktop\GameB\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/untitled7.dir/GameOverworldScreen.c.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/untitled7.dir/GameOverworldScreen.c.obj -MF CMakeFiles\untitled7.dir\GameOverworldScreen.c.obj.d -o CMakeFiles\untitled7.dir\GameOverworldScreen.c.obj -c C:\Users\Chine\Desktop\GameB\GameOverworldScreen.c
+
+CMakeFiles/untitled7.dir/GameOverworldScreen.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/untitled7.dir/GameOverworldScreen.c.i"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\Chine\Desktop\GameB\GameOverworldScreen.c > CMakeFiles\untitled7.dir\GameOverworldScreen.c.i
+
+CMakeFiles/untitled7.dir/GameOverworldScreen.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/untitled7.dir/GameOverworldScreen.c.s"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\Chine\Desktop\GameB\GameOverworldScreen.c -o CMakeFiles\untitled7.dir\GameOverworldScreen.c.s
+
 # Object files for target untitled7
 untitled7_OBJECTS = \
 "CMakeFiles/untitled7.dir/main.c.obj" \
 "CMakeFiles/untitled7.dir/projectdeclarations.c.obj" \
-"CMakeFiles/untitled7.dir/menu.c.obj"
+"CMakeFiles/untitled7.dir/menu.c.obj" \
+"CMakeFiles/untitled7.dir/GameOpeningSplashScreen.c.obj" \
+"CMakeFiles/untitled7.dir/GameMainMenuScreen.c.obj" \
+"CMakeFiles/untitled7.dir/GameYesOrNoExitMenu.c.obj" \
+"CMakeFiles/untitled7.dir/GameOptionsScreen.c.obj" \
+"CMakeFiles/untitled7.dir/GameCharacterNamingScreen.c.obj" \
+"CMakeFiles/untitled7.dir/GameOverworldScreen.c.obj"
 
 # External object files for target untitled7
 untitled7_EXTERNAL_OBJECTS =
@@ -125,11 +215,17 @@ untitled7_EXTERNAL_OBJECTS =
 untitled7.exe: CMakeFiles/untitled7.dir/main.c.obj
 untitled7.exe: CMakeFiles/untitled7.dir/projectdeclarations.c.obj
 untitled7.exe: CMakeFiles/untitled7.dir/menu.c.obj
+untitled7.exe: CMakeFiles/untitled7.dir/GameOpeningSplashScreen.c.obj
+untitled7.exe: CMakeFiles/untitled7.dir/GameMainMenuScreen.c.obj
+untitled7.exe: CMakeFiles/untitled7.dir/GameYesOrNoExitMenu.c.obj
+untitled7.exe: CMakeFiles/untitled7.dir/GameOptionsScreen.c.obj
+untitled7.exe: CMakeFiles/untitled7.dir/GameCharacterNamingScreen.c.obj
+untitled7.exe: CMakeFiles/untitled7.dir/GameOverworldScreen.c.obj
 untitled7.exe: CMakeFiles/untitled7.dir/build.make
 untitled7.exe: CMakeFiles/untitled7.dir/linkLibs.rsp
 untitled7.exe: CMakeFiles/untitled7.dir/objects1.rsp
 untitled7.exe: CMakeFiles/untitled7.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\Chine\Desktop\GameB\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C executable untitled7.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\Chine\Desktop\GameB\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking C executable untitled7.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\untitled7.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

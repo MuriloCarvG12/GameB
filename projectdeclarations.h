@@ -10,6 +10,7 @@
 #include <emmintrin.h>
 #include <psapi.h>
 #include <xaudio2.h>
+#include "menu.h"
 
 
 #define GAME_RES_WIDTH 384
@@ -175,5 +176,27 @@ typedef struct game_registry_info {
     DWORD GAME_MUSIC_VOLUME_LEVEL;
     DWORD CURRENT_GAME_RES_SCALE_FACTOR;
 } game_registry_info;
+
+extern float G_Current_Game_SoundEffect_Volume;
+extern float G_Current_Game_Music_Volume;
+extern BOOL GameInProgress;
+extern HANDLE g_window_handle;
+
+extern GAME_BIT_MAP g_backbuffer;
+extern GAME_BIT_MAP g_Game_Font;
+extern GAME_BIT_MAP g_OverWorld01Sprite;
+extern GAME_SOUND gMenuNavigate;
+extern GAME_SOUND gIntroEffect;
+void BlitStringIntoBuffer(GAME_BIT_MAP *Sprite, int ScreenX, int ScreenY, char *Text, PIXEL32 FontColor);
+VOID Load32BppIntoBackBuffer(GAME_BIT_MAP *, int , int );
+VOID Load32BppOverworldIntoBackBuffer(GAME_BIT_MAP *, int , int );
+
+extern GameCoordinate g_CameraPosition;
+extern GameCoordinate FindFontSprite(char Message);
+
+extern game_states g_CurrentGameState;
+extern game_performance_info game_performance;
+
+extern Player g_Player;
 
 #endif //UNTITLED7_PROJECTDECLARATIONS_H

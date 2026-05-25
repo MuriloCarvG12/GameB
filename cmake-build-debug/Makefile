@@ -128,6 +128,150 @@ untitled7/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled7.dir\build.make CMakeFiles/untitled7.dir/build
 .PHONY : untitled7/fast
 
+GameCharacterNamingScreen.obj: GameCharacterNamingScreen.c.obj
+.PHONY : GameCharacterNamingScreen.obj
+
+# target to build an object file
+GameCharacterNamingScreen.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled7.dir\build.make CMakeFiles/untitled7.dir/GameCharacterNamingScreen.c.obj
+.PHONY : GameCharacterNamingScreen.c.obj
+
+GameCharacterNamingScreen.i: GameCharacterNamingScreen.c.i
+.PHONY : GameCharacterNamingScreen.i
+
+# target to preprocess a source file
+GameCharacterNamingScreen.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled7.dir\build.make CMakeFiles/untitled7.dir/GameCharacterNamingScreen.c.i
+.PHONY : GameCharacterNamingScreen.c.i
+
+GameCharacterNamingScreen.s: GameCharacterNamingScreen.c.s
+.PHONY : GameCharacterNamingScreen.s
+
+# target to generate assembly for a file
+GameCharacterNamingScreen.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled7.dir\build.make CMakeFiles/untitled7.dir/GameCharacterNamingScreen.c.s
+.PHONY : GameCharacterNamingScreen.c.s
+
+GameMainMenuScreen.obj: GameMainMenuScreen.c.obj
+.PHONY : GameMainMenuScreen.obj
+
+# target to build an object file
+GameMainMenuScreen.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled7.dir\build.make CMakeFiles/untitled7.dir/GameMainMenuScreen.c.obj
+.PHONY : GameMainMenuScreen.c.obj
+
+GameMainMenuScreen.i: GameMainMenuScreen.c.i
+.PHONY : GameMainMenuScreen.i
+
+# target to preprocess a source file
+GameMainMenuScreen.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled7.dir\build.make CMakeFiles/untitled7.dir/GameMainMenuScreen.c.i
+.PHONY : GameMainMenuScreen.c.i
+
+GameMainMenuScreen.s: GameMainMenuScreen.c.s
+.PHONY : GameMainMenuScreen.s
+
+# target to generate assembly for a file
+GameMainMenuScreen.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled7.dir\build.make CMakeFiles/untitled7.dir/GameMainMenuScreen.c.s
+.PHONY : GameMainMenuScreen.c.s
+
+GameOpeningSplashScreen.obj: GameOpeningSplashScreen.c.obj
+.PHONY : GameOpeningSplashScreen.obj
+
+# target to build an object file
+GameOpeningSplashScreen.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled7.dir\build.make CMakeFiles/untitled7.dir/GameOpeningSplashScreen.c.obj
+.PHONY : GameOpeningSplashScreen.c.obj
+
+GameOpeningSplashScreen.i: GameOpeningSplashScreen.c.i
+.PHONY : GameOpeningSplashScreen.i
+
+# target to preprocess a source file
+GameOpeningSplashScreen.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled7.dir\build.make CMakeFiles/untitled7.dir/GameOpeningSplashScreen.c.i
+.PHONY : GameOpeningSplashScreen.c.i
+
+GameOpeningSplashScreen.s: GameOpeningSplashScreen.c.s
+.PHONY : GameOpeningSplashScreen.s
+
+# target to generate assembly for a file
+GameOpeningSplashScreen.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled7.dir\build.make CMakeFiles/untitled7.dir/GameOpeningSplashScreen.c.s
+.PHONY : GameOpeningSplashScreen.c.s
+
+GameOptionsScreen.obj: GameOptionsScreen.c.obj
+.PHONY : GameOptionsScreen.obj
+
+# target to build an object file
+GameOptionsScreen.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled7.dir\build.make CMakeFiles/untitled7.dir/GameOptionsScreen.c.obj
+.PHONY : GameOptionsScreen.c.obj
+
+GameOptionsScreen.i: GameOptionsScreen.c.i
+.PHONY : GameOptionsScreen.i
+
+# target to preprocess a source file
+GameOptionsScreen.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled7.dir\build.make CMakeFiles/untitled7.dir/GameOptionsScreen.c.i
+.PHONY : GameOptionsScreen.c.i
+
+GameOptionsScreen.s: GameOptionsScreen.c.s
+.PHONY : GameOptionsScreen.s
+
+# target to generate assembly for a file
+GameOptionsScreen.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled7.dir\build.make CMakeFiles/untitled7.dir/GameOptionsScreen.c.s
+.PHONY : GameOptionsScreen.c.s
+
+GameOverworldScreen.obj: GameOverworldScreen.c.obj
+.PHONY : GameOverworldScreen.obj
+
+# target to build an object file
+GameOverworldScreen.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled7.dir\build.make CMakeFiles/untitled7.dir/GameOverworldScreen.c.obj
+.PHONY : GameOverworldScreen.c.obj
+
+GameOverworldScreen.i: GameOverworldScreen.c.i
+.PHONY : GameOverworldScreen.i
+
+# target to preprocess a source file
+GameOverworldScreen.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled7.dir\build.make CMakeFiles/untitled7.dir/GameOverworldScreen.c.i
+.PHONY : GameOverworldScreen.c.i
+
+GameOverworldScreen.s: GameOverworldScreen.c.s
+.PHONY : GameOverworldScreen.s
+
+# target to generate assembly for a file
+GameOverworldScreen.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled7.dir\build.make CMakeFiles/untitled7.dir/GameOverworldScreen.c.s
+.PHONY : GameOverworldScreen.c.s
+
+GameYesOrNoExitMenu.obj: GameYesOrNoExitMenu.c.obj
+.PHONY : GameYesOrNoExitMenu.obj
+
+# target to build an object file
+GameYesOrNoExitMenu.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled7.dir\build.make CMakeFiles/untitled7.dir/GameYesOrNoExitMenu.c.obj
+.PHONY : GameYesOrNoExitMenu.c.obj
+
+GameYesOrNoExitMenu.i: GameYesOrNoExitMenu.c.i
+.PHONY : GameYesOrNoExitMenu.i
+
+# target to preprocess a source file
+GameYesOrNoExitMenu.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled7.dir\build.make CMakeFiles/untitled7.dir/GameYesOrNoExitMenu.c.i
+.PHONY : GameYesOrNoExitMenu.c.i
+
+GameYesOrNoExitMenu.s: GameYesOrNoExitMenu.c.s
+.PHONY : GameYesOrNoExitMenu.s
+
+# target to generate assembly for a file
+GameYesOrNoExitMenu.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled7.dir\build.make CMakeFiles/untitled7.dir/GameYesOrNoExitMenu.c.s
+.PHONY : GameYesOrNoExitMenu.c.s
+
 main.obj: main.c.obj
 .PHONY : main.obj
 
@@ -209,6 +353,24 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... untitled7
+	@echo ... GameCharacterNamingScreen.obj
+	@echo ... GameCharacterNamingScreen.i
+	@echo ... GameCharacterNamingScreen.s
+	@echo ... GameMainMenuScreen.obj
+	@echo ... GameMainMenuScreen.i
+	@echo ... GameMainMenuScreen.s
+	@echo ... GameOpeningSplashScreen.obj
+	@echo ... GameOpeningSplashScreen.i
+	@echo ... GameOpeningSplashScreen.s
+	@echo ... GameOptionsScreen.obj
+	@echo ... GameOptionsScreen.i
+	@echo ... GameOptionsScreen.s
+	@echo ... GameOverworldScreen.obj
+	@echo ... GameOverworldScreen.i
+	@echo ... GameOverworldScreen.s
+	@echo ... GameYesOrNoExitMenu.obj
+	@echo ... GameYesOrNoExitMenu.i
+	@echo ... GameYesOrNoExitMenu.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

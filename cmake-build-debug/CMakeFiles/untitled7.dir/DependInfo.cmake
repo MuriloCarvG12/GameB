@@ -8,6 +8,12 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "C:/Users/Chine/Desktop/GameB/GameCharacterNamingScreen.c" "CMakeFiles/untitled7.dir/GameCharacterNamingScreen.c.obj" "gcc" "CMakeFiles/untitled7.dir/GameCharacterNamingScreen.c.obj.d"
+  "C:/Users/Chine/Desktop/GameB/GameMainMenuScreen.c" "CMakeFiles/untitled7.dir/GameMainMenuScreen.c.obj" "gcc" "CMakeFiles/untitled7.dir/GameMainMenuScreen.c.obj.d"
+  "C:/Users/Chine/Desktop/GameB/GameOpeningSplashScreen.c" "CMakeFiles/untitled7.dir/GameOpeningSplashScreen.c.obj" "gcc" "CMakeFiles/untitled7.dir/GameOpeningSplashScreen.c.obj.d"
+  "C:/Users/Chine/Desktop/GameB/GameOptionsScreen.c" "CMakeFiles/untitled7.dir/GameOptionsScreen.c.obj" "gcc" "CMakeFiles/untitled7.dir/GameOptionsScreen.c.obj.d"
+  "C:/Users/Chine/Desktop/GameB/GameOverworldScreen.c" "CMakeFiles/untitled7.dir/GameOverworldScreen.c.obj" "gcc" "CMakeFiles/untitled7.dir/GameOverworldScreen.c.obj.d"
+  "C:/Users/Chine/Desktop/GameB/GameYesOrNoExitMenu.c" "CMakeFiles/untitled7.dir/GameYesOrNoExitMenu.c.obj" "gcc" "CMakeFiles/untitled7.dir/GameYesOrNoExitMenu.c.obj.d"
   "C:/Users/Chine/Desktop/GameB/main.c" "CMakeFiles/untitled7.dir/main.c.obj" "gcc" "CMakeFiles/untitled7.dir/main.c.obj.d"
   "C:/Users/Chine/Desktop/GameB/menu.c" "CMakeFiles/untitled7.dir/menu.c.obj" "gcc" "CMakeFiles/untitled7.dir/menu.c.obj.d"
   "C:/Users/Chine/Desktop/GameB/projectdeclarations.c" "CMakeFiles/untitled7.dir/projectdeclarations.c.obj" "gcc" "CMakeFiles/untitled7.dir/projectdeclarations.c.obj.d"
