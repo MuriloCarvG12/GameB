@@ -12,7 +12,7 @@ void DrawGameOverWorldScreen(void)
 
 #ifdef SIMD
     uint32_t color = 0xFF9900FF;
-    Load32BppOverworldIntoBackBuffer(&g_OverWorld01Sprite,0,0);
+    Load32BppOverworldIntoBackBuffer(&G_game_overworld_info.OverWorldBackGroundSprite,0,0);
     //base_screen(&color);
 #else
     base_screen();
@@ -21,6 +21,20 @@ void DrawGameOverWorldScreen(void)
     FontColor.Blue = 0x00;
     FontColor.Green = 0x00;
     FontColor.Red = 0x00;
+
+    for (int row = 0; row < (GAME_RES_HEIGHT/ 16) * 10; row++)
+    {
+        for (int column = 0; column < (GAME_RES_WIDTH/ 16) * 10; column++) {
+            int index = row * G_game_overworld_info.TileMap.TileMapWidth + column;
+            char TileValue[8];
+
+            _itoa_s(G_game_overworld_info.TileMap.Map[index], TileValue, sizeof(TileValue), 10);
+            if (row / 16 == 0 && column / 16 == 0) {
+                BlitStringIntoBuffer(&g_Game_Font, column * 16  , row * 16 , TileValue, FontColor);
+            }
+
+        }
+    }
 
     BlitStringIntoBuffer (&g_Game_Font, 50, 50, Text, FontColor);
     BlitStringIntoBuffer (&g_Game_Font, 50, 75, Text2, FontColor);
@@ -63,7 +77,7 @@ void ProcessGameOverWorldScreenInput(void)
             g_Player.PixelPosition += 1;
             g_Player.Direction = character_direction_down;
         }
-        if (g_Player.ScreenPosY == GAME_RES_HEIGHT - 16 && g_CameraPosition.Y < g_OverWorld01Sprite.BitMapInfo.bmiHeader.biHeight) {
+        if (g_Player.ScreenPosY == GAME_RES_HEIGHT - 16 && g_CameraPosition.Y < G_game_overworld_info.OverWorldBackGroundSprite.BitMapInfo.bmiHeader.biHeight) {
             g_Player.PixelPosition += 1;
             g_CameraPosition.Y++;
         }
@@ -93,7 +107,7 @@ void ProcessGameOverWorldScreenInput(void)
             g_Player.PixelPosition += 1;
             g_Player.Direction = character_direction_right;
         }
-        if (g_CameraPosition.X < g_OverWorld01Sprite.BitMapInfo.bmiHeader.biWidth && g_Player.ScreenPosX == GAME_RES_WIDTH - 16) {
+        if (g_CameraPosition.X < G_game_overworld_info.OverWorldBackGroundSprite.BitMapInfo.bmiHeader.biWidth && g_Player.ScreenPosX == GAME_RES_WIDTH - 16) {
             g_Player.PixelPosition += 1;
             g_CameraPosition.X++;
         }

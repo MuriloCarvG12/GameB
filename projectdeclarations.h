@@ -142,6 +142,18 @@ typedef struct GameLogSeverity {
     int32_t LogLevel;
 } GameLogSeverity;
 
+typedef struct TileMap {
+    int16_t TileMapWidth;
+    int16_t TileMapHeight;
+    int* Map;
+} TileMap;
+
+typedef struct GameOverworldInfo
+{
+    GAME_BIT_MAP OverWorldBackGroundSprite;
+    TileMap TileMap;
+} GameOverworldInfo;
+
 #ifdef SIMD
 void base_screen(uint32_t *pixel_color);
 #else
@@ -184,7 +196,7 @@ extern HANDLE g_window_handle;
 
 extern GAME_BIT_MAP g_backbuffer;
 extern GAME_BIT_MAP g_Game_Font;
-extern GAME_BIT_MAP g_OverWorld01Sprite;
+extern GameOverworldInfo G_game_overworld_info;
 extern GAME_SOUND gMenuNavigate;
 extern GAME_SOUND gIntroEffect;
 void BlitStringIntoBuffer(GAME_BIT_MAP *Sprite, int ScreenX, int ScreenY, char *Text, PIXEL32 FontColor);

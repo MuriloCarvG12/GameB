@@ -49,6 +49,7 @@ void processInput();
 void rendergraphics();
 VOID Load32BppIntoBackBuffer(GAME_BIT_MAP *, int , int );
 VOID Load32BppOverworldIntoBackBuffer(GAME_BIT_MAP *, int , int );
+DWORD LoadTmxFile( char* , TileMap* );
 
 // windows variables
 
@@ -58,7 +59,7 @@ BOOL g_game_is_running;
 
 GAME_BIT_MAP g_backbuffer;
 GAME_BIT_MAP g_Game_Font;
-GAME_BIT_MAP g_OverWorld01Sprite;
+
 GAME_BIT_MAP *g_CurrentSprite;
 __m128i data;
 
@@ -94,12 +95,13 @@ GAME_SOUND   gIntroEffect;
 
 //struct variables
 GameCoordinate g_CameraPosition = { 0, 0 };
-game_states g_CurrentGameState = GAME_INTRO_STATE;
+game_states g_CurrentGameState = GAME_OVERWORLD_STATE;
 game_performance_info game_performance;
 game_info GInfo;
 Player g_Player;
 game_registry_info g_game_registry_info;
 GameLogSeverity G_game_log_severity;
+GameOverworldInfo G_game_overworld_info;
 
 int  WinMain(HINSTANCE hInst, HINSTANCE hInstPrev, PSTR cmdline, int cmdshow)
 {
@@ -189,7 +191,7 @@ int  WinMain(HINSTANCE hInst, HINSTANCE hInstPrev, PSTR cmdline, int cmdshow)
         goto EXIT;
     }
 
-    if ((Load32BppFile("assets\\Overworld01.bmp", &g_OverWorld01Sprite) != ERROR_SUCCESS))
+    if ((Load32BppFile("assets\\Overworld01.bmp", &G_game_overworld_info.OverWorldBackGroundSprite) != ERROR_SUCCESS))
     {
         MessageBoxA(NULL, "Load32BppBitmapFromFile failed!", "Error!", MB_ICONEXCLAMATION | MB_OK);
         goto EXIT;
@@ -200,6 +202,8 @@ int  WinMain(HINSTANCE hInst, HINSTANCE hInstPrev, PSTR cmdline, int cmdshow)
         MessageBoxA(NULL, "Failed to initialize hero!", "Error!", MB_ICONEXCLAMATION | MB_OK);
         goto EXIT;
     }
+
+    LoadTmxFile("assets\\Overworld01.tmx", &G_game_overworld_info.TileMap);
 
     g_CurrentSprite = &g_Player.PlayerSprite[character_sprite_down_standing];
 
@@ -1642,4 +1646,170 @@ void g_mi_CharacterNameConfirmName(void) {
     {
         g_CurrentGameState = GAME_OVERWORLD_STATE;
     }
+}
+DWORD LoadTmxFile(_In_ char* TmxFilePath,_Inout_ TileMap *TileMap)
+{
+    DWORD Result = ERROR_SUCCESS;
+
+    DWORD NumberOfBytesRead = 0;
+
+    HANDLE FileHandle = INVALID_HANDLE_VALUE;
+
+    void* FileBuffer = NULL;
+
+    LARGE_INTEGER FileSize = { 0 };
+
+    char* FileCursor;
+
+    char *AuxNumberBuffer;
+
+    int TileMapWidth = 0;
+
+    int TileMapHeight = 0;
+
+    int *TileBuffer;
+
+    FileHandle = CreateFileA(TmxFilePath, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL , NULL);
+    if ( FileHandle == INVALID_HANDLE_VALUE ) {
+        WriteLog(log_severity_info,  "Failed to open the TMX file handle", __FUNCTION__, Result);
+        goto EXIT;
+    }
+
+    GetFileSizeEx(FileHandle,&FileSize);
+
+    if (FileSize.QuadPart == 0) {
+        WriteLog(log_severity_info,  "Failed to extract the tmx file size", __FUNCTION__, Result);
+        goto EXIT;
+    }
+
+    FileBuffer = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, FileSize.QuadPart);
+
+    if (FileBuffer == NULL)
+    {
+        Result = ERROR_OUTOFMEMORY;
+
+        WriteLog(log_severity_info, "[%s] HeapAlloc failed with 0x%08lx!", __FUNCTION__, Result);
+
+        goto EXIT;
+    }
+
+    if (ReadFile(FileHandle, FileBuffer, (DWORD) FileSize.QuadPart, &NumberOfBytesRead, NULL) == 0) {
+        WriteLog(log_severity_info,  "Failed to read the TMX FILE", __FUNCTION__, Result);
+        goto EXIT;
+    }
+
+
+    FileCursor = strstr(FileBuffer, "width=");
+
+    if (FileCursor == NULL)
+    {
+        WriteLog(log_severity_info,  "the TMX FILE doesnt have a width= parameter in its header", __FUNCTION__, Result);
+        goto EXIT;
+    }
+
+    FileCursor += strlen("width="); // moves to the index after the width=
+
+    for (int FindOpeningQuoute = 0; FindOpeningQuoute < 8; FindOpeningQuoute++)
+    {
+
+        if (FileCursor[FindOpeningQuoute] == '\"')
+        {
+            int QuoteIndex = FindOpeningQuoute;
+            QuoteIndex++;
+            FileCursor += QuoteIndex;
+            break;
+        }
+    }
+
+    AuxNumberBuffer = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(CHAR) * 3);
+    // locating the height we are assuming the game wont have more than triple digit roles
+    for (int FindOpeningQuoute = 0; FindOpeningQuoute < 3; FindOpeningQuoute++)
+    {
+        if (*FileCursor == '\"')
+        {
+            break;
+        }
+        AuxNumberBuffer[FindOpeningQuoute] = *FileCursor;
+        FileCursor++;
+    }
+
+    TileMapWidth = atoi(AuxNumberBuffer);
+    TileMap->TileMapWidth = TileMapWidth;
+
+
+    FileCursor = strstr(FileBuffer, "height=");
+
+    FileCursor += strlen("height="); // moves to the index after the height=
+
+    for (int FindOpeningQuoute = 0; FindOpeningQuoute < 8; FindOpeningQuoute++)
+    {
+        if (FileCursor[FindOpeningQuoute] == '\"')
+        {
+            int QuoteIndex = FindOpeningQuoute;
+            QuoteIndex++;
+            FileCursor += QuoteIndex;
+            break;
+        }
+    }
+
+    for (int FindOpeningQuoute = 0; FindOpeningQuoute < 3; FindOpeningQuoute++)
+    {
+        if (*FileCursor == '\"')
+        {
+            break;
+        }
+        AuxNumberBuffer[FindOpeningQuoute] = *FileCursor;
+        FileCursor++;
+    }
+
+    TileMapHeight = atoi(AuxNumberBuffer);
+    TileMap->TileMapHeight = TileMapHeight;
+
+    TileBuffer = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(int) * TileMapHeight * TileMapWidth);
+
+    if (TileBuffer == NULL) {
+        Result = ERROR_OUTOFMEMORY;
+        WriteLog(log_severity_info, "[%s] failed to allocate the TileBuffer %s.", __FUNCTION__, TmxFilePath);
+        goto EXIT;
+    }
+
+    FileCursor = strstr(FileBuffer, "csv");
+
+    FileCursor += strlen("csv\">\n");
+
+    for ( int row = 0; row < TileMapHeight; row++) {
+        for ( int column = 0; column < TileMapWidth; column++)
+        {
+            char *End;
+            TileBuffer[row * TileMapWidth + column] = (int)strtol(FileCursor, &End, 10);
+            FileCursor = End;
+            if (*FileCursor == ',')
+            {
+                FileCursor++;
+            }
+            else
+            {
+                break;
+            }
+        }
+    }
+
+    TileMap->Map = TileBuffer;
+
+    EXIT:
+        if (Result == ERROR_SUCCESS)
+        {
+            WriteLog(log_severity_info, "[%s] Successfully loaded %s.", __FUNCTION__, TmxFilePath);
+        }
+        else
+        {
+            WriteLog(log_severity_info, "[%s] Failed to load %s! Error: 0x%08lx!", __FUNCTION__, TmxFilePath, Result);
+        }
+
+    if (FileHandle && (FileHandle != INVALID_HANDLE_VALUE))
+    {
+        CloseHandle(FileHandle);
+    }
+
+    return(Result);
 }
