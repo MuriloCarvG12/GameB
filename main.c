@@ -945,6 +945,12 @@ void BlitStringIntoBuffer(GAME_BIT_MAP *Sprite, int ScreenX, int ScreenY, char T
             for (int x = 0; x < 6; x++)
             {
                 int dstX = gameScreenX + x;
+
+                if (dstX < 0 || dstX >= GAME_RES_WIDTH ||
+                    dstY < 0 || dstY >= GAME_RES_HEIGHT)
+                                {
+                                    continue;
+                                }
                 int destIndex = ((dstY * GAME_RES_WIDTH) + dstX);
                 int SpriteIndex = srcY * spriteWidth + (BitMapSymbolCoordinate.X + x);
 

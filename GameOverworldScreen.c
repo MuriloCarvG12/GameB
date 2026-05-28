@@ -22,19 +22,28 @@ void DrawGameOverWorldScreen(void)
     FontColor.Green = 0x00;
     FontColor.Red = 0x00;
 
-    for (int row = 0; row < (GAME_RES_HEIGHT/ 16) * 10; row++)
+    if (game_performance.DebugModeOn )
     {
-        for (int column = 0; column < (GAME_RES_WIDTH/ 16) * 10; column++) {
-            int index = row * G_game_overworld_info.TileMap.TileMapWidth + column;
-            char TileValue[8];
+        for (int row = 0; row < G_game_overworld_info.TileMap.TileMapHeight; row++)
+        {
+            for (int column = 0; column < G_game_overworld_info.TileMap.TileMapWidth; column++)
+            {
+                int index = row * G_game_overworld_info.TileMap.TileMapWidth + column;
+                char TileValue[8];
 
-            _itoa_s(G_game_overworld_info.TileMap.Map[index], TileValue, sizeof(TileValue), 10);
-            if (row / 16 == 0 && column / 16 == 0) {
-                BlitStringIntoBuffer(&g_Game_Font, column * 16  , row * 16 , TileValue, FontColor);
+                _itoa_s(G_game_overworld_info.TileMap.Map[index], TileValue, sizeof(TileValue), 10);
+
+                BlitStringIntoBuffer(
+                    &g_Game_Font,
+                    column * 16,
+                    row * 16,
+                    TileValue,
+                    FontColor
+                );
             }
-
         }
     }
+
 
     BlitStringIntoBuffer (&g_Game_Font, 50, 50, Text, FontColor);
     BlitStringIntoBuffer (&g_Game_Font, 50, 75, Text2, FontColor);
@@ -67,6 +76,11 @@ void ProcessGameOverWorldScreenInput(void)
     if(Debug_key_is_down && !debug_key_was_down)
     {
         game_performance.DebugModeOn = !game_performance.DebugModeOn ;
+        PIXEL32 FontColor;
+        FontColor.Blue = 0x00;
+        FontColor.Green = 0x00;
+        FontColor.Red = 0x00;
+
     }
 
     if(DownKeyIsDown)
