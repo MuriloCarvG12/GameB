@@ -20,6 +20,8 @@ add_executable(untitled7 main.c
         GameCharacterNamingScreen.h
         GameOverworldScreen.c
         GameOverworldScreen.h
+        stb_vorbis.c
+        stb_vorbis.h
 )
 
 target_link_libraries(untitled7 PRIVATE

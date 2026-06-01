@@ -17,6 +17,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/Users/Chine/Desktop/GameB/main.c" "CMakeFiles/untitled7.dir/main.c.obj" "gcc" "CMakeFiles/untitled7.dir/main.c.obj.d"
   "C:/Users/Chine/Desktop/GameB/menu.c" "CMakeFiles/untitled7.dir/menu.c.obj" "gcc" "CMakeFiles/untitled7.dir/menu.c.obj.d"
   "C:/Users/Chine/Desktop/GameB/projectdeclarations.c" "CMakeFiles/untitled7.dir/projectdeclarations.c.obj" "gcc" "CMakeFiles/untitled7.dir/projectdeclarations.c.obj.d"
+  "C:/Users/Chine/Desktop/GameB/stb_vorbis.c" "CMakeFiles/untitled7.dir/stb_vorbis.c.obj" "gcc" "CMakeFiles/untitled7.dir/stb_vorbis.c.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

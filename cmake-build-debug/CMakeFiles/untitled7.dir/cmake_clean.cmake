@@ -17,6 +17,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/untitled7.dir/menu.c.obj.d"
   "CMakeFiles/untitled7.dir/projectdeclarations.c.obj"
   "CMakeFiles/untitled7.dir/projectdeclarations.c.obj.d"
+  "CMakeFiles/untitled7.dir/stb_vorbis.c.obj"
+  "CMakeFiles/untitled7.dir/stb_vorbis.c.obj.d"
   "libuntitled7.dll.a"
   "untitled7.exe"
   "untitled7.exe.manifest"

@@ -344,6 +344,30 @@ projectdeclarations.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled7.dir\build.make CMakeFiles/untitled7.dir/projectdeclarations.c.s
 .PHONY : projectdeclarations.c.s
 
+stb_vorbis.obj: stb_vorbis.c.obj
+.PHONY : stb_vorbis.obj
+
+# target to build an object file
+stb_vorbis.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled7.dir\build.make CMakeFiles/untitled7.dir/stb_vorbis.c.obj
+.PHONY : stb_vorbis.c.obj
+
+stb_vorbis.i: stb_vorbis.c.i
+.PHONY : stb_vorbis.i
+
+# target to preprocess a source file
+stb_vorbis.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled7.dir\build.make CMakeFiles/untitled7.dir/stb_vorbis.c.i
+.PHONY : stb_vorbis.c.i
+
+stb_vorbis.s: stb_vorbis.c.s
+.PHONY : stb_vorbis.s
+
+# target to generate assembly for a file
+stb_vorbis.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled7.dir\build.make CMakeFiles/untitled7.dir/stb_vorbis.c.s
+.PHONY : stb_vorbis.c.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -380,6 +404,9 @@ help:
 	@echo ... projectdeclarations.obj
 	@echo ... projectdeclarations.i
 	@echo ... projectdeclarations.s
+	@echo ... stb_vorbis.obj
+	@echo ... stb_vorbis.i
+	@echo ... stb_vorbis.s
 .PHONY : help
 
 
