@@ -210,5 +210,6 @@ extern game_states g_CurrentGameState;
 extern game_performance_info game_performance;
 
 extern Player g_Player;
+extern int gPassableTiles[1];
 
 #endif //UNTITLED7_PROJECTDECLARATIONS_H

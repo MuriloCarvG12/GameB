@@ -37,6 +37,8 @@ int gFontCharacterPixelOffset[] = {
     93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,93,97,93,93,93,93,93,93,93,93,93,93,93,93,93
 };
 
+int gPassableTiles[] = {1};
+
 //Functions
 DWORD create_main_window();
 DWORD Load32BppFile(_In_ char * FilePath, _Inout_ GAME_BIT_MAP *GAME_BIT_MAP);
@@ -835,8 +837,8 @@ VOID Load32BppOverworldIntoBackBuffer(GAME_BIT_MAP *Sprite, int ScreenX, int Scr
 DWORD InitializePlayer(void)
 {
     DWORD Error = ERROR_SUCCESS;
-    g_Player.ScreenPosX = 25;
-    g_Player.ScreenPosY = 25;
+    g_Player.ScreenPosX = 100;
+    g_Player.ScreenPosY = 100;
     g_Player.Direction = character_direction_down;
     g_Player.SpriteIndex = character_animation_standing;
     g_Player.PixelPosition = 0;

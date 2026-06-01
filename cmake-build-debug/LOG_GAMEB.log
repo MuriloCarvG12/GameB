@@ -2622,3 +2622,353 @@
 [2026/05/28 20:25:12=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
 [2026/05/28 20:25:12=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
 [2026/05/28 20:25:12=INFO= [LoadTmxFile] Successfully loaded assets\Overworld01.tmx.=INFO= 
+[2026/05/29 22:42:58=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/29 22:42:58=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/29 22:42:58=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/29 22:42:58=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/29 22:42:58=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/29 22:42:58=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/29 22:42:58=INFO= [LoadTmxFile] Successfully loaded assets\Overworld01.tmx.=INFO= 
+[2026/05/29 22:44:04=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/29 22:44:04=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/29 22:44:04=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/29 22:44:04=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/29 22:44:04=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/29 22:44:04=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/29 22:44:04=INFO= [LoadTmxFile] Successfully loaded assets\Overworld01.tmx.=INFO= 
+[2026/05/29 22:45:42=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/29 22:45:42=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/29 22:45:42=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/29 22:45:42=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/29 22:45:42=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/29 22:45:42=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/29 22:45:42=INFO= [LoadTmxFile] Successfully loaded assets\Overworld01.tmx.=INFO= 
+[2026/05/29 22:45:58=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/29 22:45:58=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/29 22:45:58=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/29 22:45:58=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/29 22:45:58=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/29 22:45:58=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/29 22:45:58=INFO= [LoadTmxFile] Successfully loaded assets\Overworld01.tmx.=INFO= 
+[2026/05/29 22:46:08=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/29 22:46:08=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/29 22:46:08=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/29 22:46:08=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/29 22:46:08=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/29 22:46:08=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/29 22:46:08=INFO= [LoadTmxFile] Successfully loaded assets\Overworld01.tmx.=INFO= 
+[2026/05/29 22:46:40=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/29 22:46:40=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/29 22:46:40=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/29 22:46:40=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/29 22:46:40=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/29 22:46:40=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/29 22:46:40=INFO= [LoadTmxFile] Successfully loaded assets\Overworld01.tmx.=INFO= 
+[2026/05/29 22:51:09=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/29 22:51:09=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/29 22:51:09=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/29 22:51:09=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/29 22:51:09=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/29 22:51:09=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/29 22:51:09=INFO= [LoadTmxFile] Successfully loaded assets\Overworld01.tmx.=INFO= 
+[2026/05/29 22:52:09=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/29 22:52:09=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/29 22:52:09=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/29 22:52:09=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/29 22:52:09=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/29 22:52:09=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/29 22:52:09=INFO= [LoadTmxFile] Successfully loaded assets\Overworld01.tmx.=INFO= 
+[2026/05/29 22:53:02=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/29 22:53:02=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/29 22:53:02=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/29 22:53:02=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/29 22:53:02=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/29 22:53:02=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/29 22:53:02=INFO= [LoadTmxFile] Successfully loaded assets\Overworld01.tmx.=INFO= 
+[2026/05/29 22:56:23=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/29 22:56:23=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/29 22:56:23=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/29 22:56:23=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/29 22:56:23=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/29 22:56:23=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/29 22:56:23=INFO= [LoadTmxFile] Successfully loaded assets\Overworld01.tmx.=INFO= 
+[2026/05/29 23:01:51=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/29 23:01:51=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/29 23:01:51=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/29 23:01:51=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/29 23:01:51=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/29 23:01:51=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/29 23:01:51=INFO= [LoadTmxFile] Successfully loaded assets\Overworld01.tmx.=INFO= 
+[2026/05/29 23:03:33=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/29 23:03:33=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/29 23:03:33=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/29 23:03:33=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/29 23:03:33=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/29 23:03:33=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/29 23:03:33=INFO= [LoadTmxFile] Successfully loaded assets\Overworld01.tmx.=INFO= 
+[2026/05/29 23:04:21=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/29 23:04:21=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/29 23:04:21=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/29 23:04:21=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/29 23:04:22=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/29 23:04:22=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/29 23:04:22=INFO= [LoadTmxFile] Successfully loaded assets\Overworld01.tmx.=INFO= 
+[2026/05/29 23:06:32=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/29 23:06:32=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/29 23:06:32=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/29 23:06:32=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/29 23:06:32=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/29 23:06:32=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/29 23:06:32=INFO= [LoadTmxFile] Successfully loaded assets\Overworld01.tmx.=INFO= 
+[2026/05/29 23:10:34=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/29 23:10:34=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/29 23:10:34=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/29 23:10:34=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/29 23:10:34=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/29 23:10:34=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/29 23:10:34=INFO= [LoadTmxFile] Successfully loaded assets\Overworld01.tmx.=INFO= 
+[2026/05/29 23:15:09=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/29 23:15:09=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/29 23:15:09=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/29 23:15:09=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/29 23:15:09=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/29 23:15:09=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/29 23:15:09=INFO= [LoadTmxFile] Successfully loaded assets\Overworld01.tmx.=INFO= 
+[2026/05/31 19:48:58=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/05/31 19:48:58=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/05/31 19:48:58=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/05/31 19:48:58=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/05/31 19:48:58=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/05/31 19:48:58=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/05/31 19:48:58=INFO= [LoadTmxFile] Successfully loaded assets\Overworld01.tmx.=INFO= 
+[2026/06/1 19:05:02=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/06/1 19:05:02=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/06/1 19:05:02=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 19:05:02=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 19:05:02=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/06/1 19:05:02=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/06/1 19:05:02=INFO= [LoadTmxFile] Successfully loaded assets\Overworld01.tmx.=INFO= 
+[2026/06/1 19:05:34=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/06/1 19:05:34=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/06/1 19:05:34=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 19:05:34=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 19:05:34=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/06/1 19:05:34=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/06/1 19:05:34=INFO= [LoadTmxFile] Successfully loaded assets\Overworld01.tmx.=INFO= 
+[2026/06/1 19:10:10=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/06/1 19:10:10=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/06/1 19:10:10=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 19:10:10=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 19:10:10=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/06/1 19:10:10=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/06/1 19:10:10=INFO= [LoadTmxFile] Successfully loaded assets\Overworld01.tmx.=INFO= 
+[2026/06/1 19:12:05=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/06/1 19:12:05=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/06/1 19:12:05=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 19:12:05=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 19:12:05=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/06/1 19:12:05=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/06/1 19:12:05=INFO= [LoadTmxFile] Successfully loaded assets\Overworld01.tmx.=INFO= 
+[2026/06/1 19:12:23=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/06/1 19:12:23=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/06/1 19:12:23=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 19:12:23=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 19:12:23=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/06/1 19:12:23=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/06/1 19:12:23=INFO= [LoadTmxFile] Successfully loaded assets\Overworld01.tmx.=INFO= 
+[2026/06/1 19:12:54=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/06/1 19:12:54=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/06/1 19:12:54=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 19:12:54=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 19:12:54=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/06/1 19:12:54=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/06/1 19:12:54=INFO= [LoadTmxFile] Successfully loaded assets\Overworld01.tmx.=INFO= 
+[2026/06/1 19:15:01=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/06/1 19:15:01=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/06/1 19:15:01=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 19:15:01=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 19:15:01=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/06/1 19:15:01=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/06/1 19:15:01=INFO= [LoadTmxFile] Successfully loaded assets\Overworld01.tmx.=INFO= 
+[2026/06/1 19:15:19=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/06/1 19:15:19=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/06/1 19:15:19=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 19:15:19=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 19:15:19=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/06/1 19:15:19=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/06/1 19:15:19=INFO= [LoadTmxFile] Successfully loaded assets\Overworld01.tmx.=INFO= 
+[2026/06/1 19:16:49=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/06/1 19:16:49=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/06/1 19:16:49=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 19:16:49=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 19:16:49=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/06/1 19:16:49=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/06/1 19:16:49=INFO= [LoadTmxFile] Successfully loaded assets\Overworld01.tmx.=INFO= 
+[2026/06/1 19:17:20=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/06/1 19:17:20=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/06/1 19:17:20=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 19:17:20=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 19:17:20=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/06/1 19:17:20=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/06/1 19:17:20=INFO= [LoadTmxFile] Successfully loaded assets\Overworld01.tmx.=INFO= 
+[2026/06/1 19:18:45=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/06/1 19:18:45=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/06/1 19:18:45=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 19:18:45=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 19:18:45=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/06/1 19:18:45=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/06/1 19:18:45=INFO= [LoadTmxFile] Successfully loaded assets\Overworld01.tmx.=INFO= 
+[2026/06/1 19:22:52=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/06/1 19:22:52=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/06/1 19:22:52=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 19:22:52=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 19:22:52=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/06/1 19:22:52=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/06/1 19:22:52=INFO= [LoadTmxFile] Successfully loaded assets\Overworld01.tmx.=INFO= 
+[2026/06/1 19:23:25=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/06/1 19:23:25=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/06/1 19:23:25=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 19:23:25=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 19:23:25=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/06/1 19:23:25=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/06/1 19:23:25=INFO= [LoadTmxFile] Successfully loaded assets\Overworld01.tmx.=INFO= 
+[2026/06/1 19:26:05=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/06/1 19:26:05=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/06/1 19:26:05=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 19:26:05=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 19:26:05=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/06/1 19:26:05=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/06/1 19:26:05=INFO= [LoadTmxFile] Successfully loaded assets\Overworld01.tmx.=INFO= 
+[2026/06/1 19:37:31=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/06/1 19:37:31=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/06/1 19:37:31=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 19:37:31=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 19:37:31=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/06/1 19:37:31=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/06/1 19:37:31=INFO= [LoadTmxFile] Successfully loaded assets\Overworld01.tmx.=INFO= 
+[2026/06/1 19:37:46=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/06/1 19:37:46=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/06/1 19:37:46=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 19:37:46=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 19:37:46=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/06/1 19:37:46=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/06/1 19:37:46=INFO= [LoadTmxFile] Successfully loaded assets\Overworld01.tmx.=INFO= 
+[2026/06/1 19:37:58=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/06/1 19:37:58=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/06/1 19:37:58=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 19:37:58=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 19:37:58=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/06/1 19:37:58=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/06/1 19:37:58=INFO= [LoadTmxFile] Successfully loaded assets\Overworld01.tmx.=INFO= 
+[2026/06/1 19:39:07=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/06/1 19:39:07=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/06/1 19:39:07=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 19:39:07=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 19:39:07=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/06/1 19:39:07=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/06/1 19:39:07=INFO= [LoadTmxFile] Successfully loaded assets\Overworld01.tmx.=INFO= 
+[2026/06/1 19:39:25=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/06/1 19:39:25=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/06/1 19:39:25=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 19:39:25=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 19:39:25=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/06/1 19:39:25=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/06/1 19:39:25=INFO= [LoadTmxFile] Successfully loaded assets\Overworld01.tmx.=INFO= 
+[2026/06/1 19:44:02=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/06/1 19:44:02=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/06/1 19:44:02=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 19:44:02=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 19:44:02=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/06/1 19:44:02=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/06/1 19:44:02=INFO= [LoadTmxFile] Successfully loaded assets\Overworld01.tmx.=INFO= 
+[2026/06/1 19:48:29=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/06/1 19:48:29=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/06/1 19:48:29=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 19:48:29=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 19:48:30=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/06/1 19:48:30=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/06/1 19:48:31=INFO= [LoadTmxFile] Successfully loaded assets\Overworld01.tmx.=INFO= 
+[2026/06/1 19:49:02=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/06/1 19:49:02=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/06/1 19:49:02=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 19:49:02=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 19:49:02=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/06/1 19:49:02=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/06/1 19:49:04=INFO= [LoadTmxFile] Successfully loaded assets\Overworld01.tmx.=INFO= 
+[2026/06/1 19:50:10=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/06/1 19:50:10=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/06/1 19:50:10=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 19:50:10=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 19:50:10=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/06/1 19:50:10=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/06/1 19:50:13=INFO= [LoadTmxFile] Successfully loaded assets\Overworld01.tmx.=INFO= 
+[2026/06/1 19:53:02=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/06/1 19:53:02=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/06/1 19:53:02=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 19:53:02=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 19:53:02=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/06/1 19:53:02=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/06/1 19:53:02=INFO= [LoadTmxFile] Successfully loaded assets\Overworld01.tmx.=INFO= 
+[2026/06/1 19:59:18=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/06/1 19:59:18=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/06/1 19:59:18=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 19:59:18=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 19:59:18=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/06/1 19:59:18=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/06/1 19:59:18=INFO= [LoadTmxFile] Successfully loaded assets\Overworld01.tmx.=INFO= 
+[2026/06/1 20:05:43=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/06/1 20:05:43=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/06/1 20:05:43=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 20:05:43=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 20:05:43=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/06/1 20:05:43=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/06/1 20:05:43=INFO= [LoadTmxFile] Successfully loaded assets\Overworld01.tmx.=INFO= 
+[2026/06/1 20:07:03=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/06/1 20:07:03=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/06/1 20:07:03=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 20:07:03=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 20:07:03=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/06/1 20:07:03=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/06/1 20:07:03=INFO= [LoadTmxFile] Successfully loaded assets\Overworld01.tmx.=INFO= 
+[2026/06/1 20:10:03=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/06/1 20:10:03=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/06/1 20:10:03=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 20:10:03=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 20:10:03=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/06/1 20:10:03=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/06/1 20:10:03=INFO= [LoadTmxFile] Successfully loaded assets\Overworld01.tmx.=INFO= 
+[2026/06/1 20:11:00=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/06/1 20:11:00=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/06/1 20:11:00=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 20:11:00=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 20:11:01=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/06/1 20:11:01=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/06/1 20:11:01=INFO= [LoadTmxFile] Successfully loaded assets\Overworld01.tmx.=INFO= 
+[2026/06/1 20:11:39=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/06/1 20:11:39=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/06/1 20:11:39=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 20:11:39=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 20:11:39=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/06/1 20:11:39=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/06/1 20:11:39=INFO= [LoadTmxFile] Successfully loaded assets\Overworld01.tmx.=INFO= 
+[2026/06/1 20:12:00=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/06/1 20:12:00=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/06/1 20:12:00=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 20:12:00=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 20:12:00=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/06/1 20:12:00=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/06/1 20:12:00=INFO= [LoadTmxFile] Successfully loaded assets\Overworld01.tmx.=INFO= 
+[2026/06/1 20:13:05=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/06/1 20:13:05=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/06/1 20:13:05=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 20:13:05=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 20:13:05=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/06/1 20:13:05=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/06/1 20:13:05=INFO= [LoadTmxFile] Successfully loaded assets\Overworld01.tmx.=INFO= 
+[2026/06/1 20:13:26=INFO= The Registry Key for the game already exists!=INFO= 
+[2026/06/1 20:13:26=INFO= [LoadRegistryParameters] LogLevel is 3.=INFO= 
+[2026/06/1 20:13:26=INFO= [LoadRegistryParameters] SoundEffectsVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 20:13:26=INFO= [LoadRegistryParameters] MusicVolume raw=6, applied=0.60=INFO= 
+[2026/06/1 20:13:27=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\MenuNavigate.wav.=INFO= 
+[2026/06/1 20:13:27=INFO= [LoadWavFileFromDisk] Successfully loaded .\Assets\SplashScreen.wav.=INFO= 
+[2026/06/1 20:13:27=INFO= [LoadTmxFile] Successfully loaded assets\Overworld01.tmx.=INFO= 
