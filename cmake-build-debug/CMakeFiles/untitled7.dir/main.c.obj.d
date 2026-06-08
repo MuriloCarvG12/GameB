@@ -10,6 +10,7 @@ CMakeFiles/untitled7.dir/main.c.obj: C:\Users\Chine\Desktop\GameB\main.c \
  C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/_mingw_off_t.h \
  C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/swprintf.inl \
  C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/sec_api/stdio_s.h \
+ C:\Users\Chine\Desktop\GameB\stb_vorbis.h \
  C:\Users\Chine\Desktop\GameB\projectdeclarations.h \
  C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/windows.h \
  C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/sdkddkver.h \

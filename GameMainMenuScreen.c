@@ -45,17 +45,17 @@ void GameMainMenuScreen(void)
 
             char GameNameString[20] = "";
             strncpy(GameNameString, MainGameMenu.MenuText, strlen(MainGameMenu.MenuText));
-            BlitStringIntoBuffer (&g_Game_Font, 50, 20, GameNameString, FontColor);
+            BlitStringIntoBuffer (&g_Game_Font, (GAME_RES_WIDTH /2)- 8 * 7, 38, GameNameString, FontColor);
 
             for (uint8_t MenuItemIterator = 0; MenuItemIterator < MainGameMenu.ItemCount; MenuItemIterator++)
             {
                 if (MainGameMenu.Items[MenuItemIterator]->ItemIsActive == TRUE)
                 {
-                    BlitStringIntoBuffer (&g_Game_Font, 35, MainGameMenu.Items[MainGameMenu.SelectedItem]->Y, ">", FontColor);
+                    BlitStringIntoBuffer (&g_Game_Font, (GAME_RES_WIDTH /2)- 8 * 6, MainGameMenu.Items[MainGameMenu.SelectedItem]->Y, ">", FontColor);
 
                     char CurrentMenuItemString[40] = "";
                     strncpy(CurrentMenuItemString,  MainGameMenu.Items[MenuItemIterator]->ItemTitle, strlen(MainGameMenu.MenuText));
-                    BlitStringIntoBuffer (&g_Game_Font, 50, MainGameMenu.Items[MenuItemIterator]->Y, CurrentMenuItemString, FontColor);
+                    BlitStringIntoBuffer (&g_Game_Font, (GAME_RES_WIDTH /2)- 8 * 5, MainGameMenu.Items[MenuItemIterator]->Y, CurrentMenuItemString, FontColor);
                 }
             }
 

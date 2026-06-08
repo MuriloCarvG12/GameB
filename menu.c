@@ -14,11 +14,11 @@
 // TITLE SCREEN
 // -------------------------------------------------------
 
-MenuItem g_mi_ResumeGame = {"RESUME GAME", g_mi_ResumeGameAction, IsActive,   32, 48};
-MenuItem g_mi_StartGame  = {"START GAME",  g_mi_StartGameAction,  IsInactive, 32, 48};
-MenuItem g_mi_SaveGame   = {"SAVE GAME",   g_mi_SaveGameAction,   IsActive,   32, 60};
-MenuItem g_mi_CloseGame  = {"CLOSE GAME",  g_mi_CloseGameAction,  IsActive,   32, 72};
-MenuItem g_mi_OptionGame = {"OPTION GAME", g_mi_OptionGameAction, IsActive,   32, 84};
+MenuItem g_mi_ResumeGame = {"RESUME GAME", g_mi_ResumeGameAction, IsActive,   32, 64};
+MenuItem g_mi_StartGame  = {"START GAME",  g_mi_StartGameAction,  IsInactive, 32, 64};
+MenuItem g_mi_SaveGame   = {"SAVE GAME",   g_mi_SaveGameAction,   IsActive,   32, 80};
+MenuItem g_mi_CloseGame  = {"CLOSE GAME",  g_mi_CloseGameAction,  IsActive,   32, 96};
+MenuItem g_mi_OptionGame = {"OPTION GAME", g_mi_OptionGameAction, IsActive,   32, 112};
 
 MenuItem* g_mi_TitleScreenItems[] = {
     &g_mi_ResumeGame, &g_mi_StartGame, &g_mi_SaveGame,

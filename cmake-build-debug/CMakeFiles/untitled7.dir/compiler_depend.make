@@ -1955,7 +1955,8 @@ CMakeFiles/untitled7.dir/main.c.obj: C:/Users/Chine/Desktop/GameB/main.c \
   C:/Users/Chine/Desktop/GameB/GameOverworldScreen.h \
   C:/Users/Chine/Desktop/GameB/GameYesOrNoExitMenu.h \
   C:/Users/Chine/Desktop/GameB/menu.h \
-  C:/Users/Chine/Desktop/GameB/projectdeclarations.h
+  C:/Users/Chine/Desktop/GameB/projectdeclarations.h \
+  C:/Users/Chine/Desktop/GameB/stb_vorbis.h
 
 CMakeFiles/untitled7.dir/menu.c.obj: C:/Users/Chine/Desktop/GameB/menu.c \
   C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/adxintrin.h \
@@ -3132,8 +3133,8 @@ C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/s
 
 C:/Program\ Files/JetBrains/CLion\ 2025.3/bin/mingw/x86_64-w64-mingw32/include/swprintf.inl:
 
+C:/Users/Chine/Desktop/GameB/stb_vorbis.h:
+
 C:/Users/Chine/Desktop/GameB/menu.c:
 
 C:/Users/Chine/Desktop/GameB/stb_vorbis.c:
-
-C:/Users/Chine/Desktop/GameB/stb_vorbis.h:

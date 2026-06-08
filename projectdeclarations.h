@@ -199,9 +199,12 @@ extern GAME_BIT_MAP g_Game_Font;
 extern GameOverworldInfo G_game_overworld_info;
 extern GAME_SOUND gMenuNavigate;
 extern GAME_SOUND gIntroEffect;
+extern GAME_SOUND gMusicOverworld01;
 void BlitStringIntoBuffer(GAME_BIT_MAP *Sprite, int ScreenX, int ScreenY, char *Text, PIXEL32 FontColor);
 VOID Load32BppIntoBackBuffer(GAME_BIT_MAP *, int , int );
 VOID Load32BppOverworldIntoBackBuffer(GAME_BIT_MAP *, int , int );
+DWORD LoadOggFromFile(_In_ char* , _Inout_ GAME_SOUND* );
+void PlayGameMusic(_In_ GAME_SOUND* );
 
 extern GameCoordinate g_CameraPosition;
 extern GameCoordinate FindFontSprite(char Message);

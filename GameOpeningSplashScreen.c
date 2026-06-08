@@ -10,6 +10,7 @@ void DrawGameOpeningSplashScreen(void)
 {
     uint32_t colorBlack = 0xFF111111;
     char GameNameString[] = "--GAME STUDIO--";
+    char GameNameStudio[] = "--PRESENTS--";
 
     PIXEL32 FontColor;
     FontColor.Blue = 0x11;
@@ -53,7 +54,8 @@ void DrawGameOpeningSplashScreen(void)
 
     base_screen(&colorBlack);
 
-    BlitStringIntoBuffer (&g_Game_Font, 50, 20, GameNameString, FontColor);
+    BlitStringIntoBuffer (&g_Game_Font, (GAME_RES_WIDTH /2)- 8 * 6, 54, GameNameString, FontColor);
+    BlitStringIntoBuffer (&g_Game_Font, (GAME_RES_WIDTH /2)- 8 * 5, 78, GameNameStudio, FontColor);
 
     FramesPassed++;
 

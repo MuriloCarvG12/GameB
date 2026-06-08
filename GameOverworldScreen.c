@@ -9,6 +9,7 @@ void DrawGameOverWorldScreen(void)
 {
     char Text[] = "TESTANDO AQUI";
     char Text2[] = "DESENHANDO FONTES PERSONALIZADAS COM C!";
+    static int LocalFrameCounter = 0;
 
 #ifdef SIMD
     uint32_t color = 0xFF9900FF;
@@ -59,6 +60,12 @@ void DrawGameOverWorldScreen(void)
     BlitStringIntoBuffer (&g_Game_Font, 50, 50, Text, FontColor);
     BlitStringIntoBuffer (&g_Game_Font, 50, 75, Text2, FontColor);
     Load32BppIntoBackBuffer(&g_Player.PlayerSprite[g_Player.Direction + g_Player.SpriteIndex], g_Player.ScreenPosX, g_Player.ScreenPosY);
+
+    if (LocalFrameCounter == 30) {
+        PlayGameMusic(&gMusicOverworld01);
+    }
+    LocalFrameCounter++;
+
 }
 
 static BOOL IsTilePassable(int PixelX, int PixelY)
@@ -129,6 +136,7 @@ void ProcessGameOverWorldScreenInput(void)
             {
                 g_Player.PixelPosition += 1;
                 g_CameraPosition.Y++;
+                g_Player.Direction = character_direction_down;
             }
         }
     }
@@ -152,6 +160,7 @@ void ProcessGameOverWorldScreenInput(void)
             {
                 g_Player.PixelPosition += 1;
                 g_CameraPosition.Y--;
+                g_Player.Direction = character_direction_up;
             }
         }
     }
@@ -169,6 +178,7 @@ void ProcessGameOverWorldScreenInput(void)
             {
                 g_Player.PixelPosition += 1;
                 g_CameraPosition.X--;
+                g_Player.Direction = character_direction_left;
             }
             if (g_Player.ScreenPosX > 0)
             {
@@ -193,6 +203,7 @@ void ProcessGameOverWorldScreenInput(void)
             {
                 g_Player.PixelPosition += 1;
                 g_CameraPosition.X++;
+                g_Player.Direction = character_direction_right;
             }
             if (g_Player.ScreenPosX < GAME_RES_WIDTH - 16)
             {

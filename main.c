@@ -4,6 +4,8 @@
 
 #pragma warning(pop)
 
+#include "stb_vorbis.h";
+
 #include "projectdeclarations.h"
 #include "GameOpeningSplashScreen.h"
 #include <xaudio2.h>
@@ -52,6 +54,8 @@ void rendergraphics();
 VOID Load32BppIntoBackBuffer(GAME_BIT_MAP *, int , int );
 VOID Load32BppOverworldIntoBackBuffer(GAME_BIT_MAP *, int , int );
 DWORD LoadTmxFile( char* , TileMap* );
+DWORD LoadOggFromFile(_In_ char* FileName, _Inout_ GAME_SOUND* GameSound);
+void PlayGameMusic(_In_ GAME_SOUND* GameSound);
 
 // windows variables
 
@@ -94,10 +98,11 @@ PFN_XAudio2Create G_pXAudio2Create = NULL;
 
 GAME_SOUND   gMenuNavigate;
 GAME_SOUND   gIntroEffect;
+GAME_SOUND gMusicOverworld01;
 
 //struct variables
 GameCoordinate g_CameraPosition = { 0, 0 };
-game_states g_CurrentGameState = GAME_OVERWORLD_STATE;
+game_states g_CurrentGameState = GAME_INTRO_STATE;
 game_performance_info game_performance;
 game_info GInfo;
 Player g_Player;
@@ -206,6 +211,13 @@ int  WinMain(HINSTANCE hInst, HINSTANCE hInstPrev, PSTR cmdline, int cmdshow)
     }
 
     LoadTmxFile("assets\\Overworld01.tmx", &G_game_overworld_info.TileMap);
+
+    if (LoadOggFromFile(".\\Assets\\Overworld01.ogg", &gMusicOverworld01) != ERROR_SUCCESS)
+    {
+        MessageBoxA(NULL, "LoadOggFromFile failed!", "Error!", MB_ICONERROR | MB_OK);
+
+        goto EXIT;
+    }
 
     g_CurrentSprite = &g_Player.PlayerSprite[character_sprite_down_standing];
 
@@ -1820,4 +1832,121 @@ DWORD LoadTmxFile(_In_ char* TmxFilePath,_Inout_ TileMap *TileMap)
     }
 
     return(Result);
+}
+
+void PlayGameMusic(_In_ GAME_SOUND* GameSound)
+{
+    G_Game_Music_Audio->lpVtbl->Stop(G_Game_Music_Audio, 0, 0);
+
+    G_Game_Music_Audio->lpVtbl->FlushSourceBuffers(G_Game_Music_Audio);
+
+    GameSound->Buffer.LoopCount = XAUDIO2_LOOP_INFINITE;
+
+    G_Game_Music_Audio->lpVtbl->SubmitSourceBuffer(G_Game_Music_Audio, &GameSound->Buffer, NULL);
+
+    G_Game_Music_Audio->lpVtbl->Start(G_Game_Music_Audio, 0, XAUDIO2_COMMIT_NOW);
+}
+
+DWORD LoadOggFromFile(_In_ char* FileName, _Inout_ GAME_SOUND* GameSound)
+{
+    DWORD Error = ERROR_SUCCESS;
+
+    HANDLE FileHandle = INVALID_HANDLE_VALUE;
+
+    LARGE_INTEGER FileSize = { 0 };
+
+    DWORD BytesRead = 0;
+
+    void* FileBuffer = NULL;
+
+    int SamplesDecoded = 0;
+
+    int Channels = 0;
+
+    int SampleRate = 0;
+
+    short* DecodedAudio = NULL;
+
+    if ((FileHandle = CreateFileA(FileName, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL)) == INVALID_HANDLE_VALUE)
+    {
+        Error = GetLastError();
+
+        WriteLog(log_severity_info, "[%s] CreateFileA failed with 0x%08lx!", __FUNCTION__, Error);
+
+        goto Exit;
+    }
+
+    if (GetFileSizeEx(FileHandle, &FileSize) == 0)
+    {
+        Error = GetLastError();
+
+        WriteLog(log_severity_info, "[%s] GetFileSizeEx failed with 0x%08lx!", __FUNCTION__, Error);
+
+        goto Exit;
+    }
+
+    WriteLog(log_severity_info, "[%s] Size of file %s is %lu bytes.", __FUNCTION__, FileName, FileSize.QuadPart);
+
+    FileBuffer = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, FileSize.QuadPart);
+
+    if (FileBuffer == NULL)
+    {
+        Error = ERROR_OUTOFMEMORY;
+
+        WriteLog(log_severity_info, "[%s] HeapAlloc failed with 0x%08lx on %s!", __FUNCTION__, Error, FileName);
+
+        goto Exit;
+    }
+
+    if (ReadFile(FileHandle, FileBuffer, (DWORD)FileSize.QuadPart, &BytesRead, NULL) == 0)
+    {
+        Error = GetLastError();
+
+        WriteLog(log_severity_info, "[%s] ReadFile failed with 0x%08lx on %s!", __FUNCTION__, Error, FileName);
+
+        goto Exit;
+    }
+
+    SamplesDecoded = stb_vorbis_decode_memory(FileBuffer, (int)FileSize.QuadPart, &Channels, &SampleRate, &DecodedAudio);
+
+    if (SamplesDecoded < 1)
+    {
+        Error = ERROR_BAD_COMPRESSION_BUFFER;
+
+        WriteLog(log_severity_info, "[%s] stb_vorbis_decode_memory failed with 0x%08lx on %s!", __FUNCTION__, Error, FileName);
+
+        goto Exit;
+    }
+
+    GameSound->WaveFormat.wFormatTag = WAVE_FORMAT_PCM;
+
+    GameSound->WaveFormat.nChannels = (WORD)Channels;
+
+    GameSound->WaveFormat.nSamplesPerSec = SampleRate;
+
+    GameSound->WaveFormat.nAvgBytesPerSec = GameSound->WaveFormat.nSamplesPerSec * GameSound->WaveFormat.nChannels * 2;
+
+    GameSound->WaveFormat.nBlockAlign = GameSound->WaveFormat.nChannels * 2;
+
+    GameSound->WaveFormat.wBitsPerSample = 16;
+
+    GameSound->Buffer.Flags = XAUDIO2_END_OF_STREAM;
+
+    GameSound->Buffer.AudioBytes = SamplesDecoded * GameSound->WaveFormat.nChannels * 2;
+
+    GameSound->Buffer.pAudioData = (const BYTE*)DecodedAudio;
+
+Exit:
+
+    if (FileHandle && (FileHandle != INVALID_HANDLE_VALUE))
+    {
+        CloseHandle(FileHandle);
+    }
+
+    if (FileBuffer)
+    {
+        HeapFree(GetProcessHeap(), 0, FileBuffer);
+    }
+
+    return(Error);
 }
